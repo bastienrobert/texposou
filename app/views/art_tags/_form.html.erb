@@ -1,0 +1,17 @@
+<%= form_for(art_tag) do |f| %>
+  <% if art_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(art_tag.errors.count, "error") %> prohibited this art_tag from being saved:</h2>
+
+      <ul>
+      <% art_tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
