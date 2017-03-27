@@ -11,6 +11,8 @@ gem 'rails', '~> 5.0.2'
 # Paperclip & AWS Developper Kit (images & files)
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+# Uggly stylesheet
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
