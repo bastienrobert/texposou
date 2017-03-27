@@ -13,6 +13,7 @@
  *= require_self
  */
 
+@import "bootstrap";
 
 @import "core/variable";
 @import "core/mixin";
@@ -20,3 +21,4 @@
 @import "scaffolds";
 
 @import "_home.scss";
+@import "users.scss";
