@@ -9,7 +9,8 @@ class CreateExhibitions < ActiveRecord::Migration[5.0]
       t.float :area_left
       t.float :area_max
       t.float :price_per_day_per_area
-
+      #payment
+      #artists
       t.timestamps
     end
   end

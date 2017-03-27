@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  address: MyString
+  zipcode: 1
+  city: MyString
+  area_max: 1.5
+
+two:
+  name: MyString
+  description: MyText
+  address: MyString
+  zipcode: 1
+  city: MyString
+  area_max: 1.5
