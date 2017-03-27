@@ -44,7 +44,11 @@
   <strong>Price per day per area:</strong>
   <%= @exhibition.price_per_day_per_area %>
 </p>
-
-
+<h2>Liste des visites</h2>
+  <% @exhibition.visits.each do |visit| %>
+  <li><%= visit.id %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add visit', add_visit_path(@exhibition) %>
 <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
 <%= link_to 'Back', exhibitions_path %>

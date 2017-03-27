@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Coming at:</strong>
+  <%= @visit.coming_at %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @visit.duration %>
+</p>
+
+<%= link_to 'Edit', edit_visit_path(@visit) %> |
+<%= link_to 'Back', visits_path %>
