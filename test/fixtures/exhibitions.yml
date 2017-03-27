@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  opening_at: 2017-03-27 13:37:44
+  closing_at: 2017-03-27 13:37:44
+  artists_max: 
+  area_left: 1.5
+  area_max: 1.5
+  price_per_day_per_area: 1.5
+
+two:
+  name: MyString
+  description: MyText
+  opening_at: 2017-03-27 13:37:44
+  closing_at: 2017-03-27 13:37:44
+  artists_max: 
+  area_left: 1.5
+  area_max: 1.5
+  price_per_day_per_area: 1.5

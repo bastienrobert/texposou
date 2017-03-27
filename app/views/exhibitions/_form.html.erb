@@ -1,0 +1,57 @@
+<%= form_for(exhibition) do |f| %>
+  <% if exhibition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exhibition.errors.count, "error") %> prohibited this exhibition from being saved:</h2>
+
+      <ul>
+      <% exhibition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :opening_at %>
+    <%= f.datetime_select :opening_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :closing_at %>
+    <%= f.datetime_select :closing_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :artists_max %>
+    <%= f.text_field :artists_max %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area_left %>
+    <%= f.text_field :area_left %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area_max %>
+    <%= f.text_field :area_max %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price_per_day_per_area %>
+    <%= f.text_field :price_per_day_per_area %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

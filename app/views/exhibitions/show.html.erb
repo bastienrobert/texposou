@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @exhibition.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @exhibition.description %>
+</p>
+
+<p>
+  <strong>Opening at:</strong>
+  <%= @exhibition.opening_at %>
+</p>
+
+<p>
+  <strong>Closing at:</strong>
+  <%= @exhibition.closing_at %>
+</p>
+
+<p>
+  <strong>Artists max:</strong>
+  <%= @exhibition.artists_max %>
+</p>
+
+<p>
+  <strong>Area left:</strong>
+  <%= @exhibition.area_left %>
+</p>
+
+<p>
+  <strong>Area max:</strong>
+  <%= @exhibition.area_max %>
+</p>
+
+<p>
+  <strong>Price per day per area:</strong>
+  <%= @exhibition.price_per_day_per_area %>
+</p>
+
+<%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
+<%= link_to 'Back', exhibitions_path %>
