@@ -27,8 +27,17 @@
 
 <p>
   <strong>Area max:</strong>
-  <%= @place.area_max %>
+  <%= @place.address %>
 </p>
 
+
+<h2>Liste des exhibitions</h2>
+  <% @place.exhibitions.each do |exhibition| %>
+  <li><%= exhibition.name %></li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Add exhibition', add_exhibition_path(@place) %> |
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>

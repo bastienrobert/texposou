@@ -15,6 +15,9 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions/new
   def new
     @exhibition = Exhibition.new
+    if params[:id] && Place.find(params[:id])
+      @exhibition.place_id = params[:id]
+    end
   end
 
   # GET /exhibitions/1/edit
@@ -65,10 +68,11 @@ class ExhibitionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_exhibition
       @exhibition = Exhibition.find(params[:id])
+      @place = Place.find(@exhibition.place_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
-      params.require(:exhibition).permit(:name, :description, :opening_at, :closing_at, :artists_max, :area_left, :area_max, :price_per_day_per_area)
+      params.require(:exhibition).permit(:name, :description, :opening_at, :closing_at, :artists_max, :area_left, :area_max, :price_per_day_per_area, :place_id)
     end
 end

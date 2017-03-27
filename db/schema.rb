@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327120632) do
+ActiveRecord::Schema.define(version: 20170327122326) do
 
   create_table "exhibitions", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170327120632) do
     t.float    "price_per_day_per_area"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "place_id"
+    t.index ["place_id"], name: "index_exhibitions_on_place_id"
   end
 
   create_table "places", force: :cascade do |t|
