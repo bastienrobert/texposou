@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170327130516) do
+ActiveRecord::Schema.define(version: 20170327162016) do
 
   create_table "art_tags", force: :cascade do |t|
-    t.string   "CreateArtTags", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
 
   create_table "exhibitions", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +31,13 @@ ActiveRecord::Schema.define(version: 20170327130516) do
     t.datetime "updated_at",             null: false
     t.integer  "place_id"
     t.index ["place_id"], name: "index_exhibitions_on_place_id"
+  end
+
+  create_table "exhibitions_parts", force: :cascade do |t|
+    t.integer "exhibition_id"
+    t.integer "art_tag_id"
+    t.index ["art_tag_id"], name: "index_exhibitions_parts_on_art_tag_id"
+    t.index ["exhibition_id"], name: "index_exhibitions_parts_on_exhibition_id"
   end
 
   create_table "places", force: :cascade do |t|

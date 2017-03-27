@@ -12,6 +12,7 @@
   <tbody>
     <% @art_tags.each do |art_tag| %>
       <tr>
+        <td><%= art_tag.name %></td>
         <td><%= link_to 'Show', art_tag %></td>
         <td><%= link_to 'Edit', edit_art_tag_path(art_tag) %></td>
         <td><%= link_to 'Destroy', art_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>

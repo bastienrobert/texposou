@@ -28,7 +28,6 @@ class ExhibitionsController < ApplicationController
   # POST /exhibitions.json
   def create
     @exhibition = Exhibition.new(exhibition_params)
-
     respond_to do |format|
       if @exhibition.save
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }
@@ -43,6 +42,7 @@ class ExhibitionsController < ApplicationController
   # PATCH/PUT /exhibitions/1
   # PATCH/PUT /exhibitions/1.json
   def update
+    logger.debug "*****************PUTAIN*****************"
     respond_to do |format|
       if @exhibition.update(exhibition_params)
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully updated.' }
@@ -73,6 +73,6 @@ class ExhibitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
-      params.require(:exhibition).permit(:name, :description, :opening_at, :closing_at, :artists_max, :area_left, :area_max, :price_per_day_per_area, :place_id)
+      params.require(:exhibition).permit(:name, :description, :opening_at, :closing_at, :artists_max, :area_left, :area_max, :price_per_day_per_area, :place_id, :all_tags)
     end
 end

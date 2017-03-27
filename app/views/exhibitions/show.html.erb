@@ -45,9 +45,15 @@
   <%= @exhibition.price_per_day_per_area %>
 </p>
 <h2>Liste des visites</h2>
+
   <% @exhibition.visits.each do |visit| %>
-  <li><%= visit.id %></li>
+    <li><%= visit.id %></li>
   <% end %>
+  
+  <% @exhibition.art_tags.each do |artTag| %>
+    <li><%= artTag.name %> <%= artTag.id %></li>
+  <% end %>
+
 </ul>
 <%= link_to 'Add visit', add_visit_path(@exhibition) %>
 <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
