@@ -1,24 +1,11 @@
-# README
+# Texposou
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What's Texposou ?
+Texposou is a french platform that connects artists with individuals or professionals who can organize exhibitions on their premises. 
+Texposou is developped by a team during the "workshop" organized @ IUT Bordeaux Montaigne.
 
-Things you may want to cover:
+## Techs
+Check the current Gemfile (application in Ruby on Rails)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Licence
+Under copyright licence : this code is the property of Texposou 
