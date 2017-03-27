@@ -1,0 +1,2 @@
+class ArtTag < ApplicationRecord
+end
