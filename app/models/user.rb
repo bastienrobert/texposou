@@ -22,6 +22,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :users_tag_parts
   has_many :art_tags, :through => :users_tag_parts
+  has_many :visits
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

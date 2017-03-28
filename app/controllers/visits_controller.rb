@@ -1,5 +1,7 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
+  before_action :set_authenticate_user, only:[:new, :create]
+  before_action :set_owner_user, only:[:edit, :update, :destroy]
 
   # GET /visits
   # GET /visits.json
@@ -28,7 +30,7 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
-
+    @visit.user = current_user
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
@@ -68,6 +70,20 @@ class VisitsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_visit
       @visit = Visit.find(params[:id])
+    end
+
+    def set_authenticate_user
+      if !current_user
+        flash[:notice] = "Login before create a visit"
+        redirect_to root_path
+      end
+    end
+
+    def set_owner_user
+      if @visit.user.id != current_user.id
+        flash[:notice] = "The current user is not the owner of this object"
+        redirect_to root_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -44,12 +44,14 @@
   <strong>Price per day per area:</strong>
   <%= @exhibition.price_per_day_per_area %>
 </p>
-<h2>Liste des visites</h2>
 
+  <h2>Liste des visites</h2>
   <% @exhibition.visits.each do |visit| %>
-    <li><%= visit.id %></li>
+    <li><%= link_to visit.user.id, visit %></li>
   <% end %>
-  
+  <%= link_to "Je participe", add_visit_path %>
+
+  <h2>Liste des tags</h2>
   <% @exhibition.art_tags.each do |artTag| %>
     <li><%= artTag.name %> <%= artTag.id %></li>
   <% end %>

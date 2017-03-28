@@ -33,7 +33,7 @@
 
 <h2>Liste des exhibitions</h2>
   <% @place.exhibitions.each do |exhibition| %>
-  <li><%= exhibition.name %></li>
+  <li><%= link_to exhibition.name, exhibition %></li>
   <% end %>
 </ul>
 
