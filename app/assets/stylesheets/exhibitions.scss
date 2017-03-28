@@ -1,3 +1,57 @@
 // Place all the styles related to the exhibitions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Form */
+.row-exhibitions {
+  h1 {
+    font-size: 3em;
+    margin: 2em 0;
+  }
+  .filters {
+    label {
+      display: inline-block;
+    }
+  }
+}
+ /* Index */
+ #exhibition {
+  -webkit-columns: 300px;
+  -moz-columns: 300px;
+  columns: 300px;
+  -webkit-column-gap: 40px;
+  -moz-column-gap: 40px;
+  column-gap: 40px;
+  article {
+    display: block;
+    background-color: rgb(255,255,255);
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    position: relative;
+    margin-bottom: 30px;
+    color: #FFF;
+    h3 {
+      font-size: 1.5em;
+    }
+    h4 {
+      margin-bottom: .5em;
+      font-size: 1.1em;
+    }
+    img {
+      position: relative;
+      width: 100%;
+    }
+    .content {
+      position: absolute;
+      padding: 15px;
+      width: 100%;
+      z-index: 2;
+      bottom: 10px;
+      left: 0;
+    }
+  }
+  article+article{
+    margin: 20px 0;
+  }
+ }

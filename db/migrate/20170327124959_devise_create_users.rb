@@ -4,6 +4,22 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :lastname,           null: false, default: ""
+      t.string :firstname,          null: false, default: ""
+      t.string :adress,             null: false
+      t.string :city,               null: false
+      t.integer :postal,            null: false
+      t.string :phone,              null: false, default: ""
+      t.string :art_type,           null: true, default: "Peintre"
+
+      ## User status
+      # no-validate
+      # artist
+      # individual
+      # professional
+      # banned
+      # admin
+      t.integer :status,            null: false, default: "no-validate"
 
       ## Recoverable
       t.string   :reset_password_token

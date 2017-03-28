@@ -1,11 +1,11 @@
 class ExhibitionsController < ApplicationController
-  before_action :set_exhibitions, only: [:show, :edit, :update, :destroy]
+  before_action :set_exhibition, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /exhibitions
   # GET /exhibitions.json
   def index
-    @exhibitions = Exhibition.all
+    @exhibitions = Exhibition.all.sort_by &:opening_at
   end
 
   # GET /exhibitions/1

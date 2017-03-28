@@ -24,6 +24,15 @@ class User < ApplicationRecord
   has_many :art_tags, :through => :users_tag_parts
   has_many :visits
 
+  validates :lastname, presence: true
+  validates :firstname, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :adress, presence: true
+  validates :city, presence: true
+  validates :postal, presence: true
+  validates :phone, presence: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
