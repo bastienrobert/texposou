@@ -1,0 +1,90 @@
+
+form.form-type-costum {
+  text-align: center;
+  padding: 40px 0;
+  h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: $main-font;
+    font-weight: 100;
+    color: #AAA;
+    margin-bottom: $medium-pad;
+  }
+
+  .form-annotation {
+    color: #AAA;
+    font-weight: medium;
+    font-size: .8em;
+  }
+
+  .form-frame {
+    padding: $small-pad+$small-pad/2;
+    border: 2px solid #CCC;
+    text-align: left;
+    margin-bottom: $medium-pad;
+  }
+  .form-control {
+    border: 1px solid $grey;
+    padding-left: 10px;
+    border-radius: 0;
+    &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &:-moz-placeholder {
+      font-weight:100;
+      font-size:.8em;
+    }
+  }
+  .form-control {
+    &::-moz-placeholder {
+      font-weight:100;
+      font-size:.9em;
+      font-family: $main-font;
+    }
+    &:-ms-input-placeholder {
+      font-weight:100;
+      font-size:.9em;
+      font-family: $main-font;
+    }
+    &::-ms-input-placeholder{
+      font-weight:100;
+      font-size:.9em;
+      font-family: $main-font;
+    }
+    &:-moz-placeholder{
+      font-weight:100;
+      font-size:.9em;
+      font-family: $main-font;
+    }
+  }
+  .form-action-container {
+    display: inline-block;
+    .form-action{
+      width: auto;
+      font-size: 1em;
+      letter-spacing: 0;
+      text-transform: inherit;
+      color: #444;
+      border-radius: 0;
+      border: 2px solid #444;
+      display: inline-block;
+      padding: 5px 20px;
+      text-decoration: none;
+      background-color: white;
+      margin: 0;
+      font-weight: 100;
+      font-family: $main-font;
+      border-left: 0;
+      float: left;
+      &:first-child {
+        border-left: 2px solid #444;
+      }
+      &.main-action {
+        background-color:#444;
+        color:white;
+        @include transition(.2s ease-in);
+        &:hover {
+          background-color:white;
+          color:black;
+        }
+      }
+    }
+  }
+}
