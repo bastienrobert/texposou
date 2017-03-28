@@ -1,47 +1,51 @@
-<%= form_for(place) do |f| %>
-  <% if place.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
-
-      <ul>
-      <% place.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container full-screen">
+  <div class="row row-users">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <%= form_for(place, html: { method: :post, class:"form-type-costum well-users" }) do |f| %>
+        <% if @formTitle %>
+        <h1><%= @formTitle %></h1>
+        <% end %>
+        <% if place.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+            <ul>
+              <% place.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-frame">
+            <div class="form-group">
+              <%= f.label :name, 'Nom' %>
+              <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nom", autocomplete: "off" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description, 'Description' %>
+              <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :address, 'Adresse' %>
+              <%= f.text_field :address, class: "form-control", placeholder: "Adresse" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :zipcode, 'Code postal' %>
+              <%= f.number_field :zipcode, class: "form-control", placeholder: "Code postal" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :city, 'Ville' %>
+              <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :area_max, 'Aire maximale' %>
+              <%= f.text_field :area_max, class: "form-control", placeholder: "Aire maximale", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="form-action-container">
+            <%= link_to "Back", :back, class:"form-action" %>
+            <%= f.submit "Valider", class: "form-action main-action" %>
+          </div>
+        <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :zipcode %>
-    <%= f.number_field :zipcode %>
-  </div>
-
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= f.label :area_max %>
-    <%= f.text_field :area_max %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
