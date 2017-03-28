@@ -5,7 +5,7 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions
   # GET /exhibitions.json
   def index
-    @exhibitions = Exhibition.all
+    @exhibitions = Exhibition.all.sort_by &:opening_at
   end
 
   # GET /exhibitions/1
