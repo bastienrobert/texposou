@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :participations
   resources :visits
   devise_for :users
   resources :art_tags

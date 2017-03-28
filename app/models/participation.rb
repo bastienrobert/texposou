@@ -1,15 +1,14 @@
 # == Schema Information
 #
-# Table name: users_tag_parts
+# Table name: participations
 #
 #  id         :integer          not null, primary key
+#  area       :integer
 #  user_id    :integer
-#  art_tag_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class UsersTagPart < ApplicationRecord
+class Participation < ApplicationRecord
   belongs_to :user
-  belongs_to :art_tag
 end
