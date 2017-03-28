@@ -7,6 +7,7 @@ Texposou is developped by a team during the "workshop" organized @ IUT Bordeaux 
 
 ## Techs
 Check the current Gemfile (application in Ruby on Rails)
+For mail : we use maildev in local dev env
 
 ## Licence
 Under copyright licence : this code is the property of Texposou 
