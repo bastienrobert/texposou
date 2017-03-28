@@ -1,43 +1,51 @@
-
 header {
   p {
     padding:0;
     margin:0;
   }
+
+  a {
+    text-decoration: none;
+  }
+
   .navbar {
     padding-right: 2em;
-    height:6em;
+    min-height: 6em;
+  }
 
-    .bvn-msg {
-      margin-top: 2em;
-      padding-left: 1em;
-      border-left: 1px solid black;
-    }
+  #btns-container {
+    margin-top: 2em;
+    float:right;
+  }
 
-    a {
-      text-decoration: none;
-    }
+  #menu-burger {
+    margin-top:1.5em;
+  }
 
-    #logo-brand {
-      padding:0.4em 1.5em;
-      img {
-        height:3.5em;
-      }
-    }
+  .bvn-msg { //welcome message
+    margin-top: 2em;
+    padding-left: 1em;
+    border-left: 1px solid black;
+  }
 
-    #navbar-btns {
-      margin-top: 1em;
-      .navbar-text {
-        margin:0;
-        padding:0;
-      }
-      .btn-header {
-        vertical-align: middle;
-        margin-right:2.5em;
-        span {
-          font-weight: bold;
-        }
-      }
+  #logo-brand { //logo
+    padding:0.4em 1.5em;
+    img {
+      height:3.5em;
     }
   }
+
+  .navbar-text { //overwriting text
+    margin:0;
+    padding:0;
+  }
+
+  .btn-header {
+    vertical-align: middle;
+    margin-right:2.5em;
+    span {
+      font-weight: bold;
+    }
+  }
+
 }
