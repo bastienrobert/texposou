@@ -40,6 +40,23 @@
               <%= f.label :area_max, 'Aire maximale' %>
               <%= f.text_field :area_max, class: "form-control", placeholder: "Aire maximale", autocomplete: "off" %>
             </div>
+            <div class="img-container">
+              <% place.image_places.each do |img_p| %>
+              <div class="img-form">
+                <%= f.fields_for :image_places, img_p do |ff| %>
+                  <%= image_tag img_p.file.url(:thumb) %>
+                  Delete: <%= ff.check_box :_destroy %>
+                <% end %>
+              </div>
+              <% end %>
+              <div class="add-img-form">
+                <% img_p = ImagePlace.new %>
+                <%= f.fields_for :image_places, img_p do |ff| %>
+                  <%= ff.file_field :file %>
+                  <%= ff.text_field :alt %>
+                <% end %>
+              </div>
+            </div>
           </div>
           <div class="form-action-container">
             <%= link_to "Back", :back, class:"form-action" %>
@@ -48,4 +65,3 @@
         <% end %>
     </div>
   </div>
-</div>

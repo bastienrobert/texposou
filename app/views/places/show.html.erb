@@ -37,6 +37,11 @@
   <% end %>
 </ul>
 
+<h2>Liste des images</h2>
+  <% @place.image_places.each do |i| %>
+   <%= image_tag i.file.url(:thumb) %> <%= i.id %>
+  <% end %>
+</ul>
 
 <%= link_to 'Add exhibition', add_exhibition_path(@place) %> |
 <%= link_to 'Edit', edit_place_path(@place) %> |
