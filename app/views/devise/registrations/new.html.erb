@@ -12,6 +12,14 @@
 
             <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "confirmation de mot de passe" %>
 
+            <%= f.text_field :firstname, class: "form-control", placeholder: "Prénom" %>
+            <%= f.text_field :lastname, class: "form-control", placeholder: "Nom" %>
+
+            <%= f.text_field :adress, class: "form-control", placeholder: "Adresse" %>
+            <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
+            <%= f.number_field :postal, class: "form-control", placeholder: "Code postal" %>
+
+            <%= f.text_field :phone, class: "form-control", placeholder: "Téléphone" %>
           </div>
           <div class="form-action-container">
             <%= render "devise/shared/links" %>
