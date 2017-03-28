@@ -6,6 +6,9 @@
 
           <div class="form-frame">
             <%= devise_error_messages! %>
+            <%= f.text_field :firstname, class: "form-control", placeholder: "Prénom" %>
+            <%= f.text_field :lastname, class: "form-control", placeholder: "Nom" %>
+
             <div class="form-group">
               <%= f.label :email %>
               <%= f.email_field :email, autofocus: true, class:"form-control" %>
@@ -33,14 +36,6 @@
               <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
             </div>
 
-            <%= f.text_field :firstname, class: "form-control", placeholder: "Prénom" %>
-            <%= f.text_field :lastname, class: "form-control", placeholder: "Nom" %>
-
-            <%= f.text_field :adress, class: "form-control", placeholder: "Adresse" %>
-            <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
-            <%= f.number_field :postal, class: "form-control", placeholder: "Code postal" %>
-
-            <%= f.text_field :phone, class: "form-control", placeholder: "Téléphone" %>
 
             <div class="form-group">
               <label for="all_tags">Vos tags :</label>

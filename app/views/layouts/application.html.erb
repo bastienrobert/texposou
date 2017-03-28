@@ -10,32 +10,6 @@
 
   <body>
     <header>
-      <!-- <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-          <div class="navbar-header">
-            <%= link_to image_tag("Logotype.png"), root_path, id: "logo-brand", class:"navbar-brand", alt:'logo-texposou' %>
-          </div>
-          <% if user_signed_in? %>
-          <p class="navbar-left navbar-text bvn-msg"> Bienvenue <%= link_to current_user.email, edit_user_registration_path %> !</p>
-          <% end %>
-
-          <div id="navbar-btns">
-            <p class="navbar-right navbar-text btn-header">
-              <span><%= link_to "s'inscrire", new_user_registration_path %></span>
-            </p>
-            <% if user_signed_in? %>
-            <p class="navbar-right navbar-text btn-header"><%= link_to "se déconnecter", destroy_user_session_path, method: :delete, confirm: 'Are you sure ?' %></p>
-            <% else %>
-            <p class="navbar-right navbar-text btn-header"><%= link_to "se connecter", new_user_session_path %></p>
-            <% end %>
-            <p class="navbar-right navbar-text btn-header"><%= link_to "a propos", root_path %></p>
-
-          </div>
-
-        </div>
-      </nav> -->
-
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,7 +27,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <% if user_signed_in? %>
-            <p class="navbar-left bvn-msg"> Bienvenue <%= link_to current_user.email, edit_user_registration_path %> !</p>
+            <p class="navbar-left bvn-msg"> Bienvenue <%= link_to current_user.email, show_profile_path %> !</p>
             <% end %>
 
             <ul class="nav navbar-nav" id="btns-container">

@@ -1,10 +1,14 @@
 <div class="container full-screen">
   <div class="row row-users">
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <%= form_for(resource, :as => resource_name, :html => {class:"form-type-costum well-users"}, :url => registration_path(resource_name)) do |f| %>          <%= devise_error_messages! %>
+        <%= form_for(resource, :as => resource_name, :html => {class:"form-type-costum well-users"}, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
           <h1>Inscription</h1>
           <div class="form-frame">
-            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "email" %>
+            <%= f.text_field :firstname, class: "form-control", autocomplete:"off", placeholder: "Prénom" %>
+            <%= f.text_field :lastname, class: "form-control", autocomplete:"off", placeholder: "Nom" %>
+
+            <%= f.email_field :email, autofocus: true, autocomplete:"off", class: "form-control", placeholder: "email" %>
             <% if @minimum_password_length %>
               <em class="form-annotation">(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
@@ -12,14 +16,6 @@
 
             <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "confirmation de mot de passe" %>
 
-            <%= f.text_field :firstname, class: "form-control", placeholder: "Prénom" %>
-            <%= f.text_field :lastname, class: "form-control", placeholder: "Nom" %>
-
-            <%= f.text_field :adress, class: "form-control", placeholder: "Adresse" %>
-            <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
-            <%= f.number_field :postal, class: "form-control", placeholder: "Code postal" %>
-
-            <%= f.text_field :phone, class: "form-control", placeholder: "Téléphone" %>
           </div>
           <div class="form-action-container">
             <%= render "devise/shared/links" %>

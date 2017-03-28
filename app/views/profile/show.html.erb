@@ -1,0 +1,11 @@
+Bonjour <%=  @user.firstname %>
+<h2>Liste des images</h2>
+  <% @user.image_users.each do |i| %>
+   <%= image_tag i.file.url(:thumb) %> <%= i.id %>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Editer mon profil", edit_profile_path(@user), class:"btn btn-primary" %>
+  <%= link_to "Editer information de connexion", edit_user_registration_path, class:"btn btn-primary" %>
+</div>

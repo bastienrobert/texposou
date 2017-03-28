@@ -1,0 +1,6 @@
+<h1><%= @user.firstname  %></h1>
+<h2>Liste des images</h2>
+  <% @user.image_users.each do |i| %>
+   <%= image_tag i.file.url(:thumb) %> <%= i.id %>
+  <% end %>
+</ul>

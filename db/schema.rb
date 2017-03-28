@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328130026) do
+ActiveRecord::Schema.define(version: 20170328205919) do
 
   create_table "art_tags", force: :cascade do |t|
     t.string   "name",       null: false
@@ -53,6 +53,19 @@ ActiveRecord::Schema.define(version: 20170328130026) do
     t.index ["place_id"], name: "index_image_places_on_place_id"
   end
 
+  create_table "image_users", force: :cascade do |t|
+    t.string   "alt"
+    t.string   "file"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["user_id"], name: "index_image_users_on_user_id"
+  end
+
   create_table "participations", force: :cascade do |t|
     t.integer  "area",          null: false
     t.integer  "user_id",       null: false
@@ -75,26 +88,25 @@ ActiveRecord::Schema.define(version: 20170328130026) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",        null: false
-    t.string   "encrypted_password",     default: "",        null: false
-    t.string   "lastname",               default: "",        null: false
-    t.string   "firstname",              default: "",        null: false
-    t.string   "adress",                                     null: false
-    t.string   "city",                                       null: false
-    t.integer  "postal",                                     null: false
-    t.string   "phone",                  default: "",        null: false
-    t.string   "art_type",               default: "Peintre"
-    t.integer  "status",                 default: 0,         null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "lastname",               default: "", null: false
+    t.string   "firstname",              default: "", null: false
+    t.string   "address"
+    t.string   "city"
+    t.integer  "zipcode"
+    t.string   "tel"
+    t.integer  "status",                 default: 0,  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,         null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,0 +1,50 @@
+
+<div class="container full-screen">
+  <div class="row row-users">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <h1>Editer mon profile</h1>
+      <%= form_for @user, :url => {:controller => "profile", :action => "update"}, html: { method: :post, class:"form-type-costum well-users" } do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-frame">
+          <%= f.text_field :firstname, class: "form-control", placeholder: "Prénom" %>
+          <%= f.text_field :lastname, class: "form-control", placeholder: "Nom" %>
+          <%= f.text_field :address, class: "form-control", placeholder: "Adresse" %>
+          <%= f.text_field :zipcode, class: "form-control", placeholder: "Code postal", pattern: "^(([0-8][0-9])|(9[0-5]))[0-9]{3}$" %>
+          <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
+          <%= f.text_field :tel, class: "form-control", placeholder: "Téléphone", pattern: '^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$' %>
+          <div class="img-container">
+            <% @user.image_users.each do |img_u| %>
+            <div class="img-form">
+              <%= f.fields_for :image_users, img_u do |ff| %>
+                <%= image_tag img_u.file.url(:thumb) %>
+                Delete: <%= ff.check_box :_destroy %>
+              <% end %>
+            </div>
+            <% end %>
+            <div class="add-img-form">
+              <% img_u = ImageUser.new %>
+              <%= f.fields_for :image_users, img_u do |ff| %>
+                <%= ff.file_field :file %>
+                <%= ff.text_field :alt %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="form-action-container">
+          <%= link_to "Back", :back, class:"form-action" %>
+          <%= f.submit "Valider", class: "form-action main-action" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

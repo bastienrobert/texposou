@@ -6,12 +6,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :encrypted_password, null: false, default: ""
       t.string :lastname,           null: false, default: ""
       t.string :firstname,          null: false, default: ""
-      t.string :adress,             null: false
-      t.string :city,               null: false
-      t.integer :postal,            null: false
-      t.string :phone,              null: false, default: ""
-      t.string :art_type,           null: true, default: "Peintre"
-
+      t.string :address
+      t.string :city
+      t.integer :zipcode
+      t.string :tel
       ## User status
       # no-validate
       # artist

@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  get "profile", to: "profile#show", as: :show_profile
+  get "profile/edit", to: "profile#edit", as: :edit_profile
+  post "profile/update", to: "profile#update", as: :update_profile
+  get "profile/:id/show", to: "profile#show_by_id", as: :show_by_id
 end
