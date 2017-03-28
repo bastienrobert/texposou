@@ -70,11 +70,13 @@
                 <% end %>
               </li>
 
-              <li class="btn-header">
-                <p class="navbar-right">
-                <span><%= link_to "s'inscrire", new_user_registration_path %></span>
-                </p>
-              </li>
+              <% unless user_signed_in? %>
+                <li class="btn-header">
+                  <p class="navbar-right">
+                  <span><%= link_to "s'inscrire", new_user_registration_path %></span>
+                  </p>
+                </li>
+              <% end %>
 
             </ul>
           </div><!-- /.navbar-collapse -->
