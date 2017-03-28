@@ -11,6 +11,17 @@ form.form-type-costum {
     margin-bottom: $medium-pad;
   }
 
+  .form-group {
+    margin-bottom: 20px;
+    label {
+      margin-bottom: 0;
+      color: #888;
+    }
+    i {
+      color: #888;
+      font-style: italic;
+    }
+  }
   .form-annotation {
     color: #AAA;
     font-weight: medium;
@@ -73,7 +84,7 @@ form.form-type-costum {
       font-family: $main-font;
       border-left: 0;
       float: left;
-      &:first-child {
+      &:first-child, &.force-border {
         border-left: 2px solid #444;
       }
       &.main-action {
