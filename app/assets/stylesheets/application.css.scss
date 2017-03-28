@@ -18,13 +18,15 @@
 @import "core/variable";
 @import "core/mixin";
 @import "core/reset";
+@import "core/header";
+
 @import "scaffolds";
 @import "core/form.scss";
 
-@import "home.scss";
-@import "art_tags.scss";
-@import "exhibitions.scss";
-@import "participations.scss";
-@import "places.scss";
-@import "users.scss";
-@import "visits.scss";
+@import "home";
+@import "art_tags";
+@import "exhibitions";
+@import "participations";
+@import "places";
+@import "users";
+@import "visits";
