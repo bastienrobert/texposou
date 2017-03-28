@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328100148) do
+ActiveRecord::Schema.define(version: 20170328130026) do
 
   create_table "art_tags", force: :cascade do |t|
     t.string   "name",       null: false
@@ -34,15 +34,28 @@ ActiveRecord::Schema.define(version: 20170328100148) do
   end
 
   create_table "exhibitions_parts", force: :cascade do |t|
-    t.integer "exhibition_id"
-    t.integer "art_tag_id"
+    t.integer "exhibition_id", null: false
+    t.integer "art_tag_id",    null: false
     t.index ["art_tag_id"], name: "index_exhibitions_parts_on_art_tag_id"
     t.index ["exhibition_id"], name: "index_exhibitions_parts_on_exhibition_id"
   end
 
+  create_table "image_places", force: :cascade do |t|
+    t.string   "alt"
+    t.string   "file"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "place_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["place_id"], name: "index_image_places_on_place_id"
+  end
+
   create_table "participations", force: :cascade do |t|
-    t.integer  "area"
-    t.integer  "user_id"
+    t.integer  "area",          null: false
+    t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "exhibition_id"
@@ -51,12 +64,12 @@ ActiveRecord::Schema.define(version: 20170328100148) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",        null: false
     t.text     "description"
-    t.string   "address"
-    t.integer  "zipcode"
-    t.string   "city"
-    t.float    "area_max"
+    t.string   "address",     null: false
+    t.integer  "zipcode",     null: false
+    t.string   "city",        null: false
+    t.float    "area_max",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -87,8 +100,8 @@ ActiveRecord::Schema.define(version: 20170328100148) do
   end
 
   create_table "users_tag_parts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "art_tag_id"
+    t.integer  "user_id",    null: false
+    t.integer  "art_tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["art_tag_id"], name: "index_users_tag_parts_on_art_tag_id"
@@ -96,8 +109,8 @@ ActiveRecord::Schema.define(version: 20170328100148) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.datetime "coming_at"
-    t.datetime "duration"
+    t.datetime "coming_at",     null: false
+    t.datetime "duration",      null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "exhibition_id"

@@ -15,4 +15,7 @@
 
 class Place < ApplicationRecord
   has_many :exhibitions
+  has_many :image_places
+
+  accepts_nested_attributes_for :image_places, allow_destroy: true, reject_if: proc { |attributes| attributes['file'].blank? }
 end
