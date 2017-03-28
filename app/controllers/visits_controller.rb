@@ -30,7 +30,10 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
-    @visit.user = current_user
+    if Exhibition.find(@visit.exhibition_id).user!=current_user
+      flash[:notice] = "Vous etes l'organisateur de cette exposition"
+      redirect_to root_path
+    end
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
