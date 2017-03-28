@@ -16,10 +16,8 @@
     <%= f.text_field :area %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :exhibition_id %>
 
   <div class="actions">
     <%= f.submit %>

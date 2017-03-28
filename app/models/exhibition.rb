@@ -20,6 +20,7 @@ class Exhibition < ApplicationRecord
 
   belongs_to :place
   has_many :visits
+  has_many :participations
 
   has_many :exhibitions_parts
   has_many :art_tags, :through => :exhibitions_parts

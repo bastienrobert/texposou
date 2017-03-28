@@ -15,6 +15,9 @@ class ParticipationsController < ApplicationController
   # GET /participations/new
   def new
     @participation = Participation.new
+    if params[:id] && Exhibition.find(params[:id])
+      @participation.exhibition_id = params[:id]
+    end
   end
 
   # GET /participations/1/edit
@@ -25,7 +28,7 @@ class ParticipationsController < ApplicationController
   # POST /participations.json
   def create
     @participation = Participation.new(participation_params)
-
+    @participation.user = current_user
     respond_to do |format|
       if @participation.save
         format.html { redirect_to @participation, notice: 'Participation was successfully created.' }
@@ -69,6 +72,6 @@ class ParticipationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def participation_params
-      params.require(:participation).permit(:area, :user_id)
+      params.require(:participation).permit(:area, :user_id, :exhibition_id)
     end
 end
