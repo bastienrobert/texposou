@@ -26,8 +26,7 @@
         <% @places.each do |place| %>
           <%= link_to(place) do %>
           <article>
-            <%= debut place.image_places.first %>
-            <!-- <img src="https://placehold.it/350x250" alt=""> -->
+            <%= image_tag place.image_places.first.file.url %>
             <div class="content"></div>
           </article>
           <% end %>
