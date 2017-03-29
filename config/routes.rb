@@ -18,11 +18,10 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
 
     get "profile", to: "profile#show_profile", as: :show_profile
-    get "profile/edit", to: "profile#edit_profile", as: :edit_profile
     post "profile/update", to: "profile#update_profile", as: :update_profile
     get "profile/:id/show", to: "profile#show_by_id", as: :show_by_id
-
     get "profile/index/:status", to: "profile#index_by_status", as: :index_profile_status
+    
   end
 
 

@@ -17,9 +17,6 @@ class ProfileController < Devise::RegistrationsController
     end
   end
 
-  def edit_profile
-  end
-
 
   def update_profile
     respond_to do |format|
