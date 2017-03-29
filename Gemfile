@@ -10,7 +10,6 @@ end
 gem 'rails', '~> 5.0.2'
 gem 'rb-readline'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Paperclip & AWS Developper Kit (images & files)
 gem 'paperclip'
