@@ -4,7 +4,7 @@ Bonjour <%=  @user.firstname %>
    <%= image_tag i.file.url(:thumb) %> <%= i.id %>
   <% end %>
 </ul>
-
+<%= I18n.locale %>
 <div>
   <%= link_to "Editer mon profil", edit_profile_path(@user), class:"btn btn-primary" %>
   <%= link_to "Editer information de connexion", edit_user_registration_path, class:"btn btn-primary" %>

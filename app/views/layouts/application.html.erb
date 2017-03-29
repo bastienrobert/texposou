@@ -27,7 +27,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <% if user_signed_in? %>
-            <p class="navbar-left bvn-msg"> Bienvenue <%= link_to current_user.email, show_profile_path %> !</p>
+            <p class="navbar-left bvn-msg"> <%= t "hello" %> <%= link_to current_user.email, show_profile_path %> !</p>
             <% end %>
 
             <ul class="nav navbar-nav" id="btns-container">
