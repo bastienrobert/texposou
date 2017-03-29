@@ -7,8 +7,12 @@
     margin:0;
   }
   #places-main-img {
-    width:120%;
-    margin:-8em 0;
+    width:60em;
+    height:60em;
+    background-image: image-url("places/places_page.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: -8em;
   }
 
   #title-container {
