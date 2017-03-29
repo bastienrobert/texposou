@@ -11,6 +11,8 @@ header {
   .navbar {
     padding-right: 2em;
     min-height: 6em;
+    background-color: white;
+    border: 0;
   }
 
   #btns-container {
@@ -19,7 +21,12 @@ header {
   }
 
   #menu-burger {
-    margin-top:1.5em;
+    margin-top: 2.5em;
+    margin-bottom: 3em;
+  }
+
+  .main-nav {
+    padding-top: 20px;
   }
 
   .bvn-msg { //welcome message
@@ -31,7 +38,7 @@ header {
   #logo-brand { //logo
     padding:0.4em 1.5em;
     img {
-      height:3.5em;
+      height:5.5em;
     }
   }
 

@@ -26,7 +26,7 @@
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse main-nav navbar-collapse" id="bs-example-navbar-collapse-1">
             <% if user_signed_in? %>
             <p class="navbar-left bvn-msg"> <%= t "hello" %> <%= link_to(show_profile_path) do %><%= current_user.firstname %> <%= current_user.lastname %><% end %> !</p>
             <% end %>
