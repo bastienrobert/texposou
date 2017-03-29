@@ -9,3 +9,55 @@
     margin-bottom: 1.2em;
   }
 }
+
+
+#show {
+  min-height: 100vh;
+  .half {
+
+  }
+  #tabs-profile {
+    border: 1px solid #222;
+    margin: 50px;
+    .tabs-menu {
+      margin:0;
+      display: flex;
+      li {
+        padding: 10px;
+        border: 1px solid #222;
+        border-top: 0;
+        border-left: 0;
+        flex: 1;
+        text-align: center;
+        background-color: #222;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        @include transition(.4s);
+        &.ui-tabs-active, &.ui-state-active, &:hover {
+          background-color: white;
+          a {
+            color: black;
+          }
+        }
+
+        a {
+          color: white;
+          display: block;
+        }
+      }
+    }
+  }
+  .tab-profile {
+    padding: 30px;
+    text-align: left;
+    h2 {
+      margin-bottom: 40px;
+    }
+    form {
+      text-align: left;
+      .form-action {
+        text-align: left;
+      }
+    }
+  }
+}

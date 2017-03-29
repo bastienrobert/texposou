@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
@@ -131,4 +132,7 @@ ArtTagManage = {
 
 document.addEventListener("turbolinks:load", function() {
   ArtTagManage.init();
+  $( function() {
+    $( "#tabs-profile" ).tabs();
+  });
 })

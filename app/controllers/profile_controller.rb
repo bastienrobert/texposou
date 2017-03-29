@@ -1,7 +1,10 @@
-class ProfileController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+class ProfileController < Devise::RegistrationsController
+  before_action :set_user, only: [:show_profile, :edit_profile, :update_profile]
+  prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :show_profile]
+  prepend_before_action :set_minimum_password_length, only: [:new, :edit, :show_profile]
 
-  def show
+  def show_profile
+    render "show"
   end
 
   def index_by_status
@@ -14,12 +17,11 @@ class ProfileController < ApplicationController
     end
   end
 
-  def edit
+  def edit_profile
   end
 
 
-
-  def update
+  def update_profile
     respond_to do |format|
       if @user.update(profile_params)
         format.html { redirect_to show_profile_path, notice: "Votre profile a été mis à jour avec succés" }
