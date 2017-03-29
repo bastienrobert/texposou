@@ -14,11 +14,13 @@
  */
 
 @import "bootstrap";
+@import "font-awesome";
 
 @import "core/variable";
 @import "core/mixin";
 @import "core/reset";
 @import "core/header";
+@import "core/footer";
 
 @import "scaffolds";
 @import "core/form.scss";

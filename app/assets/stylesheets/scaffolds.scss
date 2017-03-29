@@ -4,6 +4,21 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  min-height: 100vh;
+}
+
+form {
+  padding:0 !important;
+  font-style: $main-font;
+  font-style: 0.7em;
+  input {
+    margin:0 !important;
+  }
+  input, button{
+    border-radius:0 !important;
+    letter-spacing: 2px;
+
+  }
 }
 
 p, ol, ul, td {
@@ -21,7 +36,7 @@ pre {
 
 a {
   color: #000;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 th {

@@ -58,6 +58,53 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
+
     <%= yield %>
+
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 footer-content" id="news-container">
+              <h3> TEXPOSOÙ? </h3>
+              <p> Inscrivez-vous à la newsletter </p>
+              <form class="navbar-form" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Votre email...">
+                </div>
+                <button type="submit" class="btn btn-default">S'INSCRIRE</button>
+              </form>
+
+            </div>
+            <div class="col-md-2 footer-content" id="about-container">
+              <h4> TEXPOSOÙ? </h4>
+              <ul>
+                <li>A propos</li>
+                <li>Règles</li>
+                <li>Aide</li>
+              </ul>
+            </div>
+            <div class="col-md-2 footer-content" id="infos-container">
+              <h4> Informations </h4>
+              <ul>
+                <li>Contact</li>
+                <li>Conditions générales</li>
+                <li>Mentions légales</li>
+                <li>Plan du site</li>
+              </ul>
+            </div>
+            <div class="col-md-3 footer-content" id="links-container">
+              <i class="fa fa-facebook fa-lg"></i>
+              <i class="fa fa-instagram fa-lg"></i>
+              <i class="fa fa-behance fa-lg"></i>
+              <i class="fa fa-twitter fa-lg"></i>
+              <i class="fa fa-google-plus-square fa-lg"></i>
+              <i class="fa fa-pinterest fa-lg"></i>
+            </div>
+        </div>
+        <div class="row" id='copyright'>
+          <p> Copyright © 2017 </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
