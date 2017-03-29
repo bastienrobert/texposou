@@ -7,18 +7,6 @@ body {
   min-height: 100vh;
 }
 
-form {
-  padding:0 !important;
-  font-style: $main-font;
-  font-style: 0.7em;
-  input {
-    margin:0 !important;
-  }
-  input, button{
-    border-radius:0 !important;
-    letter-spacing: 2px;
-  }
-}
 
 p, ol, ul, td {
   font-family: $main-font;

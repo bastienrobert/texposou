@@ -2,8 +2,8 @@
 <div class="container full-screen">
   <div class="row row-users">
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-      <h1>Editer mon profile</h1>
-      <%= form_for @user, :url => {:controller => "profile", :action => "update"}, html: { method: :post, class:"form-type-costum well-users" } do |f| %>
+      <%= form_for @user, :url => {:controller => "profile", :action => "update"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
+      <h1>Editer mon profil</h1>
       <% if @user.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -32,6 +32,7 @@
             </div>
             <% end %>
             <div class="add-img-form">
+              <h3>Images</h3>
               <% img_u = ImageUser.new %>
               <%= f.fields_for :image_users, img_u do |ff| %>
                 <%= ff.file_field :file %>
@@ -40,25 +41,30 @@
             </div>
           </div>
           <div id="art_tag_manage">
-            <div class="art_tags_container" data-prototype="<div class='art_tag' data-name='__name__'><span class='art_tag_name'>__name__</span><span class='art_tag_delete'></span></div>">
+            <h3>Tags</h3>
+            <div class="art_tag_form">
+              <form action="#">
+                <input type="text" id="add_tag_text" class="form-control">
+                <input type="button" id="add_tag_submit" value="add">
+              </form>
+            </div>
+            <div class="art_tags_container" data-prototype="<div class='art_tag' data-name='__name__'><span class='art_tag_name'>__name__</span><span class='art_tag_delete'><i class='fa fa-trash-o' aria-hidden='true'></i></span></div>">
               <%  @user.art_tags.each do |t| %>
               <div class="art_tag" data-name="<%= t.name -%>">
                 <span class="art_tag_name"><%= t.name -%></span>
-                <span class="art_tag_delete"></span>
+                <span class="art_tag_delete"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
               </div>
               <% end %>
-            </div>
-            <div class="art_tag_form">
-              <input type="text" id="add_tag_text">
-              <input type="button" id="add_tag_submit" value="add">
             </div>
 
             <%= f.hidden_field :all_tags, id: "tag-field", placeholder: "Vos tags" %>
           </div>
         </div>
-        <div class="form-action-container">
-          <%= link_to "Back", :back, class:"form-action" %>
-          <%= f.submit "Valider", class: "form-action main-action" %>
+        <div class="center-button">
+          <div class="form-action-container">
+            <%= link_to "Back", :back, class:"form-action" %>
+            <%= f.submit "Valider", class: "form-action main-action" %>
+          </div>
         </div>
       <% end %>
     </div>
