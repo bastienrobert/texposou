@@ -1,7 +1,8 @@
 header {
-  position: absolute;
-  z-index: 999;
   width: 100%;
+  top: 0;
+  position: relative;
+  z-index: 999;
   p {
     padding:0;
     margin:0;
