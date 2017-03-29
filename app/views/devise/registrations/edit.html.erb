@@ -1,7 +1,7 @@
 <div class="container full-screen">
   <div class="row row-users">
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"form-type-costum well-users" }) do |f| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"form-type-costum form-type-costum-no-padding well-users" }) do |f| %>
           <h1>Editer mon profil</h1>
 
           <div class="form-frame">
@@ -49,10 +49,12 @@
             <%= f.submit "Update", class: "form-action main-action" %>
           </div>
           <hr>
+        <% end %>
+        <div class="cancel">
           <div class="form-action-container">
             <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "form-action force-border" %>
           </div>
-        <% end %>
+        </div>
 
 
 
