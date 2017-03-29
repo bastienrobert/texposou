@@ -60,9 +60,30 @@
     </header>
 
     <%= yield %>
+<% if current_page?(controller: "registrations",action: "edit") || current_page?(controller: "registrations", action: "new") %>
+  <footer>
+    <div class="container-fluid" id="footer-1">
+      <div class="row">
+        <div class="col-sm-5" id="title">
+          <h3> TEXPOSOÙ? </h3>
+          <p> Inscrivez vous à la Newsletter </p>
+        </div>
+        <div class="col-sm-3" id="blank">
+          <p></p>
+        </div>
+        <div class="col-sm-4" id="links">
+          <p> A propos </p>
+          <p> Contact </p>
+          <p> Mentions légales </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <% else %>
 
     <footer>
-      <div class="container-fluid">
+      <div class="container-fluid" id="footer-2">
         <div class="row">
             <div class="col-md-5 footer-content" id="news-container">
               <h3> TEXPOSOÙ? </h3>
@@ -106,5 +127,6 @@
         </div>
       </div>
     </footer>
+    <% end %>
   </body>
 </html>
