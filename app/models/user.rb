@@ -39,6 +39,14 @@ class User < ApplicationRecord
     end
   end
 
+  def has_status?(status)
+    if self.status.match(status)
+      return true
+    else
+      return false
+    end
+  end
+
   def all_tags
     self.art_tags.map(&:name).join(", ")
   end
