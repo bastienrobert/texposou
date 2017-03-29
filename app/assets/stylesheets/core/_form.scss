@@ -100,8 +100,82 @@ form.form-type-costum {
   &.form-type-costum-no-padding {
     padding: 0;
   }
-}
 
+  .img-container {
+    .img-form {
+      position: relative;
+      height: 50px;
+      border: 1px solid #CCC;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      img {
+        max-width: 100px;
+        min-height: 50px;
+      }
+      .action{
+        // Destroy
+        position: absolute;
+        top: 0;
+        right: 0;
+        .label-for-check {
+          display: inline-block;
+          float: right;
+          height: 50px;
+          width: 30px;
+          background-color: #333;
+          margin: 0;
+          background-image: image-url("logo/valid.svg");
+          background-size: 50%;
+          background-position: center;
+          background-repeat: no-repeat;
+          color: transparent;
+          &::before {
+            content:"Image correctement importé";
+            position: absolute;
+            right: 100%;
+            color: black;
+            display: block;
+            font-size: .7em;
+            line-height: 1em;
+            color: green;
+            min-width: 150px;
+            text-align: right;
+            padding-right: 10px;
+            top: 50%;
+            transform: translateY(-58%);
+          }
+        }
+        input[type="checkbox"] {
+          width: 0;
+          height: 0;
+          overflow: hidden;
+          opacity: 0;
+        }
+        input:checked + .label-for-check  {
+          background-image: image-url("logo/trash.svg");
+          &::before {
+            content:"L'image sera supprimer à l'enregistrement";
+            color: #bc0000;
+          }
+        }
+      }
+
+
+    }
+    .add-img-form {
+      h3 {
+
+      }
+      input[type="file"]{
+
+      }
+      input[type="text"]{
+
+      }
+    }
+  }
+}
 
 .form-action-container {
   display: inline-block;

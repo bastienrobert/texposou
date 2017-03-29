@@ -31,15 +31,15 @@
   .half {
     width: 50%;
     margin: auto;
+  }
+  #tabs-profile {
+    border: 1px solid #222;
+    margin: 50px;
     h2 {
       text-align: center;
       font-size: 1.5em;
       text-transform: none;
     }
-  }
-  #tabs-profile {
-    border: 1px solid #222;
-    margin: 50px;
     .tabs-menu {
       margin: $medium-pad 0;
       margin-left: -15px;

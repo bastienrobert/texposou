@@ -11,6 +11,15 @@
                 <li>
                     <a href="#tabs-3">Galerie photo</a>
                 </li>
+                <li>
+                    <a href="#tabs-4">Mes lieux</a>
+                </li>
+                <li>
+                    <a href="#tabs-5">Mes Expositions</a>
+                </li>
+                <li>
+                    <a href="#tabs-6">Mes visits</a>
+                </li>
             </ul>
             <div class="col-sm-8">
                 <div id="tabs-1" class="tab-profile">
@@ -105,14 +114,19 @@
                     <h2>Galerie photo</h2>
 
                     <div class="img-container">
+                      <div class="img-list">
                         <% @user.image_users.each do |img_u| %>
                         <div class="img-form">
                             <%= f.fields_for :image_users, img_u do |ff| %>
                             <%= image_tag img_u.file.url(:thumb) %>
-                            Delete:<%= ff.check_box :_destroy %>
+                            <div class="action">
+                              <%= ff.check_box :_destroy -%>
+                              <%= ff.label :_destroy, class:"label-for-check" %>
+                            </div>
                             <% end %>
                         </div>
                         <% end %>
+                      </div>
                         <div class="add-img-form">
                             <h3>Images</h3>
                             <% img_u = ImageUser.new %>
@@ -127,6 +141,25 @@
                     </div>
                     <% end %>
                   </div>
+                </div>
+                <div id="tabs-4" class="tab-profile">
+                  <h2>Mes lieux</h2>
+                  <div class="items-list">
+
+                    <div class="form-action-container">
+                        <%= link_to "Ajouter un lieu", new_place_path, class: "form-action main-action" %>
+                    </div>
+                  </div>
+
+                </div>
+                <div id="tabs-5" class="tab-profile">
+                  <h2>Mes expositions</h2>
+                  <div class="form-action-container">
+                      <%= link_to "Créer une exposition", new_exhibition_path, class: "form-action main-action" %>
+                  </div>
+                </div>
+                <div id="tabs-6" class="tab-profile">
+                  <h2>Mes visites</h2>
                 </div>
             </div>
         </div>
