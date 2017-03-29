@@ -2,33 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.row{
+  margin:0;
+}
+
 #places-header {
-  .row{
-    margin:0;
-  }
-  #places-main-img {
-    width:60em;
-    height:60em;
-    background-image: image-url("places/places_page.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-top: -8em;
-  }
+  background-image: image-url("places/places_page.png");
+  background-repeat: no-repeat;
+  background-size: 55%;
+  background-position: left bottom;
+  position: relative;
+  padding-top:0;
+  top:0;
+  height:100vh;
 
   #title-container {
-    width:30%;
-    margin-top:8em;
-    margin-left: 15em;
+    display: inline-block;
+    min-width: 35%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 5vh;
+    margin-right: 1.5em;
+
     h1 {
-      width:auto;
-      height:auto;
       text-transform: uppercase;
       font-size: 45px;
       letter-spacing: 4px;
       position: relative;
       line-height: 8vh;
-      background-color: white;
       z-index:1;
+      margin-top: 15vh;
+
       &::after {
         content:"";
         position: absolute;
@@ -81,12 +86,13 @@
 }
 
 #places-body {
-   -webkit-columns: 250px;
-   -moz-columns: 250px;
-   columns: 250px;
-  //  -webkit-column-gap: 40px;
-  //  -moz-column-gap: 40px;
-  //  column-gap: 40px;
+   -webkit-columns: 230px;
+   -moz-columns: 230px;
+   columns: 230px;
+   -webkit-column-gap: 5px;
+   -moz-column-gap: 5px;
+   column-gap: 5px;
+   margin-bottom: 4em;
    article {
      display: block;
      background-color: rgb(255,255,255);
@@ -94,15 +100,8 @@
      page-break-inside: avoid;
      break-inside: avoid;
      position: relative;
-     margin-bottom: 30px;
+    //  margin-bottom: 30px;
      color: #FFF;
-     h3 {
-       font-size: 1.5em;
-     }
-     h4 {
-       margin-bottom: .5em;
-       font-size: 1.1em;
-     }
      img {
        position: relative;
        width: 100%;
