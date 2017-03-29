@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  scope "(:locale)", :locale => /en|fr/ do
-    root "places#index"
-  end
 
   resources :participations
   resources :visits
