@@ -21,6 +21,8 @@
 @import "core/reset";
 @import "core/header";
 @import "core/footer";
+@import "core/grid-scaffold";
+
 
 @import "scaffolds";
 @import "core/form.scss";
@@ -32,4 +34,3 @@
 @import "places";
 @import "users";
 @import "visits";
-@import "profile";

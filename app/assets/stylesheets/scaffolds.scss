@@ -6,11 +6,18 @@ body {
   line-height: 18px;
   min-height: 100vh;
 }
+#notice {
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  @include transform(translateX(-100%));
+  color: green;
 
+}
 
-p, ol, td {
+p {
   font-family: $main-font;
-  font-size: 13px;
+  font-size: 1em;
   line-height: 18px;
   margin: 33px;
 }
@@ -40,10 +47,6 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
-}
-
-#notice {
-  color: green;
 }
 
 .field_with_errors {

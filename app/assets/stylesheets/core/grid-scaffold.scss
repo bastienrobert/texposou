@@ -1,0 +1,146 @@
+
+.page-header-banner {
+  background-repeat: no-repeat;
+  background-size: 55%;
+  background-position: left bottom;
+  position: relative;
+  padding-top:0;
+  top:0;
+  height:100vh;
+
+  .title-container {
+    display: inline-block;
+    position: relative;
+    right: 0;
+    top: 25vh;
+    float: right;
+    margin-right: 3*$big-pad;
+    &::after {
+      content:"";
+      position: absolute;
+      background-color:#0D31FB;
+      height:4px;
+      width:18em;
+      transform: rotateZ(-60deg);
+      bottom: 50%;
+      left: -30%;
+      z-index:0;
+    }
+    h1 {
+      text-transform: uppercase;
+      font-size: 55px;
+      letter-spacing: 4px;
+      position: relative;
+      line-height: 1.2em;
+      z-index:1;
+      margin-top: 0;
+      background-color: white;
+      &::before {
+        content: "Lieux";
+        text-transform: uppercase;
+        font-size: inherit;
+        letter-spacing: 4px;
+        position: absolute;
+        bottom: 4%;
+        left: 4%;
+        font-weight: 100;
+        z-index:1;
+      }
+    }
+  }
+}
+
+.grid-parent {
+  text-align: center;
+  .search-form {
+    text-align: left;
+    input {
+      margin:1em 0;
+      width:10em;
+      border-radius: 0;
+      border:2px solid black;
+      &::placeholder-shown, &::placeholder{
+        color:black;
+      }
+    }
+    button {
+      text-transform: uppercase;
+      background-color: black;
+      color:white;
+      font-size: 0.8em;
+      padding:0.7em 1em;
+      letter-spacing: 2px;
+      border:0;
+    }
+  }
+  .grid-body {
+    text-align: left;
+     -webkit-columns: 230px;
+     -moz-columns: 230px;
+     columns: 230px;
+     -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+     column-gap: 5px;
+     margin-bottom: 4em;
+     article {
+       display: block;
+       background-color: rgb(255,255,255);
+       -webkit-column-break-inside: avoid;
+       page-break-inside: avoid;
+       break-inside: avoid;
+       position: relative;
+       color: #FFF;
+       img {
+         position: relative;
+         width: 100%;
+         opacity: 1;
+         filter: brightness(1);
+         @include transition(.4s);
+       }
+       .content {
+         position: absolute;
+         padding: 15px;
+         width: 100%;
+         z-index: 2;
+         bottom: 10px;
+         left: 0;
+         opacity: 0;
+         top: 50%;
+         @include transition(.4s);
+         @include transform(translateY(-50%));
+         p { margin: 0;}
+         .mention {
+            color: black;
+         }
+         .title {
+           font-size: 2em;
+           text-transform: uppercase;
+           letter-spacing: 4px;
+           color: #0000FF;
+           margin-bottom: 20px;
+         }
+       }
+       &:hover {
+         .content {
+           opacity: 1;
+         }
+         img {
+           opacity: 0.5;
+           filter: brightness(1.2);
+         }
+       }
+     }
+     article+article{
+       margin: 20px 0;
+     }
+  }
+  a.grid-add {
+    display: inline-block;
+    margin-left: auto;
+    padding:1em 2em;
+    background-color: black;
+    color:white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
