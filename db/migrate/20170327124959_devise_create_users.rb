@@ -11,13 +11,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.integer :zipcode
       t.string :tel
       ## User status
-      # no-validate
       # artist
       # individual
       # professional
-      # banned
-      # admin
-      t.integer :status,            null: false, default: "no-validate"
+      t.string :status,             null: false, default: "visitor"
+      t.boolean :admin,             null: false, default: "false"
+      t.boolean :banned,            null: false, default: "false"
 
       ## Recoverable
       t.string   :reset_password_token
