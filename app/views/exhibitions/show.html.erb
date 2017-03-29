@@ -47,9 +47,15 @@
 
   <h2>Liste des visites</h2>
   <% @exhibition.visits.each do |visit| %>
-    <li><%= link_to visit.user.id, visit %></li>
+    <li><%= link_to visit.user, visit %></li>
   <% end %>
-  <%= link_to "Je participe", add_visit_path %>
+  <%= link_to "Je visite", add_visit_path(@exhibition) %>
+
+  <h2>Liste des participations</h2>
+  <% @exhibition.participations.each do |participation| %>
+    <li><%= link_to participation.user, participation %></li>
+  <% end %>
+  <%= link_to "Je participe en tant qu'artiste", add_participation_path(@exhibition) %>
 
   <h2>Liste des tags</h2>
   <% @exhibition.art_tags.each do |artTag| %>
@@ -57,7 +63,5 @@
   <% end %>
 
 </ul>
-<%= link_to 'Participer', add_participation_path(@exhibition) %>
-<%= link_to 'Add visit', add_visit_path(@exhibition) %>
 <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
 <%= link_to 'Back', exhibitions_path %>
