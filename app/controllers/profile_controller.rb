@@ -4,6 +4,9 @@ class ProfileController < ApplicationController
   def show
   end
 
+  def index_by_status
+  end
+
   def show_by_id
     if params[:id] && User.find(params[:id])
       @user = User.find(params[:id])

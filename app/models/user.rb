@@ -54,5 +54,8 @@ class User < ApplicationRecord
   def self.tagged_with(name)
     ArtTag.find_by_name!(name).users
   end
+  def to_s
+    "#{firstname.capitalize} #{lastname.upcase}"
+  end
 
 end

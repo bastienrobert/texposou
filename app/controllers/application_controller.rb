@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_action :configure_devise_parameters, if: :devise_controller?
 
-
+  def home 
+  end
 
   def configure_devise_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :firstname, :lastname, :adress, :city, :postal, :phone) }
@@ -22,7 +23,7 @@ class ApplicationController < ActionController::Base
   private
     def set_locale
       I18n.locale = params[:locale] || I18n.default_locale
-      Rails.application.routes.default_url_options[:locale]= I18n.locale 
+      Rails.application.routes.default_url_options[:locale]= I18n.locale
     end
 
 end

@@ -52,6 +52,18 @@ div {
   display: table;
 }
 
+h2 {
+  font-size: 2.5em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.1em;
+}
+
+.wrapper {
+  width: 1080px;
+  margin: auto;
+}
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -69,6 +81,7 @@ div {
     margin-bottom: 0;
     background-color: #c00;
     color: #fff;
+    padding-bottom: 30px;
   }
 
   ul li {
@@ -83,4 +96,31 @@ label {
 
 .full-screen {
   min-height: 100vh;
+}
+
+a.list_link {
+  font-size: 1.5em;
+  position: relative;
+  text-decoration: none;
+  &::after {
+    content :"";
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: -5px;
+    background-color: #0000FF;
+    position: absolute;
+  }
+}
+
+.clr-after {
+  &::after {
+    content:"";
+    display: block;
+    width: 100%;
+    clear: both;
+  }
+}
+.clr {
+  clear: both;
 }

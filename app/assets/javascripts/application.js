@@ -116,14 +116,16 @@ ArtTagManage = {
 
   init:function(){
     this.tagManage = document.getElementById("art_tag_manage");
-    this.tagManageContainer = this.tagManage.getElementsByClassName("art_tags_container")[0];
-    this.tags = this.tagManage.getElementsByClassName("art_tag");
-    this.form.text = document.getElementById("add_tag_text");
-    this.form.submit = document.getElementById("add_tag_submit");
-    this.hiddenField = document.getElementById("tag-field");
-    this.formParent = document.getElementById("edit_user_1");
-    this.updateTagContent();
-    this.initEvents();
+    if(this.tagManage){
+      this.tagManageContainer = this.tagManage.getElementsByClassName("art_tags_container")[0];
+      this.tags = this.tagManage.getElementsByClassName("art_tag");
+      this.form.text = document.getElementById("add_tag_text");
+      this.form.submit = document.getElementById("add_tag_submit");
+      this.hiddenField = document.getElementById("tag-field");
+      this.formParent = document.getElementById("edit_user_1");
+      this.updateTagContent();
+      this.initEvents();
+    }
   }
 }
 
