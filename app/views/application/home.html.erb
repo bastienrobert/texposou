@@ -1,0 +1,75 @@
+<section id="landing">
+  <div class="panel-right">
+    <h1>Texposoù?<br>_BORDEAUX</h1>
+    <h3>Un artiste chez vous</h3>
+  </div>
+  <div class="form">
+
+  </div>
+</section>
+<section id="lastExhib">
+  <div class="wrapper">
+    <div class="list-exhibition" >
+      <h2>Nos prochaines<br> exhibitions</h2>
+      <ul>
+        <li class="active"><span>L'accuse</span></li>
+        <li><span>Octopus kingdom</span></li>
+        <li><span>Banksy</span></li>
+        <li><span>Cheval</span></li>
+        <li><span>Banksy</span></li>
+        <li><span>Octopus kingdom</span></li>
+      </ul>
+    </div>
+    <div class="photo-pres clr-after "></div>
+    <div class="clr">
+      <%= link_to "Toutes nos expos", exhibitions_path, class:"list_link" %>
+    </div>
+  </div>
+</section>
+<section id="lastPlace">
+  <div class="wrapper">
+    <h2>Les derniers<br>lieux crées</h2>
+  </div>
+  <div class="banner">
+    <div class="content">
+      <h3 class="title">Chez moi</h3>
+      <p>Circa hos dies Lollianus primae
+lanuginis adulescens, Lampadi filius
+ex praefecto, exploratius causam
+Maximino spectante, convictus
+codicem noxiarum artium nondum
+per aetatem firmato consilio
+descripsisse, exulque mittendus, ut
+sperabatur, patris inpulsu provocavit
+ad principem, et iussus ad eius
+comitatum duci, de fumo, ut aiunt</p>
+    </div>
+  </div>
+  <div class="wrapper">
+    <%= link_to "Tous les lieux", places_path, class:"list_link" %>
+  </div>
+</section>
+
+<section id="lastArtist" class="wrapper">
+  <h2>À la<br>découverte<br>d'un artiste</h2>
+  <div class="left-panel">
+    <p class="title"><span>Banksy</span></p>
+    <p class="art_tags_list">Street-art - peinture</p>
+    <p class="description">
+      Circa hos dies Lollianus primae lanuginis
+      adulescens, Lampadi filius ex praefecto,
+      exploratius causam Maximino spectante,
+      convictus codicem noxiarum artium nondum
+      per aetatem firmato consilio descripsisse,
+      exulque mittendus, ut sperabatur, patris
+      inpulsu provocavit ad principem, et iussus
+      ad eius comitatum duci, de fumo, ut aiunt, in
+      flammam traditus Phalangio Baeticae
+      consulari cecidit funesti carnificis manu.
+    </p>
+  </div>
+  <div class="right-panel"></div>
+  <div class="clr">
+    <%= link_to "Tous les artistes", index_profile_status_path("artist"), class:"list_link" %>
+  </div>
+</section>

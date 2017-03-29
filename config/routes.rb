@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :places
   resources :exhibitions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "places#index"
+  root "application#home"
 
   get "exhibitions/:id/new", to: "exhibitions#new", as: :add_exhibition
   get "visits/:id/new", to: "visits#new", as: :add_visit
@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get "profile/edit", to: "profile#edit", as: :edit_profile
   post "profile/update", to: "profile#update", as: :update_profile
   get "profile/:id/show", to: "profile#show_by_id", as: :show_by_id
+
+  get "profile/index/:status", to: "profile#index_by_status", as: :index_profile_status
 end

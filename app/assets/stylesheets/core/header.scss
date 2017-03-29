@@ -1,4 +1,7 @@
 header {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
   p {
     padding:0;
     margin:0;
@@ -7,7 +10,7 @@ header {
   .navbar {
     padding-right: 2em;
     min-height: 6em;
-    background-color: white;
+    background-color: transparent;
     border: 0;
   }
 
