@@ -1,5 +1,50 @@
 <p id="notice"><%= notice %></p>
 
+<section id="places-header">
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag ('places/places_page.png'), id:"places-main-img" %>
+    </div>
+    <div class="col-md-6" id="title-container">
+      <h1>Nos <br>Lieux</h1>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div id="search-form">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Où ?">
+          <input type="text" class="form-control" placeholder="Quand ?">
+          <input type="text" class="form-control" placeholder="Quoi ?">
+          <button type="submit">Rechercher</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <section id="places-body">
+        <% @places.each do |place| %>
+          <%= link_to(place) do %>
+          <article>
+            <img src="https://placehold.it/350x250" alt="">
+            <div class="content"></div>
+          </article>
+          <% end %>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container" id="add-place">
+  <%= link_to 'New Place', new_place_path %>
+</div>
+
+<!--
 <h1>Places</h1>
 
 <table>
@@ -30,8 +75,4 @@
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Place', new_place_path %>
+</table> -->
