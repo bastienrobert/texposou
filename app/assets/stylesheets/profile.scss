@@ -14,34 +14,31 @@
 #show {
   min-height: 100vh;
   .half {
-
+    width: 50%;
+    margin: auto;
+    h2 {
+      text-align: center;
+      font-size: 1.5em;
+      text-transform: none;
+    }
   }
   #tabs-profile {
     border: 1px solid #222;
     margin: 50px;
     .tabs-menu {
-      margin:0;
-      display: flex;
+      margin: $medium-pad 0;
+      margin-left: -15px;
       li {
-        padding: 10px;
-        border: 1px solid #222;
-        border-top: 0;
-        border-left: 0;
-        flex: 1;
-        text-align: center;
-        background-color: #222;
+        padding: 15px 10px;
+        padding-left: $medium-pad;
         text-transform: uppercase;
         letter-spacing: 3px;
+        border-left: 4px solid transparent;
         @include transition(.4s);
         &.ui-tabs-active, &.ui-state-active, &:hover {
-          background-color: white;
-          a {
-            color: black;
-          }
+          border-left: 4px solid black;
         }
-
         a {
-          color: white;
           display: block;
         }
       }
@@ -50,6 +47,8 @@
   .tab-profile {
     padding: 30px;
     text-align: left;
+    border-left: 1px solid black;
+    min-height: 500px;
     h2 {
       margin-bottom: 40px;
     }
