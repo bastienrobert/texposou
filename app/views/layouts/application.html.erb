@@ -60,7 +60,9 @@
     </header>
 
     <%= yield %>
-<% if current_page?(controller: "registrations",action: "edit") || current_page?(controller: "registrations", action: "new") %>
+
+<% if (controller.controller_name == 'registrations' && controller.action_name == 'edit') || (controller.controller_name == 'registrations' && controller.action_name == 'new') || (controller.controller_name == 'sessions' && controller.action_name == 'new') %>
+
   <footer>
     <div class="container-fluid" id="footer-1">
       <div class="row">
@@ -80,7 +82,7 @@
     </div>
   </footer>
 
-  <% else %>
+<% else %>
 
     <footer>
       <div class="container-fluid" id="footer-2">
