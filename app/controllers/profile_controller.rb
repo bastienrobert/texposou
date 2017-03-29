@@ -41,6 +41,6 @@ class ProfileController < ApplicationController
     end
 
     def profile_params
-      params.require(:user).permit(:firstname, :lastname, :address, :city, :zipcode, :firstname, :tel, image_users_attributes:[ :id, :alt, :file, :_destroy ])
+      params.require(:user).permit(:firstname, :lastname, :address, :city, :zipcode, :firstname, :tel, :all_tags, image_users_attributes:[ :id, :alt, :file, :_destroy ])
     end
 end
