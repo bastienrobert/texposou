@@ -1,3 +1,49 @@
 // Place all the styles related to the art_tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#art_tag_manage {
+  margin: 30px 0;
+  .art_tags_container {
+    display: inline-block;
+    float: left;
+    .art_tag {
+      border: 1px solid black;
+      display: inline-block;
+      height: 20px;
+      span {
+        float: left;
+        &.art_tag_name {
+          padding: 0 5px;
+          padding-bottom: 5px;
+        }
+        &.art_tag_delete {
+          background-color: red;
+          display: inline-block;
+          width: 20px;
+          height: 20px-2px;
+        }
+      }
+    }
+  }
+  .art_tag_form {
+    float: left;
+    margin-left: 20px;
+    #add_tag_submit {
+      float: left;
+      margin: 0;
+    }
+    #add_tag_text {
+      width: 100px;
+      height: 20px;
+      font-size: .8em;
+      border: 1px solid black;
+      border-radius: 2px;
+      margin-top: 0;
+      padding-top: 0;
+      float: left;
+    }
+  }
+
+}

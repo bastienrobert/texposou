@@ -39,7 +39,22 @@
               <% end %>
             </div>
           </div>
-          <%= f.text_field :all_tags, class: "form-control", placeholder: "Vos tags" %>
+          <div id="art_tag_manage">
+            <div class="art_tags_container" data-prototype="<div class='art_tag' data-name='__name__'><span class='art_tag_name'>__name__</span><span class='art_tag_delete'></span></div>">
+              <%  @user.art_tags.each do |t| %>
+              <div class="art_tag" data-name="<%= t.name -%>">
+                <span class="art_tag_name"><%= t.name -%></span>
+                <span class="art_tag_delete"></span>
+              </div>
+              <% end %>
+            </div>
+            <div class="art_tag_form">
+              <input type="text" id="add_tag_text">
+              <input type="button" id="add_tag_submit" value="add">
+            </div>
+
+            <%= f.hidden_field :all_tags, id: "tag-field", placeholder: "Vos tags" %>
+          </div>
         </div>
         <div class="form-action-container">
           <%= link_to "Back", :back, class:"form-action" %>
