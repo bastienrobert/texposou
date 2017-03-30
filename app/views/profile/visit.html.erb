@@ -33,10 +33,10 @@
               <% unless (u == @user.art_tags.last) %>&<% end %>
             <% end %>
             </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur repellendus id veniam debitis facere, numquam voluptas, ratione vel qui quaerat et neque recusandae illum minima explicabo, consectetur hic magnam.</p>
+            <p><%= @user.bio %></p>
             <div class="contact">
               <a href="mailto:<%= @user.email %>" class="btn">Contacter</a>
-              <a href="#" class="website">www.test.fr</a>
+              <a href="<%= @user.website %>" class="website" target="_blank"><%= @user.website %></a>
             </div>
 
             <% if @user.main_status == "artist" %>

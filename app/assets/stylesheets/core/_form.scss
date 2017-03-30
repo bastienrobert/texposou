@@ -4,7 +4,8 @@ form {
     display: inline-block;
     margin: .8em 0;
   }
-  input {
+  input,
+  textarea {
     margin-top: .7em;
     &[type="submit"] {
       display: inline-block;
@@ -15,6 +16,9 @@ form {
       font-family: sans-serif;
       font-weight: 100;
     }
+  }
+  textarea {
+    resize: none;
   }
   .submit-control {
     text-align: center;
