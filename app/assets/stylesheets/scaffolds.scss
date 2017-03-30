@@ -12,7 +12,16 @@ body {
   left: 0;
   @include transform(translateX(-100%));
   color: green;
+}
 
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  img {
+    min-width: 100px;
+    min-height: 100px;
+  }
 }
 
 p {

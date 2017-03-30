@@ -26,6 +26,11 @@
                     <div class="half">
                         <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
                         <h2>Editer mon profil</h2>
+                        <% if @user.avatar %>
+                        <div class="profile-photo top-right">
+                          <%= image_tag @user.avatar.url, class:"profile-photo" %>
+                        </div>
+                        <% end %>
                         <% if @user.errors.any? %>
                         <div id="error_explanation">
                             <h2><%= pluralize(@user.errors.count, "error") %>prohibited this user from being saved:</h2>
@@ -160,7 +165,12 @@
                 <div id="tabs-5" class="tab-profile">
                   <h2>Mes expositions</h2>
                   <div class="form-action-container">
-                      <%= link_to "Créer une exposition", new_exhibition_path, class: "form-action main-action" %>
+                    <% if @user.places.first %>
+                      <%= link_to "Créer une expo", add_exhibition_path(@user.places.first),  class: "form-action main-action" %>
+                    <% else %>
+                      <p>Vous devez créer un lieux avant de mettre une expo</p>
+                      <%= link_to "Créer une exposition", new_place_path, class: "form-action main-action" %>
+                    <% end %>
                   </div>
                 </div>
                 <div id="tabs-6" class="tab-profile">

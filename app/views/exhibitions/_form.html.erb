@@ -1,65 +1,77 @@
-<%= form_for(exhibition) do |f| %>
-  <% if exhibition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(exhibition.errors.count, "error") %> prohibited this exhibition from being saved:</h2>
 
-      <ul>
-      <% exhibition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+<div class="container full-screen">
+    <div class="row row-users">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <%= form_for(exhibition, html: { class:"form-type-costum well-users" }) do |f| %>
+            <% if exhibition.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(exhibition.errors.count, "error") %>
+                    prohibited this exhibition from being saved:</h2>
+
+                <ul>
+                    <% exhibition.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <% end %>
+            <h1><%= @formTitle %></h1>
+            <div class="form-frame">
+
+                <div class="form-group">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :description %>
+                    <%= f.text_area :description, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :opening_at %>
+                    <%= f.datetime_select :opening_at %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :closing_at %>
+                    <%= f.datetime_select :closing_at %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :artists_max %>
+                    <%= f.text_field :artists_max, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :area_left %>
+                    <%= f.text_field :area_left, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :area_max %>
+                    <%= f.text_field :area_max, class: "form-control" %>
+                </div>
+
+                <%= f.hidden_field :place_id %>
+
+                <div class="form-group">
+                    <%= f.label :price_per_day_per_area %>
+                    <%= f.text_field :price_per_day_per_area, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.text_field :all_tags %>
+                </div>
+
+            </div>
+
+            <div class="form-action-container">
+                <%= link_to "Back", :back, class:"form-action" %>
+                <%= f.submit "Valider", class: "form-action main-action" %>
+            </div>
+            <% end %>
+        </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :opening_at %>
-    <%= f.datetime_select :opening_at %>
-  </div>
-
-  <div class="field">
-    <%= f.label :closing_at %>
-    <%= f.datetime_select :closing_at %>
-  </div>
-
-  <div class="field">
-    <%= f.label :artists_max %>
-    <%= f.text_field :artists_max %>
-  </div>
-
-  <div class="field">
-    <%= f.label :area_left %>
-    <%= f.text_field :area_left %>
-  </div>
-
-  <div class="field">
-    <%= f.label :area_max %>
-    <%= f.text_field :area_max %>
-  </div>
-
-  <%= f.hidden_field :place_id %>
-
-
-  <div class="field">
-    <%= f.label :price_per_day_per_area %>
-    <%= f.text_field :price_per_day_per_area %>
-  </div>
-
-  <div class="field">
-    <%= f.text_field :all_tags %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
