@@ -3,6 +3,8 @@ class VisitsController < ApplicationController
   before_action :set_authenticate_user, only:[:new, :create]
   before_action :set_owner_user, only:[:edit, :update, :destroy]
 
+  authorize_resource
+
   # GET /visits
   # GET /visits.json
   def index

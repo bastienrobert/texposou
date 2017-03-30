@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to issues_path, notify: 'Accès interdit'
+    flash[:warning] = exception.message
+    redirect_to root_path
   end
 
 

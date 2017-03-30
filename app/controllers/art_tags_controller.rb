@@ -1,6 +1,8 @@
 class ArtTagsController < ApplicationController
   before_action :set_art_tag, only: [:show, :edit, :update, :destroy]
 
+  authorize_resource
+
   # GET /art_tags
   # GET /art_tags.json
   def index

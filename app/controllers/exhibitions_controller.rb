@@ -2,6 +2,8 @@ class ExhibitionsController < ApplicationController
   before_action :set_exhibition, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  authorize_resource
+
   # GET /exhibitions
   # GET /exhibitions.json
   def index
