@@ -11,6 +11,7 @@ class ProfileController < Devise::RegistrationsController
   end
 
   def index_by_status
+    @users = User.all
   end
 
   def show_by_id

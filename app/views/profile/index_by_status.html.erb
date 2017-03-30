@@ -1,0 +1,39 @@
+<div id="index-artist">
+  <section class="page-header-banner artist-banner">
+    <div class="title-container">
+      <h1>Nos <br>Artistes</h1>
+    </div>
+  </section>
+
+  <div class="container grid-parent artist-body">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="search-form">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Où ?">
+            <input type="text" class="form-control" placeholder="Quoi ?">
+            <button type="submit">Rechercher</button>
+            <p> Entrez la ville <br>et le style <br>de vos artistes </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <section class="grid-body">
+          <% @users.each do |user| %>
+          <% if user.avatar %>
+            <%= link_to show_by_id_path(user.id) do %>
+            <article class="grid-item">
+              <%= image_tag user.avatar.url %>
+              <div class="content">
+                <p class="title"><%= user.firstname %> <%= user.lastname %></p>
+              </div>
+            </article>
+            <% end %>
+            <% end %>
+          <% end %>
+        </section>
+      </div>
+    </div>
+    <%= link_to 'Voir plus', root_path, class: "grid-add" %>
+  </div>
+</div>

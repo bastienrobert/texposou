@@ -1,4 +1,102 @@
+#index-artist {
+  .artist-banner{
+    background-image: image-url("artists/artistes_page.png");
+    background-position: left;
 
+    .title-container {
+      &::after {
+        content:"";
+        position: absolute;
+        background-color:#0D31FB;
+        height:4px;
+        width:18em;
+        transform: rotateZ(-60deg);
+        bottom: 50%;
+        left: 0;
+        z-index:0;
+      }
+      h1 {
+        &::after{
+          content: "Artistes";
+          text-transform: uppercase;
+          font-size: inherit;
+          letter-spacing: 4px;
+          position: absolute;
+          bottom: 4%;
+          left: 4%;
+          font-weight: 100;
+          z-index:1;
+        }
+      }
+    }
+  }
+  // Le reste des style se trouve dans grid-scaffold
+  .artist-body {
+    .form-group {        //Surcharge des styles
+      p {
+        margin:2em 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px){
+    .page-header-banner {
+      background-size: 0px;
+      height: 40vh;
+      text-align: center;
+      .title-container {
+        position: relative;
+        top:auto;
+        right: auto;
+        float: none;
+        padding: 100px 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
+#index-artist {
+  .artist-banner {
+    background-image: image-url("places/places_page.png");
+
+    .title-container {
+      h1 {
+        &::after{
+          content: "Artistes";
+          text-transform: uppercase;
+          font-size: inherit;
+          letter-spacing: 4px;
+          position: absolute;
+          bottom: 5%;
+          left: 4%;
+          font-weight: 100;
+          z-index:1;
+        }
+      }
+    }
+  }
+
+  // Le reste des style se trouve dans grid-scaffold
+  .artist-body {
+    //Surcharge des styles
+  }
+
+  @media screen and (max-width: 900px){
+    .page-header-banner {
+      background-size: 0px;
+      height: 40vh;
+      text-align: center;
+      .title-container {
+        position: relative;
+        top:auto;
+        right: auto;
+        float: none;
+        padding: 100px 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
 
 
 .row-users .well h2 {
