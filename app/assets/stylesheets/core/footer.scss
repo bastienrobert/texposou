@@ -3,6 +3,14 @@ footer {
   margin-top:4em;
   color:white;
   background-color:#000;
+  a {
+    color: #FFF;
+    transition: opacity .2s;
+    &:hover {
+      color: #FFF;
+      opacity: .85;
+    }
+  }
 
   #footer-1 {
     #title {
