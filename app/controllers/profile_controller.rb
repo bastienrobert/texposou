@@ -38,10 +38,10 @@ class ProfileController < Devise::RegistrationsController
   def update_profile
     respond_to do |format|
       if @user.update(profile_params)
-        format.html { redirect_to show_profile_path, notice: "Votre profile a été mis à jour avec succés" }
+        format.html { redirect_to show_profile_path, notice: "Votre profile a été mis à jour avec succès" }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
+        format.html { render 'profile/show' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
