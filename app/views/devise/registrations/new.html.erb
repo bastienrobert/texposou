@@ -3,8 +3,21 @@
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <%= form_for(resource, :as => resource_name, :html => {class:"form-type-costum well-users"}, :url => registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
-          <h1>Inscription</h1>
+
+          <% if @status %>
+            <% if @status == "professional" || @status == "particular"  %>
+              <h1>Devenir exposant</h1>
+            <% else %>
+              <h1>Devenir artiste</h1>
+            <% end %>
+          <% else %>
+            <h1>Inscription</h1>
+          <% end %>
+
           <div class="form-frame">
+            <% if @status %>
+              <%= f.hidden_field :main_status, value: @status  %>
+            <% end %>
             <%= f.text_field :firstname, class: "form-control", autocomplete:"off", placeholder: "Prénom" %>
             <%= f.text_field :lastname, class: "form-control", autocomplete:"off", placeholder: "Nom" %>
 
@@ -13,9 +26,7 @@
               <em class="form-annotation">(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "mot de passe"%>
-
             <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "confirmation de mot de passe" %>
-
           </div>
           <div class="form-action-container">
             <%= render "devise/shared/links" %>

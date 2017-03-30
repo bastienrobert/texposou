@@ -61,14 +61,32 @@
                     <%= f.text_field :price_per_day_per_area, class: "form-control" %>
                 </div> -->
 
-                <div class="form-group">
-                    <%= f.text_field :all_tags %>
+                <div id="art_tag_manage">
+                    <h3>Tags</h3>
+                    <div class="art_tag_form">
+                        <input type="text" id="add_tag_text" class="form-control">
+                        <input type="button" id="add_tag_submit" value="add">
+                    </div>
+                    <div class="art_tags_container" data-prototype="<div class='art_tag' data-name='__name__'><span class='art_tag_name'>__name__</span><span class='art_tag_delete'><i class='fa fa-trash-o' aria-hidden='true'></i></span></div>">
+                        <%  exhibition.art_tags.each do |t| %>
+                        <div class="art_tag" data-name="<%= t.name %>">
+                            <span class="art_tag_name"><%= t.name %></span>
+                            <span class="art_tag_delete">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <% end %>
+                    </div>
                 </div>
+                <%= f.hidden_field :all_tags, id: "tag-field", placeholder: "Vos tags" %>
 
             </div>
 
             <div class="form-action-container">
                 <%= link_to "Back", :back, class:"form-action" %>
+                <% if controller.action_name == "edit" %>
+                <%= link_to 'Show', exhibition, class:"form-action" %>
+                <% end %>
                 <%= f.submit "Valider", class: "form-action main-action" %>
             </div>
             <% end %>

@@ -7,7 +7,7 @@ form {
   input {
     margin-top: .7em;
     &[type="submit"] {
-      display: block;
+      display: inline-block;
       text-align: center;
       width: 100%;
       text-transform: uppercase;
