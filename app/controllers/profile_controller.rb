@@ -7,14 +7,18 @@ class ProfileController < Devise::RegistrationsController
 
 
   def show_profile
+    @exhibitions = [];
+    current_user.places.each do |p|
+      p.exhibitions.each do |e|
+        @exhibitions << e
+      end
+    end
     render "show"
   end
 
   def index_by_status
     if params[:status]
-      if params[:status] = "artists"
-        @users = User.artists
-      end
+      @users = User.where(main_status: params[:status])
     end
   end
 

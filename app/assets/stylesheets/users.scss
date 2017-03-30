@@ -176,5 +176,28 @@
         text-align: left;
       }
     }
+    .items-list {
+      .item {
+        border: 1px solid black;
+        padding: $small-pad;
+        padding-bottom: 3*$small-pad;
+        margin-bottom: $small-pad;
+        p {
+          margin: 0;
+          font-size: .9em;
+          margin-bottom: 5px;
+        }
+        .title {
+          font-size: 1.5em;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-bottom: 16px;
+        }
+        a {
+          border-left: 2px solid #444;
+          background-color: #444;
+        }
+      }
+    }
   }
 }

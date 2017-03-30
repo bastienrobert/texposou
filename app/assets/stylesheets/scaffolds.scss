@@ -14,6 +14,10 @@ body {
   color: green;
 }
 
+.pad-bottom-big {
+  padding-bottom: $big-pad !important;
+}
+
 .profile-photo {
   width: 100px;
   height: 100px;

@@ -1,5 +1,6 @@
 class ParticipationsController < ApplicationController
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:quick_create]
 
   authorize_resource
 
@@ -25,6 +26,8 @@ class ParticipationsController < ApplicationController
   # GET /participations/1/edit
   def edit
   end
+
+
 
   # POST /participations
   # POST /participations.json

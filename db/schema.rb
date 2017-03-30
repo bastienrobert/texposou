@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330151856) do
+ActiveRecord::Schema.define(version: 20170330171930) do
 
   create_table "art_tags", force: :cascade do |t|
     t.string   "name",       null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170330151856) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.integer  "area",          null: false
+    t.integer  "area"
     t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20170330151856) do
     t.string   "address",     null: false
     t.integer  "zipcode",     null: false
     t.string   "city",        null: false
-    t.float    "area_max",    null: false
+    t.integer  "area_max"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
