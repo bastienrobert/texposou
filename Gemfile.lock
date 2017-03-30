@@ -239,7 +239,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   listen (~> 3.0.5)
-  paperclip (~> 4.2)
+  paperclip
   pg
   puma (~> 3.0)
   rails (~> 5.0.2)
