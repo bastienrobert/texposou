@@ -25,6 +25,10 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
 
+STATUS_ARTIST = 'artist'
+
+  scope :artists, -> { where(main_status: STATUS_ARTIST) }
+
 
   has_many :users_tag_parts
   has_many :art_tags, :through => :users_tag_parts

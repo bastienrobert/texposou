@@ -12,7 +12,9 @@ class ProfileController < Devise::RegistrationsController
 
   def index_by_status
     if params[:status]
-      @users = User.where(main_status: params[:status])
+      if params[:status] = "artists"
+        @users = User.artists
+      end
     end
   end
 
