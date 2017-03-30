@@ -18,9 +18,12 @@
         </div>
       </div>
       <div class="col-md-9">
+        <% testUser = false %>
+
         <section class="grid-body">
           <% @users.each do |user| %>
-          <% if user.avatar %>
+          <% if user.avatar.exists? %>
+            <% testUser = true %>
             <%= link_to show_by_id_path(user.id) do %>
             <article class="grid-item">
               <%= image_tag user.avatar.url %>
@@ -32,6 +35,9 @@
             <% end %>
           <% end %>
         </section>
+        <% if !testUser %>
+        <p>Il n'y a pas d'artiste correspondant à votre recherche</p>
+        <% end %>
       </div>
     </div>
     <%= link_to 'Voir plus', root_path, class: "grid-add" %>

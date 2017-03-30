@@ -27,9 +27,7 @@
                         <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
                         <h2>Editer mon profil</h2>
                         <% if @user.avatar %>
-                        <div class="profile-photo top-right">
-                          <%= image_tag @user.avatar.url, class:"profile-photo" %>
-                        </div>
+                        <div class="profile-photo top-right" <% if @user.avatar.exists? %>style="background-image:url(<%= @user.avatar.url %>)" <% end %>></div>
                         <% end %>
                         <% if @user.errors.any? %>
                         <div id="error_explanation">
@@ -47,7 +45,10 @@
                         <%= f.text_field :zipcode, class: "form-control", placeholder: "Code postal", pattern: "^(([0-8][0-9])|(9[0-5]))[0-9]{3}$" %>
                         <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
                         <%= f.text_field :tel, class: "form-control", placeholder: "Téléphone", pattern: '^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$' %>
-                        <%= f.file_field :avatar, class: "form-control", placeholder: "Avatar" %>
+                        <div class="form-group">
+                          <%= f.label :avatar, value:"Photo de profil" %>
+                          <%= f.file_field :avatar, class: "", placeholder: "Avatar" %>
+                        </div>
                         <div id="art_tag_manage">
                             <h3>Tags</h3>
                             <div class="art_tag_form">
@@ -181,7 +182,7 @@
                     <% if @user.places.first %>
                       <%= link_to "Créer un évenement", add_exhibition_path(@user.places.first),  class: "form-action main-action" %>
                     <% else %>
-                      <p>Vous devez créer un lieux avant de mettre une expo</p>
+                      <p>Vous devez créer un lieu avant de créer un évenement</p>
                       <%= link_to "Créer un lieu", new_place_path, class: "form-action main-action" %>
                     <% end %>
                   </div>

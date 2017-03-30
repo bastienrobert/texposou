@@ -7,6 +7,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_devise_parameters, if: :devise_controller?
 
   def home
+    @places = Place.last(5)
+    @exhibitions = Exhibition.last(5)
+    artists = User.where(main_status: "artist")
+    artistWithAvatar = []
+    artists.each do |a|
+      if a.avatar.exists?
+        artistWithAvatar << a
+      end
+    end
+    @artist = artistWithAvatar.first
   end
 
   def configure_devise_parameters

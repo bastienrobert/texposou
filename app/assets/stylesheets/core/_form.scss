@@ -232,6 +232,10 @@ form.form-type-costum {
 
 .form-action-container {
   display: inline-block;
+  .form-action{
+    display: inline-block;
+    width: auto;
+   }
 }
 
 .form-action{

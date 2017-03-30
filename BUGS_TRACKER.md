@@ -13,3 +13,4 @@
 - add alert in profile => place#new event#new
 - profile button full height
 - rajouter radio pour changer particular/professional dans registration#new
+- rajouter la flèche avant les liens sur la homepage

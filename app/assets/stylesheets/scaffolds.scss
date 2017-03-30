@@ -18,10 +18,9 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  img {
-    min-width: 100px;
-    min-height: 100px;
-  }
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 p {
@@ -39,6 +38,7 @@ pre {
 
 a {
   text-decoration: none !important;
+  color: black;
 }
 
 th {
