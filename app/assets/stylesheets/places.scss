@@ -43,3 +43,68 @@
     }
   }
 }
+
+#places-show {
+  padding-top:5em;
+  .row {
+    margin:0;
+  }
+  .panel-left {
+    text-align: center;
+    .name {
+      font-size: 1.5em;
+      letter-spacing: 2px;
+      position: relative;
+      line-height: 2.5em;
+      margin:0;
+      text-align: center;
+      span {
+        padding:0 5px;
+        background-color: white;
+        position: relative;
+        z-index: 2;
+      }
+      &::after {
+        content:"";
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        background-color: #0000FF;
+        left: 25%;
+        top: 50%;
+        margin:0;
+        @include transform(scaleX(1));
+      }
+  }
+    .infos-place {
+      p {
+        margin:0;
+        padding:0.5em 0;
+        span {
+          font-weight:bold;
+        }
+      }
+    }
+    img {
+      margin:1em 0;
+      width:50%;
+    }
+  }
+
+  .panel-right {
+    padding-top:4em;
+    #about-place {
+      font-size: 1.5em;
+      letter-spacing: 2px;
+      position: relative;
+      line-height: 2.5em;
+      padding:1em 0;
+      margin:0;
+    }
+    p {
+      margin:0;
+      text-align: justify;
+    }
+  }
+
+}

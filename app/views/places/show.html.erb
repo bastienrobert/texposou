@@ -1,50 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+<div id="places-show">
+  <section>
+    <div class="row">
+      <div class="col-md-6 panel-left">
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
+        <p class="name"><span>La Galerie</span></p>
+        <div class="infos-place">
+          <p>Nom du galeriste : <span><%= @place.name %></span></p>
+          <p>Organisateur : <%= @place.user %></p>
+          <p>Surface : <%= @place.area_max %> m2</p>
+          <p><%= @place.address %> <%= @place.zipcode %> <%= @place.city %></p>
+        </div>
+        <p class="name"><span>Expos organisés</span></p>
+        <div class="infos-place">
+          <% @place.exhibitions.each do |exhibition| %>
+          <p><%= link_to exhibition.name, exhibition %></p>
+          <% end %>
+        </div>
+        <p class="name"><span>Photos</span></p>
+        <% if @place.image_places.first %>
+        <%= image_tag @place.image_places.first.file.url %>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @place.address %>
-</p>
+      <div class="col-md-6 panel-right">
+        <p id="about-place">À propos de ce lieu</p>
+        <p><%= @place.description %></p>
+      </div>
+    </div>
+  </section>
+</div>
 
-<p>
-  <strong>Zipcode:</strong>
-  <%= @place.zipcode %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @place.city %>
-</p>
-
-<p>
-  <strong>Area max:</strong>
-  <%= @place.address %>
-</p>
-<strong>User:</strong>
-<%= @place.user %>
-</p>
-
-<h2>Liste des exhibitions</h2>
-  <% @place.exhibitions.each do |exhibition| %>
-  <li><%= link_to exhibition.name, exhibition %></li>
-  <% end %>
-</ul>
-
-<h2>Liste des images</h2>
-  <% @place.image_places.each do |i| %>
-   <%= image_tag i.file.url(:thumb) %> <%= i.id %>
-  <% end %>
-</ul>
-
+<% if current_user && @place.user.id == current_user.id %>
 <%= link_to 'Add exhibition', add_exhibition_path(@place) %> |
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
+<% end %>
