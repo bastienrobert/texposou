@@ -21,8 +21,4 @@
 
 
 # Bug Tracker
-- enlever place#new area max
-- rajouter bouton supprimer l'account
-- profile button full height
 - rajouter radio pour changer particular/professional dans registration#new
-- rajouter la flèche avant les liens sur la homepage

@@ -114,10 +114,10 @@
                             <i>(we need your current password to confirm your changes)</i>
                             <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
                         </div>
-
                         <div class="form-action-container">
                             <%= f.submit "Update", class: "form-action main-action" %>
                         </div>
+                        <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Vous êtes sur ?" }, method: :delete, class: "form-action force-border" %>
                         <% end %>
                   </div>
                 </div>
