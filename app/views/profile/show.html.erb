@@ -145,7 +145,11 @@
                 <div id="tabs-4" class="tab-profile">
                   <h2>Mes lieux</h2>
                   <div class="items-list">
-
+                    <div>
+                      <% current_user.places.each do |p| %>
+                        <%= link_to p.name, place_path(p) %>
+                      <% end %>
+                    </div>
                     <div class="form-action-container">
                         <%= link_to "Ajouter un lieu", new_place_path, class: "form-action main-action" %>
                     </div>

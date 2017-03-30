@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :users_tag_parts
   has_many :art_tags, :through => :users_tag_parts
   has_many :visits
+  has_many :places
 
   has_many :image_users
   accepts_nested_attributes_for :image_users, allow_destroy: true, reject_if: proc { |attributes| attributes['file'].blank? }
