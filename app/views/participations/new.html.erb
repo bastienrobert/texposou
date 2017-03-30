@@ -1,5 +1,9 @@
-<h1>New Participation</h1>
-
-<%= render 'form', participation: @participation %>
-
-<%= link_to 'Back', participations_path %>
+<div class="container-fluid participation-form">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= link_to "", :back, :class => "back" %>
+      <h3>Participer à l'exposition ?</h3>
+      <%= render 'form', participation: @participation %>
+    </div>
+  </div>
+</div>
