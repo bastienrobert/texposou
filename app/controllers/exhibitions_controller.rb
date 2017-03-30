@@ -1,5 +1,6 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exhibition, only: [:show, :edit, :update, :destroy]
+  before_action :set_places_user, only: [:new, :edit]
   before_action :authenticate_user!, except: [:index, :show]
 
   authorize_resource
@@ -18,7 +19,6 @@ class ExhibitionsController < ApplicationController
 
   # GET /exhibitions/new
   def new
-
     @exhibition = Exhibition.new
     if params[:id]
       @exhibition.place = Place.find(params[:id])
@@ -80,6 +80,9 @@ class ExhibitionsController < ApplicationController
       @place = Place.find(@exhibition.place_id)
     end
 
+    def set_places_user
+      @places = current_user.places
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
       params.require(:exhibition).permit(:name, :description, :opening_at, :closing_at, :artists_max, :area_left, :area_max, :price_per_day_per_area, :place_id, :all_tags)
