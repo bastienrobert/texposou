@@ -3,6 +3,8 @@ header {
   top: 0;
   position: relative;
   z-index: 999;
+  text-transform: uppercase;
+
   p {
     padding:0;
     margin:0;
@@ -10,7 +12,7 @@ header {
 
   a {
     text-decoration: none !important;
-    color: black !important; 
+    color: black !important;
     &:hover {
       color: $color-6 !important;
     }

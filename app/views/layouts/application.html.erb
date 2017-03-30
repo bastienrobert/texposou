@@ -27,12 +27,13 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse main-nav navbar-collapse" id="bs-example-navbar-collapse-1">
-            <% if user_signed_in? %>
-            <p class="navbar-left bvn-msg"> <%= t "hello" %> <%= link_to(show_profile_path) do %><%= current_user.firstname %> <%= current_user.lastname %><% end %> !</p>
-            <% end %>
 
             <ul class="nav navbar-nav" id="btns-container">
-
+              <% if user_signed_in? %>
+              <li class="btn-header">
+                <p class="navbar-right"><span><%= link_to "Mon profil", show_profile_path(current_user) %></span></p>
+              </li>
+              <% end %>
               <li class="btn-header">
                 <p class="navbar-right"><%= link_to "Trouver un artiste", index_profile_status_path("artist") %></p>
               </li>
