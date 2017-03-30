@@ -1,41 +1,40 @@
-<div class="container">
-  <div class="row row-exhibitions">
-    <p id="notice"><%= notice %></p>
-    <h1>Les évenements à venir</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="filters">
-            <div class="bloc">
-              <input type="checkbox" name="sculpture" id="sculpture">
-              <label for="sculpture">Sculpture</label>
-            </div>
-            <div class="bloc">
-              <input type="checkbox" name="photo" id="photo">
-              <label for="photo">Photo</label>
-            </div>
-            <div class="bloc">
-              <input type="checkbox" name="peinture" id="peinture">
-              <label for="peinture">Peinture</label>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <section id="exhibition">
-            <% @exhibitions.each do |exhibition| %>
-              <%= link_to(exhibition) do %>
-              <article>
-                <img src="https://placehold.it/350x250" alt="">
-                <div class="content">
-                  <h4><%= exhibition.opening_at.strftime("Ouvre le %d/%m/%Y") %> à <%= exhibition.place.address %></h4>
-                  <h3><%= exhibition.participations.each do |artist| %> artist.email <% end %></h3>
-                </div>
-              </article>
-              <% end %>
-            <% end %>
-          </section>
+<section class="page-header-banner exhibition-banner">
+  <div class="title-container">
+    <h1>Nos <br>Evenements</h1>
+  </div>
+</section>
+
+<div class="container grid-parent exhibition-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="search-form">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Où ?">
+          <button type="submit">Rechercher</button>
         </div>
       </div>
     </div>
+    <div class="col-md-9">
+      <section class="grid-body">
+        <% @exhibitions.each do |exhibition| %>
+        <% if exhibition.place.image_places.first %>
+          <%= link_to(exhibition) do %>
+          <article class="grid-item">
+            <%= image_tag exhibition.place.image_places.first.file.url %>
+            <div class="content">
+              <p class="title"><%= exhibition.name %></p>
+              <p class="mention"><%= exhibition.participations.length %> artistes participants</p>
+
+            </div>
+          </article>
+          <% end %>
+          <% end %>
+        <% end %>
+      </section>
+    </div>
   </div>
+
+  <%= link_to 'Voir plus', exhibitions_path, class: "grid-add" %>
+
 </div>
+  

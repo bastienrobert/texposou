@@ -5,9 +5,41 @@
 
 .place-banner {
   background-image: image-url("places/places_page.png");
+
+  .title-container {
+    h1 {
+      &::after{
+        content: "Lieux";
+        text-transform: uppercase;
+        font-size: inherit;
+        letter-spacing: 4px;
+        position: absolute;
+        bottom: 5%;
+        left: 4%;
+        font-weight: 100;
+        z-index:1;
+      }
+    }
+  }
 }
 
 // Le reste des style se trouve dans grid-scaffold
 .place-body {
   //Surcharge des styles
+}
+
+@media screen and (max-width: 900px){
+  .page-header-banner {
+    background-size: 0px;
+    height: 40vh;
+    text-align: center;
+    .title-container {
+      position: relative;
+      top:auto;
+      right: auto;
+      float: none;
+      padding: 100px 0;
+      margin-right: 0;
+    }
+  }
 }
