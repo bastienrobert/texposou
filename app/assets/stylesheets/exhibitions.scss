@@ -116,12 +116,12 @@
     }
     h1 {
       &::after{
-        content: "Evenements" !important;
+        content: "" !important;
         text-transform: uppercase;
         font-size: inherit;
         letter-spacing: 4px;
         position: absolute;
-        bottom: 5%;
+        bottom: 3%;
         left: 2%;
         font-weight: 100;
         z-index:1;

@@ -1,6 +1,6 @@
 <section class="page-header-banner exhibition-banner">
   <div class="title-container">
-    <h1>Nos <br>Evenements</h1>
+    <h1>Nos lieux<br>disponibles</h1>
   </div>
 </section>
 
@@ -17,7 +17,7 @@
     <div class="col-md-9">
       <section class="grid-body">
         <% @exhibitions.each do |exhibition| %>
-        <% if exhibition.place.image_places.first %>
+        <% if exhibition.place && exhibition.place.image_places.first %>
           <%= link_to(exhibition) do %>
           <article class="grid-item">
             <%= image_tag exhibition.place.image_places.first.file.url %>

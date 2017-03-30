@@ -7,7 +7,8 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions
   # GET /exhibitions.json
   def index
-    @exhibitions = Exhibition.all.sort_by &:opening_at
+    @exhibitions = Exhibition.all
+    # .sort_by &:opening_at
   end
 
   # GET /exhibitions/1
@@ -17,9 +18,13 @@ class ExhibitionsController < ApplicationController
 
   # GET /exhibitions/new
   def new
+
     @exhibition = Exhibition.new
-    if params[:id] && Place.find(params[:id])
-      @exhibition.place_id = params[:id]
+    if params[:id]
+      @exhibition.place = Place.find(params[:id])
+    else
+      flash[:notice] = "Vous n'avez pas de lieux de créer"
+      redirect_to show_profile_path
     end
   end
 
