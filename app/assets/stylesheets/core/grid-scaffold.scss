@@ -35,44 +35,35 @@
       z-index:1;
       margin-top: 0;
       background-color: white;
-      &::before {
-        content: "Lieux";
-        text-transform: uppercase;
-        font-size: inherit;
-        letter-spacing: 4px;
-        position: absolute;
-        bottom: 5%;
-        left: 4%;
-        font-weight: 100;
-        z-index:1;
-      }
     }
   }
 }
 
 .grid-parent {
   text-align: center;
-  .search-form {
-    text-align: left;
-    input {
-      margin:1em 0;
-      width:10em;
-      border-radius: 0;
-      border:2px solid black;
-      &::placeholder-shown, &::placeholder{
-        color:black;
+    .search-form {
+      text-align: left;
+      background-color: white;
+      z-index: 1;
+      input {
+        margin:1em 0;
+        width:10em;
+        border-radius: 0;
+        border:2px solid black;
+        &::placeholder-shown, &::placeholder{
+          color:black;
+        }
+      }
+      button {
+        text-transform: uppercase;
+        background-color: black;
+        color:white;
+        font-size: 0.8em;
+        padding:0.7em 1em;
+        letter-spacing: 2px;
+        border:0;
       }
     }
-    button {
-      text-transform: uppercase;
-      background-color: black;
-      color:white;
-      font-size: 0.8em;
-      padding:0.7em 1em;
-      letter-spacing: 2px;
-      border:0;
-    }
-  }
   .grid-body {
     text-align: left;
      -webkit-columns: 230px;
@@ -118,6 +109,7 @@
            letter-spacing: 4px;
            color: #0000FF;
            margin-bottom: 20px;
+           line-height: 20px;
          }
        }
        &:hover {
@@ -142,21 +134,5 @@
     color:white;
     text-transform: uppercase;
     letter-spacing: 2px;
-  }
-}
-
-@media screen and (max-width: 900px){
-  .page-header-banner {
-    background-size: 0px;
-    height: 40vh;
-    text-align: center;
-    .title-container {
-      position: relative;
-      top:auto;
-      right: auto;
-      float: none;
-      padding: 100px 0;
-      margin-right: 0;
-    }
   }
 }
