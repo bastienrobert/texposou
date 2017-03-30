@@ -4,6 +4,14 @@
   // border-bottom: 1px solid #DDD;
 }
 
+.row {
+  margin: 0;
+}
+.wrapper {
+  width:80%;
+  margin:auto;
+}
+
 #landing {
   height: 100vh;
   padding-top: 0;
@@ -65,17 +73,12 @@
 
 #lastExhib {
   .list-exhibition {
-    width: 60%;
-    display: inline-block;
-    float: left;
     padding-bottom: 100px;
     ul {
       margin: 60px 0;
-      margin-left: 20%;
-      width: 80%;
       li {
         text-transform: uppercase;
-        padding-left: 40px;
+        padding-left: 70px;
         font-size: 1.5em;
         letter-spacing: 5px;
         position: relative;
@@ -130,68 +133,77 @@
       }
     }
   }
-  .photo-pres {
-    width: 40%;
-    display: inline-block;
-    height: 80vh;
-    min-height: 500px;
-    float: left;
-    background-image: image-url("places/place1.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+
+    .photo-pres {
+      height:60vh;
+      min-width: 30vw;
+      max-width: 100vw;
+      background-image: image-url("places/place1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+  .clr {
+    margin-top: 2em;
+    margin-left: 2em;
   }
 }
 
 #lastPlace {
   .banner {
+    display: flex;
+    justify-content: flex-end;
     margin: 50px 0;
-    height: 350px;
+    width:100%;
+    height: 385px;
     background-image: image-url("places/place2.jpg");
     background-size: cover;
     background-position: center;
     padding: 20px;
     position: relative;
     .content {
-      padding: 30px;
+      padding: 25px;
       margin-top: 25px;
       background-color: white;
-      position: absolute;
       width: 40%;
-      right: 128px;
+      min-width: 25em;
+
+      margin-right: 7%;
       .title {
         font-size: 2em;
         text-transform: uppercase;
         letter-spacing: 5px;
       }
       p {
+        font-size: 1em;
         margin: 33px 0;
       }
     }
+  }
+  .wrapper {
+    margin-left: 2em;
   }
 }
 
 
 #lastArtist {
+
   p {
     margin: 0;
   }
   h2 {
-
+    margin-bottom: 2em;
   }
   .left-panel {
-    width: 60%;
-    display: inline-block;
-    padding-left: 20%;
-    padding-top: 50px;
-    float: left;
+    padding-top: 20px;
     .title {
       text-transform: uppercase;
       font-size: 1.5em;
       letter-spacing: 5px;
       position: relative;
       line-height: 2.5em;
-      padding-left: 20px;
+      margin-left: 10%;
       span {
         padding:0 3px;
         background-color: white;
@@ -220,17 +232,35 @@
     }
     .description {
       margin-right: 50px;
+      width: 80%;
+      min-width: 10%;
+      position:relative;
     }
   }
-  .right-panel {
-    width: 40%;
-    float: right;
-    height: 400px;
-    max-height: 100vh;
-    display: inline-block;
-    background-image: image-url("artists/artiste1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    .right-panel {
+      margin-top: 2em;
+      height:60vh;
+      min-width: 30vw;
+      max-width: 100vw;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  .clr {
+    padding-top: 2em;
+    margin-left: 2em;
+  }
+}
+
+@media screen and (min-width:995px){
+  #lastExhib {
+    .photo-pres {
+      min-height: 40vh;
+    }
+  }
+  #lastArtist {
+    .right-panel {
+      min-height: 40vh;
+    }
   }
 }

@@ -15,18 +15,21 @@
 </section>
 <section id="lastExhib">
   <div class="wrapper">
-    <div class="list-exhibition" >
-      <h2>Les derniers<br> lieux</h2>
-      <ul>
-        <li class="active"><span>L'accuse</span></li>
-        <li><span>Octopus kingdom</span></li>
-        <li><span>Banksy</span></li>
-        <li><span>Cheval</span></li>
-        <li><span>Banksy</span></li>
-        <li><span>Octopus kingdom</span></li>
-      </ul>
+    <div class='row'>
+      <div class="list-exhibition col-md-7" >
+        <h2>Les derniers<br> lieux</h2>
+        <ul>
+          <li class="active"><span>L'accuse</span></li>
+          <li><span>Octopus kingdom</span></li>
+          <li><span>Banksy</span></li>
+          <li><span>Cheval</span></li>
+          <li><span>Banksy</span></li>
+          <li><span>Octopus kingdom</span></li>
+        </ul>
+      </div>
+      <div class="photo-pres clr-after col-md-5"></div>
     </div>
-    <div class="photo-pres clr-after "></div>
+
     <div class="clr">
       <%= link_to "Tous les lieux", places_path, class:"list_link" %>
     </div>
@@ -60,27 +63,28 @@ Faites en bon usage. </p>
 </section>
 <% if @artist %>
 <section id="lastArtist" class="wrapper">
-
   <h2>À la<br>découverte<br>d'un artiste</h2>
-  <div class="left-panel">
-    <p class="title"><span><%= @artist.lastname %></span></p>
-    <p class="art_tags_list">Street-art - peinture</p>
-    <p class="description">
-    Maître de l'art urbain, Banksy est et restera entouré
-    de ce mystère palpable qui le rend si unique.
-    Vecteur humoristique, il mélange différents styles et
-    rappelle à la fois les techniques de Warhol et la patte
-    de Ernest Pignon-Ernest, Miss.Tic, Jeff Aérosol ou encore
-    Blek le rat. Son message est souvent antimilitariste, anticapitaliste,
-    voire même tout simplement antisystème. Il représente souvent des rats, des singes,
-    des policiers, des soldats, des enfants et des personnages célèbres.
-    Ainsi, il possède sa propre signature et est parfaitement reconnaissable dans
-    le milieu du Street Art.
-    </p>
-  </div>
-  <div class="right-panel" style="background-image:url(<%= @artist.avatar.url %>)"></div>
-  <div class="clr">
-    <%= link_to "Tous les artistes", index_profile_status_path("artist"), class:"list_link" %>
+  <div class="row">
+    <div class="left-panel col-md-7">
+      <p class="title"><span><%= @artist.lastname %></span></p>
+      <p class="art_tags_list">Street-art - peinture</p>
+      <p class="description">
+      Maître de l'art urbain, Banksy est et restera entouré
+      de ce mystère palpable qui le rend si unique.
+      Vecteur humoristique, il mélange différents styles et
+      rappelle à la fois les techniques de Warhol et la patte
+      de Ernest Pignon-Ernest, Miss.Tic, Jeff Aérosol ou encore
+      Blek le rat. Son message est souvent antimilitariste, anticapitaliste,
+      voire même tout simplement antisystème. Il représente souvent des rats, des singes,
+      des policiers, des soldats, des enfants et des personnages célèbres.
+      Ainsi, il possède sa propre signature et est parfaitement reconnaissable dans
+      le milieu du Street Art.
+      </p>
+    </div>
+    <div class="right-panel col-md-5" style="background-image:url(<%= @artist.avatar.url %>)"></div>
+    <div class="clr">
+      <%= link_to "Tous les artistes", index_profile_status_path("artist"), class:"list_link" %>
+    </div>
   </div>
 </section>
 <% end %>
