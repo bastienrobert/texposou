@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20170330085051) do
     t.integer  "zipcode"
     t.string   "tel"
     t.string   "status",                 default: "visitor", null: false
+    t.string   "main_status",            default: "visitor", null: false
     t.boolean  "admin",                  default: false,     null: false
     t.boolean  "banned",                 default: false,     null: false
     t.string   "reset_password_token"

@@ -11,6 +11,7 @@ class ProfileController < Devise::RegistrationsController
   end
 
   def index_by_status
+    @users = User.all
   end
 
   def show_by_id
@@ -20,6 +21,19 @@ class ProfileController < Devise::RegistrationsController
     end
   end
 
+  def new
+    if params[:status]
+      if params[:status] == "artist" || params[:status] == "particular" || params[:status] == "professional"
+        @status = params[:status]
+      end
+    end
+    super
+  end
+
+
+  def after_sign_up_path_for(resource)
+    show_profile_path
+  end
 
   def update_profile
     respond_to do |format|
@@ -45,7 +59,11 @@ class ProfileController < Devise::RegistrationsController
       end
     end
 
+    def sign_up_params
+      params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation, :main_status)
+    end
+
     def profile_params
-      params.require(:user).permit(:firstname, :lastname, :address, :city, :zipcode, :firstname, :tel, :all_tags, :avatar, image_users_attributes:[ :id, :alt, :file, :_destroy ])
+      params.require(:user).permit(:firstname, :lastname, :address, :city, :zipcode, :firstname, :tel, :all_tags, :avatar, :main_status, image_users_attributes:[ :id, :alt, :file, :_destroy ])
     end
 end

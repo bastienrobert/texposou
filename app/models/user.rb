@@ -39,6 +39,19 @@ class User < ApplicationRecord
 
   # attr_accessor :all_tags
   # accepts_nested_attributes_for :art_tags, allow_destroy: false
+  attr_accessor :main_status
+
+  def main_status=(status)
+    if ['visitor', 'professional', 'particular', 'artist'].include? status
+      write_attribute(:main_status, status)
+      self.add_status(status)
+    else
+      write_attribute(:main_status, "visitor")
+    end
+  end
+
+  def main_status
+  end
 
   def all_tags=(names)
     self.art_tags = names.split(",").map do |name|
@@ -77,6 +90,9 @@ class User < ApplicationRecord
       end
     end
   end
+
+
+
 
   def to_s
     "#{firstname.capitalize} #{lastname.upcase}"

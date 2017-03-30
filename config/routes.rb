@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     post "profile/update", to: "profile#update_profile", as: :update_profile
     get "profile/:id/show", to: "profile#show_by_id", as: :show_by_id
 
+    get "users/sign_up/:status", to: "profile#new", as: :new_user_registration_status
   end
 
 

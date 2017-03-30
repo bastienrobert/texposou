@@ -10,11 +10,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :city
       t.integer :zipcode
       t.string :tel
+
       ## User status
       # artist
       # individual
       # professional
       t.string :status,             null: false, default: "visitor"
+      t.string :main_status,        null: false, default: "visitor"
       t.boolean :admin,             null: false, default: "false"
       t.boolean :banned,            null: false, default: "false"
 
