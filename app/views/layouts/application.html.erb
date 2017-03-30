@@ -71,9 +71,13 @@
 
     <%= yield %>
 
-<% if (controller.controller_name == 'registrations' && controller.action_name == 'edit') || (controller.controller_name == 'registrations' && controller.action_name == 'new') || (controller.controller_name == 'sessions' && controller.action_name == 'new') %>
+<% if (controller.controller_name == 'registrations' && controller.action_name == 'edit') || (controller.controller_name == 'registrations' && controller.action_name == 'new') || (controller.controller_name == 'sessions' && controller.action_name == 'new') || (controller.controller_name == 'participations' && controller.action_name == 'new') %>
 
+<% if (controller.controller_name == 'participations' && controller.action_name == 'new') %>
+  <footer class="force-bottom">
+<% else %>
   <footer>
+<% end %>
     <div class="container-fluid" id="footer-1">
       <div class="row">
         <div class="col-sm-5" id="title">
