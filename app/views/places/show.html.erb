@@ -34,11 +34,7 @@
 
   <div class="btn-action">
     <% if current_user && @place.user.id == current_user.id %>
-<<<<<<< Updated upstream
-    <%= link_to 'Add exhibition', new_place_exhibition_path(@place), class:"form-action" %>
-=======
-    <%= link_to 'Add exhibition', add_place_exhibition_path(@place), class:"form-action" %>
->>>>>>> Stashed changes
+    <%= link_to 'Add exhibition', add_exhibition_path(@place), class:"form-action" %>
     <%= link_to 'Edit', edit_place_path(@place), class:"form-action" %>
     <%= link_to 'Back', places_path, class:"form-action" %>
     <% end %>

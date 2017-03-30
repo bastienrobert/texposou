@@ -19,6 +19,7 @@
 - dynamiser la home page
 - dernier lieu homepage
 - rajouter lien de visite du profile sur profile#show
+- faire recherche fonctionnel des artiste / des places / des expos
 
 
 

@@ -58,14 +58,12 @@ Faites en bon usage. </p>
     <%= link_to "Toutes les expositions", exhibitions_path, class:"list_link" %>
   </div>
 </section>
-
+<% if @artist %>
 <section id="lastArtist" class="wrapper">
-  <% if @artist %>
-  <%= debug @artist %>
-  <% end %>
+
   <h2>À la<br>découverte<br>d'un artiste</h2>
   <div class="left-panel">
-    <p class="title"><span>Banksy</span></p>
+    <p class="title"><span><%= @artist.lastname %></span></p>
     <p class="art_tags_list">Street-art - peinture</p>
     <p class="description">
     Maître de l'art urbain, Banksy est et restera entouré
@@ -80,8 +78,9 @@ Faites en bon usage. </p>
     le milieu du Street Art.
     </p>
   </div>
-  <div class="right-panel"></div>
+  <div class="right-panel" style="background-image:url(<%= @artist.avatar.url %>)"></div>
   <div class="clr">
     <%= link_to "Tous les artistes", index_profile_status_path("artist"), class:"list_link" %>
   </div>
 </section>
+<% end %>
