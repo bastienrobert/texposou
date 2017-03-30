@@ -2,8 +2,14 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_user, only: [:new]
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   authorize_resource
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
   # GET /places
   # GET /places.json
