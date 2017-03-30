@@ -10,7 +10,7 @@
 
     <div class="right-panel col-md-6">
       <p class='title'> <%= @exhibition.name %> </p>
-      <p class='adress'><span><%= @place.address %> <%= @place.zipcode %> <%= @place.city %></span></p>
+      <%= link_to @place do%><p class='adress'><span><%= @place.address %> <%= @place.zipcode %> <%= @place.city %></span></p><% end %>
       <p class="art_tags_list"><%= @exhibition.opening_at %></p>
       <p class="description">
         Circa hos dies Lollianus primae lanuginis

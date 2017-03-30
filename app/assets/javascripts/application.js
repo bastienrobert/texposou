@@ -171,10 +171,36 @@ ImageFormManage = {
   }
 }
 
+HPphotoClick = {
+  initClick:function(el){
+    var self = this;
+    el.addEventListener("click", function(){
+      var url = this.getAttribute("data-url");
+      if(url){
+        self.photo.setAttribute("style", "background-image:url(\""+url+"\")");
+      }
+    }, false)
+  },
+  initEvents:function(){
+    for(i=0; i<this.els.length; i++){
+      this.initClick(this.els[i])
+    }
+  },
+  init:function(){
+    this.el = document.getElementById("lastExhib");
+    if(this.el){
+      this.els = this.el.getElementsByClassName("update-bg");
+      this.photo = document.getElementById("photo-updated");
+      this.initEvents();
+    }
+  }
+}
+
 
 document.addEventListener("turbolinks:load", function() {
   ArtTagManage.init();
   ImageFormManage.init();
+  HPphotoClick.init();
   $( function() {
     $( "#tabs-profile" ).tabs();
   });

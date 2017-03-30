@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def home
     @places = Place.last(5)
-    @exhibitions = Exhibition.last(5)
+    @exhibition = Exhibition.last
     artists = User.where(main_status: "artist")
     artistWithAvatar = []
     artists.each do |a|

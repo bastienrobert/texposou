@@ -98,8 +98,6 @@ ActiveRecord::Schema.define(version: 20170330171930) do
     t.string   "city"
     t.integer  "zipcode"
     t.string   "tel"
-    t.string   "website"
-    t.text     "bio"
     t.string   "status",                 default: "visitor", null: false
     t.string   "main_status",            default: "visitor", null: false
     t.boolean  "admin",                  default: false,     null: false
@@ -119,6 +117,8 @@ ActiveRecord::Schema.define(version: 20170330171930) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "description"
+    t.string   "website"
+    t.string   "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
