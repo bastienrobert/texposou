@@ -130,8 +130,51 @@ ArtTagManage = {
   }
 }
 
+function createElement(str){
+  var frag = document.createElement("fragment");
+  frag.innerHTML = str;
+  return frag.firstChild;
+}
+
+ImageFormManage = {
+  initDeleteClick:function(el){
+    console.log(el);
+    var deleteEl = el.getElementsByClassName("delete")[0];
+    deleteEl.addEventListener("click", function(){
+      el.remove();
+    }, false)
+  },
+  add:function(){
+    this.idNew++
+    var prototype = this.container.getAttribute("data-prototype");
+    var el = createElement(prototype.replace(/__id__/g, this.idNew));
+    this.container.appendChild(el);
+    this.initDeleteClick(el);
+  },
+  initEvents:function(){
+    var self = this;
+    this.addButton.addEventListener("click", function(){
+      self.add();
+    }, false)
+  },
+  init:function(){
+    this.el = document.getElementById("img-form-manage");
+    if(this.el){
+      this.addButton = document.getElementById("add-img-button");
+      this.imgEls = this.el.getElementsByClassName("img-form");
+      this.imgForms = this.el.getElementsByClassName("add-img-form");
+      this.container = this.el.getElementsByClassName("img-forms")[0];
+      this.idNew = parseInt(this.el.getAttribute("data-id"));
+      this.initDeleteClick(this.imgForms[this.imgForms.length-1]);
+      this.initEvents();
+    }
+  }
+}
+
+
 document.addEventListener("turbolinks:load", function() {
   ArtTagManage.init();
+  ImageFormManage.init();
   $( function() {
     $( "#tabs-profile" ).tabs();
   });

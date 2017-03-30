@@ -18,7 +18,7 @@
                     <a href="#tabs-5">Mes Expositions</a>
                 </li>
                 <li>
-                    <a href="#tabs-6">Mes visits</a>
+                    <a href="#tabs-6">Mes visites</a>
                 </li>
             </ul>
             <div class="col-sm-8">
@@ -26,6 +26,11 @@
                     <div class="half">
                         <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
                         <h2>Editer mon profil</h2>
+                        <% if @user.avatar %>
+                        <div class="profile-photo top-right">
+                          <%= image_tag @user.avatar.url, class:"profile-photo" %>
+                        </div>
+                        <% end %>
                         <% if @user.errors.any? %>
                         <div id="error_explanation">
                             <h2><%= pluralize(@user.errors.count, "error") %>prohibited this user from being saved:</h2>
@@ -114,10 +119,10 @@
                     <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
                     <h2>Galerie photo</h2>
 
-                    <div class="img-container">
+                    <div id="img-form-manage" class="img-container" data-id="<%= @user.image_users.length %>">
                       <div class="img-list">
                         <% @user.image_users.each do |img_u| %>
-                        <div class="img-form">
+                        <div class="img-form" data-id="<%= img_u.id %>">
                             <%= f.fields_for :image_users, img_u do |ff| %>
                             <%= image_tag img_u.file.url(:thumb) %>
                             <div class="action">
@@ -128,14 +133,27 @@
                         </div>
                         <% end %>
                       </div>
-                        <div class="add-img-form">
-                            <h3>Images</h3>
-                            <% img_u = ImageUser.new %>
-                            <%= f.fields_for :image_users, img_u do |ff| %>
-                            <%= ff.file_field :file %>
-                            <%= ff.text_field :alt %>
-                            <% end %>
+                      <% if @user.image_users.length > 0 %>
+                      <hr>
+                      <% end %>
+
+                      <div class="img-forms" data-prototype="<div class='add-img-form'>
+                        <input name='user[image_users_attributes][__id__][file]' id='user_image_users_attributes___id___file' type='file'>
+                        <label class='label-file' for='user_image_users_attributes___id___file'>File</label>
+                        <input placeholder='Description image' name='user[image_users_attributes][__id__][alt]' id='user_image_users_attributes___id___alt' type='text'>
+                        <label class='delete' for='user_image_users_attributes___id___file'>File</label>
+                        </div>">
+                        <div class="add-img-form" >
+                          <% img_u = ImageUser.new %>
+                          <%= f.fields_for :image_users, img_u do |ff| %>
+                            <%= ff.file_field :file -%>
+                            <%= ff.label :file, class:"label-file" %>
+                            <%= ff.text_field :alt, placeholder: "Description de l'image" %>
+                            <label class="delete"></label>
+                          <% end %>
                         </div>
+                      </div>
+                      <input type="button" id="add-img-button" value="Ajouter une image" class="form-action main-action">
                     </div>
                     <div class="form-action-container">
                         <%= f.submit "Update", class: "form-action main-action" %>
@@ -160,7 +178,12 @@
                 <div id="tabs-5" class="tab-profile">
                   <h2>Mes expositions</h2>
                   <div class="form-action-container">
-                      <%= link_to "Créer une exposition", new_exhibition_path, class: "form-action main-action" %>
+                    <% if @user.places.first %>
+                      <%= link_to "Créer une expo", add_exhibition_path(@user.places.first),  class: "form-action main-action" %>
+                    <% else %>
+                      <p>Vous devez créer un lieux avant de mettre une expo</p>
+                      <%= link_to "Créer une exposition", new_place_path, class: "form-action main-action" %>
+                    <% end %>
                   </div>
                 </div>
                 <div id="tabs-6" class="tab-profile">
