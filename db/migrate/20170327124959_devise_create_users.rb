@@ -10,6 +10,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :city
       t.integer :zipcode
       t.string :tel
+      t.string :website
+      t.text :bio
 
       ## User status
       # artist

@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 20170330171930) do
     t.string   "city"
     t.integer  "zipcode"
     t.string   "tel"
+    t.string   "website"
+    t.text     "bio"
     t.string   "status",                 default: "visitor", null: false
     t.string   "main_status",            default: "visitor", null: false
     t.boolean  "admin",                  default: false,     null: false
