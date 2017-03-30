@@ -1,7 +1,7 @@
 
 .page-header-banner {
   background-repeat: no-repeat;
-  background-size: 55%;
+  background-size: 700px;
   background-position: left bottom;
   position: relative;
   padding-top:0;
@@ -14,7 +14,7 @@
     right: 0;
     top: 25vh;
     float: right;
-    margin-right: 3*$big-pad;
+    margin-right: 5*$big-pad;
     &::after {
       content:"";
       position: absolute;
@@ -41,7 +41,7 @@
         font-size: inherit;
         letter-spacing: 4px;
         position: absolute;
-        bottom: 4%;
+        bottom: 5%;
         left: 4%;
         font-weight: 100;
         z-index:1;
@@ -142,5 +142,21 @@
     color:white;
     text-transform: uppercase;
     letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .page-header-banner {
+    background-size: 0px;
+    height: 40vh;
+    text-align: center;
+    .title-container {
+      position: relative;
+      top:auto;
+      right: auto;
+      float: none;
+      padding: 100px 0;
+      margin-right: 0;
+    }
   }
 }

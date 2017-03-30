@@ -10,8 +10,6 @@
       <div class="search-form">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Où ?">
-          <input type="text" class="form-control" placeholder="Quand ?">
-          <input type="text" class="form-control" placeholder="Quoi ?">
           <button type="submit">Rechercher</button>
         </div>
       </div>
@@ -19,6 +17,7 @@
     <div class="col-md-9">
       <section class="grid-body">
         <% @places.each do |place| %>
+        <% if place.image_places.first %>
           <%= link_to(place) do %>
           <article class="grid-item">
             <%= image_tag place.image_places.first.file.url %>
@@ -27,6 +26,7 @@
               <p class="mention"><%= place.exhibitions.length %> expositions organisés</p>
             </div>
           </article>
+          <% end %>
           <% end %>
         <% end %>
       </section>
