@@ -44,6 +44,14 @@ class User < ApplicationRecord
     end
   end
 
+  def all_tags
+    self.art_tags.map(&:name).join(", ")
+  end
+
+  def self.tagged_with(name)
+    ArtTag.find_by_name!(name).users
+  end
+
   def has_status?(status)
     if self.status.match(status)
       return true
@@ -52,13 +60,22 @@ class User < ApplicationRecord
     end
   end
 
-  def all_tags
-    self.art_tags.map(&:name).join(", ")
+  def add_status(status)
+    unless self.status.match(status)
+      self.status += (" " + status)
+    end
   end
 
-  def self.tagged_with(name)
-    ArtTag.find_by_name!(name).users
+  def remove_status(status)
+    if self.status.match(status)
+      if self.status.split.first == status
+        self.status.slice! (status + " ")
+      else
+        self.status.slice! (" " + status)
+      end
+    end
   end
+
   def to_s
     "#{firstname.capitalize} #{lastname.upcase}"
   end
