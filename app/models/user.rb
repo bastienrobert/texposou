@@ -51,6 +51,7 @@ class User < ApplicationRecord
   end
 
   def main_status
+    super
   end
 
   def all_tags=(names)
