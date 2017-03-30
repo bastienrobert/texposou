@@ -1,0 +1,62 @@
+<h3>Exposant</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur repellendus id veniam debitis facere, numquam voluptas, ratione vel qui quaerat et neque recusandae illum minima explicabo, consectetur hic magnam.</p>
+
+<div class="contact">
+  <a href="#" class="btn">Contacter</a>
+  <a href="#" class="website">www.test.fr</a>
+</div>
+
+<div class="places well">
+  <h3>Lieux</h3>
+  <% @user.places.each do |place| %>
+    <%= link_to(place) do %>
+      <div class="place">
+        <div class="row">
+          <div class="col-md-3">
+            <h5><%= place.name %></h5><br>
+            <b><%= place.address %></b><br>
+            <b><%= place.zipcode %> <%= place.city %></b>
+          </div>
+          <div class="col-md-3 place-pic">
+            <% if place.image_places.first %>
+              <%= image_tag place.image_places.first %>
+            <% else %>
+              <img src="https://placehold.it/500x500" alt="">
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam accusamus, non nostrum voluptatem, assumenda id dignissimos ut quibusdam tempore placeat, veritatis vitae ab beatae animi alias consequuntur porro nihil mollitia.</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="next-expos well">
+  <h3>Prochains évènements</h3>
+  <% @user.places.each do |place| %>
+    <% place.exhibitions.each do |exhibition| %>
+      <%= link_to(exhibition) do %>
+        <div class="next">
+          <div class="row">
+            <div class="col-md-4">
+              <h5><%= exhibition.name %></h5>
+              <b>Artiste</b><br>
+              <b>Date</b>
+            </div>
+            <div class="col-md-8">
+              <p><%= exhibition.description %></p>
+              <!-- If we decide do add images to exhibitions -->
+              <!-- <div class="expo-pics">
+                <img src="http://placehold.it/1000x1000" alt="">
+                <img src="http://placehold.it/1000x1000" alt="">
+                <img src="http://placehold.it/1000x1000" alt="">
+              </div> -->
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

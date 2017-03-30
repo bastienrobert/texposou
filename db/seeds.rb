@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 type = ["artist", "professional", "particular", "visitor"]
 rank = 1;
 type.each do |t|

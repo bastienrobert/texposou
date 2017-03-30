@@ -1,6 +1,32 @@
-<h1><%= @user.firstname  %></h1>
-<h2>Liste des images</h2>
-  <% @user.image_users.each do |i| %>
-   <%= image_tag i.file.url(:thumb) %> <%= i.id %>
-  <% end %>
-</ul>
+<div class="container-fluid profile-page">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12">
+      <div class="well">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="pic">
+              <% if @user.avatar.exists? %>
+                <div class="img" <% if @user.avatar.exists? %>style="background-image:url(<%= @user.avatar.url %>)" <% end %>></div>
+              <% else %>
+                <div class="img" style="background-image:url(https://placehold.it/400x400)"></div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="name">
+              <h2><b><%= @user.firstname %></b> <%= @user.lastname  %></h2>
+              <% if current_user == @user %>
+                <%= link_to "Modifier", show_profile_path, class: "btn" %>
+              <% end %>
+            </div>
+            <% if @user.main_status == "artist" %>
+              <%= render "profile/partial/exhibitor" %>
+            <% elsif (@user.main_status == "professional" || @user.main_status == "particular") %>
+              <%= render "profile/partial/exhibitor" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

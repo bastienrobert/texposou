@@ -26,6 +26,9 @@ class ProfileController < Devise::RegistrationsController
     if params[:id] && User.find(params[:id])
       @user = User.find(params[:id])
       render "visit"
+    else
+      flash[:notice] = "Cette page n'existe pas"
+      redirect_to root_path
     end
   end
 
