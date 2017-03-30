@@ -44,23 +44,44 @@
               <%= f.label :area_max, 'Aire maximale' %>
               <%= f.text_field :area_max, class: "form-control", placeholder: "Aire maximale", autocomplete: "off" %>
             </div>
-            <div class="img-container">
-              <% place.image_places.each do |img_p| %>
-              <div class="img-form">
-                <%= f.fields_for :image_places, img_p do |ff| %>
-                  <%= image_tag img_p.file.url(:thumb) %>
-                  Delete: <%= ff.check_box :_destroy %>
+            <div id="img-form-manage" class="img-container" data-id="<%= @place.image_places.length %>">
+              <div class="img-list">
+                <% @place.image_places.each do |img_u| %>
+                <div class="img-form" data-id="<%= img_u.id %>">
+                    <%= f.fields_for :image_places, img_u do |ff| %>
+                    <%= image_tag img_u.file.url(:thumb) %>
+                    <div class="action">
+                      <%= ff.check_box :_destroy -%>
+                      <%= ff.label :_destroy, class:"label-for-check" %>
+                    </div>
+                    <% end %>
+                </div>
                 <% end %>
               </div>
+              <% if @place.image_places.length > 0 %>
+              <hr>
               <% end %>
-              <div class="add-img-form">
-                <% img_p = ImagePlace.new %>
-                <%= f.fields_for :image_places, img_p do |ff| %>
-                  <%= ff.file_field :file %>
-                  <%= ff.text_field :alt %>
-                <% end %>
+
+              <div class="img-forms" data-prototype="<div class='add-img-form'>
+                <input name='user[image_places_attributes][__id__][file]' id='user_image_places_attributes___id___file' type='file'>
+                <label class='label-file' for='user_image_places_attributes___id___file'>File</label>
+                <input placeholder='Description image' name='user[image_places_attributes][__id__][alt]' id='user_image_places_attributes___id___alt' type='text'>
+                <label class='delete' for='user_image_places_attributes___id___file'>File</label>
+                </div>">
+                <div class="add-img-form" >
+                  <% img_u = ImagePlace.new %>
+                  <%= f.fields_for :image_places, img_u do |ff| %>
+                    <%= ff.file_field :file -%>
+                    <%= ff.label :file, class:"label-file" %>
+                    <%= ff.text_field :alt, placeholder: "Description de l'image" %>
+                    <label class="delete"></label>
+                  <% end %>
+                </div>
               </div>
+              <input type="button" id="add-img-button" value="Ajouter une image" class="form-action main-action">
             </div>
+
+
           </div>
           <div class="form-action-container">
             <%= link_to "Back", :back, class:"form-action" %>
