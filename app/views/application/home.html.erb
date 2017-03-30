@@ -2,6 +2,12 @@
   <div class="panel-right">
     <h1>Texposoù?<br>_BORDEAUX</h1>
     <h3>Un artiste chez vous</h3>
+    <% if !current_user %>
+    <div class="actions-button">
+      <%= link_to "Deviens exposant !",  new_user_registration_status_path("professional"), class:"form-action main-button" %>
+      <%= link_to "Deviens artiste !",  new_user_registration_status_path("artist"), class:"form-action main-button" %>
+    </div>
+    <% end %>
   </div>
   <div class="form">
 

@@ -8,6 +8,14 @@ header {
     margin:0;
   }
 
+  a {
+    text-decoration: none !important;
+    color: black !important; 
+    &:hover {
+      color: $color-6 !important;
+    }
+  }
+
   .navbar {
     padding-right: 2em;
     min-height: 6em;

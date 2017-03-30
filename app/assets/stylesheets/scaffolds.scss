@@ -38,12 +38,7 @@ pre {
 }
 
 a {
-  color: #000;
   text-decoration: none !important;
-
-  &:hover {
-    color: $color-6 !important;
-  }
 }
 
 th {

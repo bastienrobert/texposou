@@ -12,3 +12,4 @@
 - resize avatar
 - add alert in profile => place#new event#new
 - profile button full height
+- rajouter radio pour changer particular/professional dans registration#new
