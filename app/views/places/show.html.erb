@@ -32,8 +32,10 @@
   </section>
 </div>
 
-<% if current_user && @place.user.id == current_user.id %>
-<%= link_to 'Add exhibition', add_exhibition_path(@place) %> |
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
-<% end %>
+  <div class="btn-action">
+    <% if current_user && @place.user.id == current_user.id %>
+    <%= link_to 'Add exhibition', add_exhibition_path(@place), class:"form-action" %>
+    <%= link_to 'Edit', edit_place_path(@place), class:"form-action" %>
+    <%= link_to 'Back', places_path, class:"form-action" %>
+    <% end %>
+  </div>

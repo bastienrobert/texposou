@@ -50,6 +50,11 @@
   }
 }
 
+.btn-action {
+  display: flex;
+  justify-content: center;
+}
+
 #places-show {
   padding-top:5em;
   .row {

@@ -28,15 +28,17 @@
         <% if user_signed_in? %>
         <%= link_to 'Visiter', exhibitions_path, class: "grid-add" %>
         <% end %>
-        <% if current_user.has_status?("artist") %>
+        <% if user_signed_in? && current_user.has_status?("artist") %>
         <%= link_to 'Participer', exhibitions_path, class: "grid-add" %>
         <%= link_to 'Contacter', exhibitions_path, class: "grid-add" %>
         <% end %>
         <br>
-        <% if current_user && @exhibition.place.user.id == current_user.id %>
-        <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
-        <%= link_to 'Back', exhibitions_path %>
-        <% end %>
+        <div class="btn-action">
+          <% if current_user && @exhibition.place.user.id == current_user.id %>
+          <%= link_to 'Edit', edit_exhibition_path(@exhibition), class:"form-action" %>
+          <%= link_to 'Back', exhibitions_path,class:"form-action" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
