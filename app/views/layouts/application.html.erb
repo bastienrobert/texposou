@@ -34,14 +34,22 @@
             <ul class="nav navbar-nav" id="btns-container">
 
               <li class="btn-header">
-                <p class="navbar-right"><%= link_to "a propos", root_path %></p>
+                <p class="navbar-right"><%= link_to "Trouver un artist", root_path %></p>
+              </li>
+
+              <li class="btn-header">
+                <p class="navbar-right"><%= link_to "Trouver un lieu", exhibitions_path %></p>
+              </li>
+
+              <li class="btn-header">
+                <p class="navbar-right"><%= link_to "A propos", root_path %></p>
               </li>
 
               <li class="btn-header">
                 <% if user_signed_in? %>
-                  <p class="navbar-right"><%= link_to "se déconnecter", destroy_user_session_path, method: :delete, confirm: 'Are you sure ?' %></p>
+                  <p class="navbar-right"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, confirm: 'Are you sure ?' %></p>
                 <% else %>
-                  <p class="navbar-right"><%= link_to "se connecter", new_user_session_path %></p>
+                  <p class="navbar-right"><%= link_to "Se connecter", new_user_session_path %></p>
                 <% end %>
               </li>
 

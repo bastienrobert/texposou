@@ -1,67 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @exhibition.name %>
-</p>
+<section id="expo-description">
+  <div class="row">
+    <div class="left-panel col-md-6">
+      <% if @place.image_places.first %>
+      <%= image_tag @place.image_places.first.file.url %>
+      <% end %>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @exhibition.description %>
-</p>
+    <div class="right-panel col-md-6">
+      <p class='title'> <%= @exhibition.name %> </p>
+      <p class='adress'><span><%= @place.address %> <%= @place.zipcode %> <%= @place.city %></span></p>
+      <p class="art_tags_list"><%= @exhibition.opening_at %></p>
+      <p class="description">
+        Circa hos dies Lollianus primae lanuginis
+        adulescens, Lampadi filius ex praefecto,
+        exploratius causam Maximino spectante,
+        convictus codicem noxiarum artium nondum
+        per aetatem firmato consilio descripsisse,
+        exulque mittendus, ut sperabatur, patris
+        inpulsu provocavit ad principem, et iussus
+        ad eius comitatum duci, de fumo, ut aiunt, in
+        flammam traditus Phalangio Baeticae
+        consulari cecidit funesti carnificis manu.
+      </p>
+      <div class="btns">
+        <%= link_to 'Visiter', exhibitions_path, class: "grid-add" %>
+        <%= link_to 'Participer', exhibitions_path, class: "grid-add" %>
+        <%= link_to 'Contacter', exhibitions_path, class: "grid-add" %>
 
-<p>
-  <strong>Opening at:</strong>
-  <%= @exhibition.opening_at %>
-</p>
-
-<p>
-  <strong>Closing at:</strong>
-  <%= @exhibition.closing_at %>
-</p>
-
-<p>
-  <strong>Artists max:</strong>
-  <%= @exhibition.artists_max %>
-</p>
-
-<p>
-  <strong>Area left:</strong>
-  <%= @exhibition.area_left %>
-</p>
-
-<p>
-  <strong>Area max:</strong>
-  <%= @exhibition.area_max %>
-</p>
-
-<p>
-  <strong>Lieu :</strong>
-  <%= @place.address %> <%= @place.zipcode %> <%= @place.city %>
-</p>
-
-<p>
-  <strong>Price per day per area:</strong>
-  <%= @exhibition.price_per_day_per_area %>
-</p>
-
-  <h2>Liste des visites</h2>
-  <% @exhibition.visits.each do |visit| %>
-    <li><%= link_to visit.user, visit %></li>
-  <% end %>
-  <%= link_to "Je visite", add_visit_path(@exhibition) %>
-
-  <h2>Liste des participations</h2>
-  <% @exhibition.participations.each do |participation| %>
-    <li><%= link_to participation.user, participation %></li>
-  <% end %>
-  <%= link_to "Je participe en tant qu'artiste", add_participation_path(@exhibition) %>
-
-  <h2>Liste des tags</h2>
-  <% @exhibition.art_tags.each do |artTag| %>
-    <li><%= artTag.name %> <%= artTag.id %></li>
-  <% end %>
-
-</ul>
-<%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
-<%= link_to 'Back', exhibitions_path %>
+        <% if current_user && @exhibition.place.user.id == current_user.id %>
+        <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
+        <%= link_to 'Back', exhibitions_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

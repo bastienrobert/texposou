@@ -12,7 +12,7 @@ gem 'rb-readline'
 # Use sqlite3 as the database for Active Record
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Paperclip & AWS Developper Kit (images & files)
-gem 'paperclip', '~> 4.2'
+gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 # Uggly stylesheet
 gem 'bootstrap-sass', '~> 3.3.6'
