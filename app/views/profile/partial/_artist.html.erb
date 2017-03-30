@@ -1,16 +1,3 @@
-<h3>Artiste
-<% @user.art_tags.each do |u| %>
-  <%= u.name %>
-  <% unless (u == @user.art_tags.last) %>&<% end %>
-<% end %>
-</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti consequuntur repellendus id veniam debitis facere, numquam voluptas, ratione vel qui quaerat et neque recusandae illum minima explicabo, consectetur hic magnam.</p>
-
-<div class="contact">
-  <a href="#" class="btn">Contacter</a>
-  <a href="#" class="website">www.test.fr</a>
-</div>
-
 <div class="grid-parent">
   <section class="grid-body">
     <% @user.image_users.each do |i| %>
