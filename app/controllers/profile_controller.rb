@@ -13,6 +13,7 @@ class ProfileController < Devise::RegistrationsController
         @exhibitions << e
       end
     end
+    @participations = Participation.where(user_id: current_user.id) 
     render "show"
   end
 

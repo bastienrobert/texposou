@@ -19,7 +19,11 @@ class ParticipationsController < ApplicationController
   def new
     @participation = Participation.new
     if params[:id] && Exhibition.find(params[:id])
-      @participation.exhibition_id = params[:id]
+      @participation.exhibition = Exhibition.find(params[:id])
+      if Participation.find_by(exhibition: @participation.exhibition, user: current_user)
+        flash[:notice] = "Vous participez déja à cet évenement"
+        redirect_to @participation.exhibition
+      end
     end
   end
 
@@ -36,7 +40,7 @@ class ParticipationsController < ApplicationController
     @participation.user = current_user
     respond_to do |format|
       if @participation.save
-        format.html { redirect_to @participation, notice: 'Participation was successfully created.' }
+        format.html { redirect_to @participation.exhibition, notice: 'Participation was successfully created.' }
         format.json { render :show, status: :created, location: @participation }
       else
         format.html { render :new }
@@ -62,9 +66,10 @@ class ParticipationsController < ApplicationController
   # DELETE /participations/1
   # DELETE /participations/1.json
   def destroy
+    exhibition = @participation.exhibition
     @participation.destroy
     respond_to do |format|
-      format.html { redirect_to participations_url, notice: 'Participation was successfully destroyed.' }
+      format.html { redirect_to exhibition, notice: 'Participation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

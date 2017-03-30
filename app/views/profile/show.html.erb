@@ -8,12 +8,16 @@
                 <li>
                     <a href="#tabs-2">Login et mot de passe</a>
                 </li>
+                <% if current_user.has_status?("artist") %>
                 <li>
                     <a href="#tabs-3">Galerie photo</a>
                 </li>
+                <% end %>
+                <% if current_user.has_status?("professional") || current_user.has_status?("particular") %>
                 <li>
                     <a href="#tabs-4">Mes lieux</a>
                 </li>
+                <% end %>
                 <li>
                     <a href="#tabs-5">Mes événements</a>
                 </li>
@@ -117,6 +121,7 @@
                         <% end %>
                   </div>
                 </div>
+                <% if current_user.has_status?("artist") %>
                 <div id="tabs-3" class="tab-profile">
                   <div class="half">
                     <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
@@ -164,6 +169,8 @@
                     <% end %>
                   </div>
                 </div>
+                <% end %>
+                <% if current_user.has_status?("professional") || current_user.has_status?("particular") %>
                 <div id="tabs-4" class="tab-profile">
                   <h2>Mes lieux</h2>
                   <div class="items-list">
@@ -184,9 +191,28 @@
                   </div>
 
                 </div>
+                 <% end %>
                 <div id="tabs-5" class="tab-profile">
-                  <h2>Mes évenements à venir</h2>
-                  <div class="form-action-container">
+                  <% if current_user.main_status == "artist" %>
+                  <h2>Les évenements où je participe</h2>
+                  <div class="pad-medium">
+                    <div class="items-list">
+                      <% @participations.each do |p| %>
+                      <div class="item">
+                          <p class="title"><%= p.exhibition.name %></p>
+                          <% if p.exhibition.description %>
+                            <p class="content"><%= p.exhibition.description %></p>
+                          <% end %>
+                          <%= link_to "VOIR PLUS", p.exhibition, class:"form-action main-action" %>
+                      </div>
+                      <% end %>
+                    </div>
+                    <%= link_to "Trouver des lieux ou exposer", exhibitions_path,  class: "form-action main-action" %>
+                    <div class="clr pad-bottom-medium"></div>
+                  </div>
+                  <% end %>
+                  <h2>Les évenements que j'organise</h2>
+                  <div class="pad-medium">
                     <div class="items-list">
                       <% @exhibitions.each do |e| %>
                       <div class="item">
@@ -194,7 +220,7 @@
                           <% if e.description %>
                           <p class="content"><%= e.description %></p>
                           <% end %>
-                          <p><%= e.participations.length %></p>
+                          <p><%= e.participations.length %> artiste(s) participe(nt)</p>
                           <%= link_to "VOIR PLUS", e, class:"form-action main-action" %>
                       </div>
                       <% end %>

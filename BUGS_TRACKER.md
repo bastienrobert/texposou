@@ -1,9 +1,7 @@
 # Todo list
 
 - créer une table polymorphique pour image permettant de mutualiser image_users et image_place
-- paperclip bug en distant
 - ajouter le e à artiste
-- faire mon profile dans le header
 - préciser champs photo de profile sur profile#show
 
 - add alert in profile => place#new event#new
@@ -20,6 +18,9 @@
 - dernier lieu homepage
 - rajouter lien de visite du profile sur profile#show
 - faire recherche fonctionnel des artiste / des places / des expos
+- gérer la validation des participations
+- créer un helper permettant de savoir si on participe/visite
+- ajouter description ) exhibition puis modifier exhibition#show 
 
 
 

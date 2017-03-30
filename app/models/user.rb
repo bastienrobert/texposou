@@ -98,7 +98,6 @@ STATUS_ARTIST = 'artist'
 
 
 
-
   def to_s
     "#{firstname.capitalize} #{lastname.upcase}"
   end

@@ -18,6 +18,15 @@ body {
   padding-bottom: $big-pad !important;
 }
 
+.pad-bottom-medium {
+  padding-bottom: $medium-pad !important;
+}
+
+
+.pad-medium {
+  padding-left: $medium-pad;
+}
+
 .profile-photo {
   width: 100px;
   height: 100px;
