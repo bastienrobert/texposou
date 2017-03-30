@@ -20,10 +20,10 @@ class ExhibitionsController < ApplicationController
   def new
 
     @exhibition = Exhibition.new
-    if params[:id]
-      @exhibition.place = Place.find(params[:id])
+    if params[:place_id]
+      @exhibition.place = Place.find(params[:place_id])
     else
-      flash[:notice] = "Vous n'avez pas de lieux de créer"
+      flash[:notice] = "Vous n'avez pas de lieux de créé"
       redirect_to show_profile_path
     end
   end

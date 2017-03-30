@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   resources :visits
   devise_for :users, :controllers => {:registrations => "profile"}
   resources :art_tags
-  resources :places
-  resources :exhibitions
+  resources :places do
+    resources :exhibitions, only: :new
+  end
+  resources :exhibitions, only: [:index, :show, :create, :show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "application#home"
 
-  get "exhibitions/:id/new", to: "exhibitions#new", as: :add_exhibition
-  get "visits/:id/new", to: "visits#new", as: :add_visit
-  get "participations/:id/new", to: "participations#new", as: :add_participation
+  #get "exhibitions/:id/new", to: "exhibitions#new", as: :add_exhibition
+  #get "visits/:id/new", to: "visits#new", as: :add_visit
+  #get "participations/:id/new", to: "participations#new", as: :add_participation
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
