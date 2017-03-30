@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
 
-  resources :participations
-  resources :visits
+  resources :participations, only: [:index, :show, :create, :show, :edit, :update, :destroy]
+  resources :visits, only: [:index, :show, :create, :show, :edit, :update, :destroy]
   devise_for :users, :controllers => {:registrations => "profile"}
   resources :art_tags
   resources :places do
     resources :exhibitions, only: :new
   end
-  resources :exhibitions, only: [:index, :show, :create, :show, :edit, :update, :destroy]
+  resources :exhibitions, only: [:index, :show, :create, :show, :edit, :update, :destroy] do
+    resources :participations, only: :new
+    resources :visits, only: :new
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "application#home"
 
