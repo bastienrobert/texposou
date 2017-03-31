@@ -10,6 +10,14 @@
 - add alert in profile => place#new event#new
 - proposer lien vers inscription artiste / professional / etc... dans les forms d'isncription
 - faire disparaitre mes visite partout
+- resizer les container pour avoir des gabarit homogène sur tout le site
 
 
 # Bug Tracker
+.....
+
+
+# Bad code (but we're speed so we don't have time for all)
+## Please, don't judge :(
+
+- profile/visit : Replace uggly conditions to trasnslate users status
