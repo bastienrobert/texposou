@@ -19,6 +19,9 @@ class ApplicationController < ActionController::Base
     @artist = artistWithAvatar.first
   end
 
+  def about 
+  end
+
   def configure_devise_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :firstname, :lastname, :adress, :city, :postal, :phone) }
   end

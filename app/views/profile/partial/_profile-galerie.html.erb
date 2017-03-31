@@ -1,0 +1,45 @@
+<div class="half">
+  <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
+  <h2>Galerie photo</h2>
+
+  <div id="img-form-manage" class="img-container" data-id="<%= @user.image_users.length %>">
+    <div class="img-list">
+      <% @user.image_users.each do |img_u| %>
+      <div class="img-form" data-id="<%= img_u.id %>">
+          <%= f.fields_for :image_users, img_u do |ff| %>
+          <%= image_tag img_u.file.url(:thumb) %>
+          <div class="action">
+            <%= ff.check_box :_destroy -%>
+            <%= ff.label :_destroy, class:"label-for-check" %>
+          </div>
+          <% end %>
+      </div>
+      <% end %>
+    </div>
+    <% if @user.image_users.length > 0 %>
+    <hr>
+    <% end %>
+
+    <div class="img-forms" data-prototype="<div class='add-img-form'>
+      <input name='user[image_users_attributes][__id__][file]' id='user_image_users_attributes___id___file' type='file'>
+      <label class='label-file' for='user_image_users_attributes___id___file'>File</label>
+      <input placeholder='Description image' name='user[image_users_attributes][__id__][alt]' id='user_image_users_attributes___id___alt' type='text'>
+      <label class='delete' for='user_image_users_attributes___id___file'>File</label>
+      </div>">
+      <div class="add-img-form" >
+        <% img_u = ImageUser.new %>
+        <%= f.fields_for :image_users, img_u do |ff| %>
+          <%= ff.file_field :file -%>
+          <%= ff.label :file, class:"label-file" %>
+          <%= ff.text_field :alt, placeholder: "Description de l'image" %>
+          <label class="delete"></label>
+        <% end %>
+      </div>
+    </div>
+    <input type="button" id="add-img-button" value="Ajouter une image" class="form-action main-action">
+  </div>
+  <div class="form-action-container">
+      <%= f.submit "Update", class: "form-action main-action" %>
+  </div>
+  <% end %>
+</div>

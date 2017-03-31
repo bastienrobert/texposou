@@ -1,0 +1,70 @@
+<% if current_user && current_user.main_status == "artist" %>
+<h2>Les évenements où je participe</h2>
+<div class="pad-medium">
+  <div class="items-list">
+    <% if @participations %>
+    <% @participations.each do |p| %>
+    <div class="item">
+        <p class="title"><%= p.exhibition.name %></p>
+        <% if p.exhibition.description %>
+          <p class="content"><%= p.exhibition.description %></p>
+        <% end %>
+        <%= link_to "VOIR PLUS", p.exhibition, class:"form-action main-action" %>
+        <% if p.confirm %>
+        <p class="status" data-confirm="true">Le propriétaire du lieu a valider votre demande</p>
+        <% else %>
+        <p class="status" data-confirm="false">En attente d'une réponse</p>
+        <% end %>
+
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <%= link_to "Trouver des lieux ou exposer", exhibitions_path,  class: "form-action main-action" %>
+  <div class="clr pad-bottom-medium"></div>
+</div>
+<% end %>
+<h2>Les évenements que j'organise</h2>
+<div class="pad-medium">
+  <div class="items-list">
+    <% if @exhibitions %>
+    <% @exhibitions.each do |e| %>
+    <div class="item">
+        <p class="title"><%= e.name %></p>
+        <% if e.description %>
+        <p class="content"><%= e.description %></p>
+        <% end %>
+        <% if e.participations.length > 0 %>
+        <hr>
+        <div class="participations">
+          <div class="head">
+            <p><%= e.participations.length %> artiste(s) participe(nt)</p>
+          </div>
+          <div class="body">
+            <% e.participations.each do |p| %>
+            <div class="participation" data-confirm="<%= p.confirm %>">
+              <p><%= p.user.firstname %> <%= p.user.lastname %></p>
+              <% if p.confirm %>
+              <%= link_to  "Mettre en attente", unconfirm_participations_path(p) %>
+              <% else %>
+              <%= link_to "Confirmer", confirm_participations_path(p) %>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+        <% end %>
+
+        <%= link_to "VOIR PLUS", e, class:"form-action main-action" %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <% if @user.places.length > 0 %>
+    <%= link_to "Créer un évenement", new_place_exhibition_path(@user.places.first),  class: "form-action main-action" %>
+  <% else %>
+    <p>Vous devez créer un lieu avant de créer un évenement</p>
+    <%= link_to "Créer un lieu", new_place_path, class: "form-action main-action" %>
+  <% end %>
+</div>

@@ -34,6 +34,13 @@ Node.prototype.insertAfter = function(nouvelElement, refElement){
   }
 }
 
+function createElement(str){
+  var frag = document.createElement("fragment");
+  frag.innerHTML = str;
+  return frag.firstChild;
+}
+
+
 ArtTagManage = {
   form: {},
   tagContent:[],
@@ -130,12 +137,6 @@ ArtTagManage = {
   }
 }
 
-function createElement(str){
-  var frag = document.createElement("fragment");
-  frag.innerHTML = str;
-  return frag.firstChild;
-}
-
 ImageFormManage = {
   initDeleteClick:function(el){
     console.log(el);
@@ -182,7 +183,7 @@ HPphotoClick = {
       this.className = this.className+=" active"
       if(url){
         self.photo.setAttribute("style", "background-image:url(\""+url+"\")");
-        self.link.href = this.getAttribute("data-link"); 
+        self.link.href = this.getAttribute("data-link");
       }
     }, false)
   },
