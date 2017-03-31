@@ -165,7 +165,7 @@ ImageFormManage = {
       this.imgEls = this.el.getElementsByClassName("img-form");
       this.imgForms = this.el.getElementsByClassName("add-img-form");
       this.container = this.el.getElementsByClassName("img-forms")[0];
-      this.idNew = parseInt(this.el.getAttribute("data-id"));
+      this.idNew = parseInt(this.el.getAttribute("data-id"), 10);
       this.initDeleteClick(this.imgForms[this.imgForms.length-1]);
       this.initEvents();
     }

@@ -27,6 +27,7 @@ gem 'cancancan'
 
 # Paperclip & AWS Developper
 gem 'paperclip'
+gem 'paperclip-i18n'
 gem 'aws-sdk', '~> 2.3'
 
 #Database visualisation
