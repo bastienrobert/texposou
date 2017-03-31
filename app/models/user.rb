@@ -52,7 +52,7 @@ STATUS_ARTIST = 'artist'
   has_many :visits, dependent: :destroy
   has_many :places, dependent: :destroy
   has_many :participations, dependent: :destroy
-  has_many :image_users
+  has_many :image_users, dependent: :destroy
   accepts_nested_attributes_for :image_users, allow_destroy: true, reject_if: proc { |attributes| attributes['file'].blank? }
 
   devise :database_authenticatable, :registerable,
