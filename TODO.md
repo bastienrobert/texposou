@@ -12,6 +12,13 @@
 - faire disparaitre mes visite partout
 - resizer les container pour avoir des gabarit homogène sur tout le site
 
+## Intégration
+- hover sur la liste des lieux
+- hoverride submit event on form tag manage
+- update place_id pour les events
+
+## Suppresion
+- place
 
 # Bug Tracker
 .....

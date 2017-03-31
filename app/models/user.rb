@@ -47,10 +47,10 @@ STATUS_ARTIST = 'artist'
   scope :artists, -> { where(main_status: STATUS_ARTIST) }
 
 
-  has_many :users_tag_parts
+  has_many :users_tag_parts, dependent: :destroy
   has_many :art_tags, :through => :users_tag_parts
-  has_many :visits
-  has_many :places
+  has_many :visits, dependent: :destroy
+  has_many :places, dependent: :destroy
 
   has_many :image_users
   accepts_nested_attributes_for :image_users, allow_destroy: true, reject_if: proc { |attributes| attributes['file'].blank? }

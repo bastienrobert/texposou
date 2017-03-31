@@ -22,10 +22,10 @@ class Exhibition < ApplicationRecord
   # include Elasticsearch::Model
   # include Elasticsearch::Model::Callbacks
   belongs_to :place
-  has_many :visits
-  has_many :participations
+  has_many :visits, dependent: :destroy
+  has_many :participations, dependent: :destroy
 
-  has_many :exhibitions_parts
+  has_many :exhibitions_parts, dependent: :destroy
   has_many :art_tags, :through => :exhibitions_parts
   accepts_nested_attributes_for :art_tags, allow_destroy: false, reject_if: proc { |attributes| attributes['name'].blank? }
 
