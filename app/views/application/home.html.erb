@@ -28,7 +28,7 @@
           <% end %>
         </ul>
       </div>
-      <div class="photo-pres clr-after col-md-5" id="photo-updated"></div>
+      <%= link_to(@places.first) do %><div class="photo-pres clr-after col-md-5" id="photo-updated" style="background-image:url(<% if @places.first.image_places.first %><%= @places.first.image_places.first.file.url %><% end %>);"></div><% end %>
     </div>
     <div class="clr">
       <%= link_to "Tous les lieux", places_path, class:"list_link" %>
