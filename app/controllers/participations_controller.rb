@@ -30,8 +30,8 @@ class ParticipationsController < ApplicationController
   # GET /participations/new
   def new
     @participation = Participation.new
-    if params[:id] && Exhibition.find(params[:id])
-      @participation.exhibition = Exhibition.find(params[:id])
+    if params[:exhibition_id] && Exhibition.find(params[:exhibition_id])
+      @participation.exhibition = Exhibition.find(params[:exhibition_id])
       if Participation.find_by(exhibition: @participation.exhibition, user: current_user)
         flash[:notice] = "Vous participez déja à cet évenement"
         redirect_to @participation.exhibition

@@ -270,7 +270,7 @@
                       <% end %>
                     </div>
                     <% if @user.places.length > 0 %>
-                      <%= link_to "Créer un évenement", add_exhibition_path(@user.places.first),  class: "form-action main-action" %>
+                      <%= link_to "Créer un évenement", new_place_exhibition_path(@user.places.first),  class: "form-action main-action" %>
                     <% else %>
                       <p>Vous devez créer un lieu avant de créer un évenement</p>
                       <%= link_to "Créer un lieu", new_place_path, class: "form-action main-action" %>

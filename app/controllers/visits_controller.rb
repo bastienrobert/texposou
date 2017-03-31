@@ -19,8 +19,8 @@ class VisitsController < ApplicationController
   # GET /visits/new
   def new
     @visit = Visit.new
-    if params[:id] && Exhibition.find(params[:id])
-      @visit.exhibition_id = params[:id]
+    if params[:exhibition_id] && Exhibition.find(params[:exhibition_id])
+      @visit.exhibition_id = params[:exhibition_id]
     end
   end
 

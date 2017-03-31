@@ -21,13 +21,13 @@
             <%= link_to 'Modifier', edit_exhibition_path(@exhibition), class:"grid-add" %>
         <% else %>
           <% if user_signed_in? %>
-          <%= link_to 'Visiter', exhibitions_path, class: "grid-add" %>
+          <%#= link_to 'Visiter', new_exhibition_visit_path(@exhibition), class: "grid-add" %>
           <% end %>
           <% if user_signed_in? && current_user.has_status?("artist") %>
             <% if Participation.find_by(user: current_user, exhibition: @exhibition) %>
               <%= link_to 'Ne plus participer', Participation.find_by(user: current_user, exhibition: @exhibition), method: :delete,  class: "grid-add" %>
             <% else %>
-              <%= link_to 'Participer', add_participation_path(@exhibition), class: "grid-add" %>
+              <%= link_to 'Participer', new_exhibition_participation_path(@exhibition), class: "grid-add" %>
             <% end %>
             <%= link_to 'Contacter', exhibitions_path, class: "grid-add" %>
           <% end %>

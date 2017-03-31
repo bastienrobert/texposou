@@ -2,21 +2,26 @@ Rails.application.routes.draw do
 
 
 
-    resources :participations
-    resources :visits
+    resources :participations, only: [:index, :show, :create, :edit, :update, :destroy, :confirm, :unconfirm]
+    resources :visits, only: [:index, :show, :create, :edit, :update, :destroy]
     devise_for :users, :controllers => {:registrations => "profile"}
     resources :art_tags
     # resources :places do
     #   resources :exhibitions, only: :new
     # end
-    resources :places
-    resources :exhibitions, only: [:index, :show, :create, :show, :edit, :update, :destroy]
+    resources :places do
+      resources :exhibitions, only: :new
+    end
+    resources :exhibitions, only: [:index, :show, :create, :edit, :update, :destroy] do
+      resources :participations, only: :new
+      resources :visits, only: :new
+    end
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root "application#home"
 
-    get "places/:id/exhibitions/new", to: "exhibitions#new", as: :add_exhibition
-    get "visits/:id/new", to: "visits#new", as: :add_visit
-    get "participations/:id/new", to: "participations#new", as: :add_participation
+    # get "places/:id/exhibitions/new", to: "exhibitions#new", as: :add_exhibition
+    # get "visits/:id/new", to: "visits#new", as: :add_visit
+    # get "participations/:id/new", to: "participations#new", as: :add_participation
     get "participation/:id/confirm", to: "participations#confirm", as: :confirm_participations
     get "participation/:id/unconfirm", to: "participations#unconfirm", as: :unconfirm_participations
 
