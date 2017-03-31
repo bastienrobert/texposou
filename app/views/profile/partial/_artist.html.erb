@@ -2,7 +2,7 @@
   <section class="grid-body">
     <% @user.image_users.each do |i| %>
         <article class="grid-item">
-          <%= image_tag i.file.url(:medium) %>
+          <%= image_tag i.file.url(:medium), class:"img-popin" %>
         </article>
     <% end %>
   </section>

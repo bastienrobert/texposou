@@ -204,10 +204,57 @@ HPphotoClick = {
 }
 
 
+ImagePopin = {
+
+  display:function(el){
+    var self = this;
+    this.img.src = el.src.replace("medium", "original");
+    this.img.alt = el.alt;
+    setTimeout(function(){
+      self.popin.className = "visible"
+    }, 500)
+  },
+
+  hide:function(el){
+    var self = this;
+    this.popin.className = "hidden"
+  },
+
+  initClick:function(el){
+    var self = this;
+    el.addEventListener("click", function(){
+      self.display(this);
+    }, false)
+  },
+
+  initEvents:function(){
+    var self = this;
+    for(i=0; i<this.els.length; i++){
+      this.initClick(this.els[i]);
+    }
+    this.popin.addEventListener("click", function(){
+      self.hide();
+    }, false)
+  },
+
+  init:function(duration){
+    this.els = document.getElementsByClassName("img-popin");
+    if(this.els.length){
+      this.popin = createElement("<div id=\"popin-image\" class=\"hidden\"><img src=\"\" alt=\"\"></div>");
+      document.body.appendChild(this.popin);
+      this.img = this.popin.getElementsByTagName("img")[0];
+      this.duration = duration;
+      this.initEvents();
+    }
+  }
+}
+
+
 document.addEventListener("turbolinks:load", function() {
   ArtTagManage.init();
   ImageFormManage.init();
   HPphotoClick.init();
+  ImagePopin.init(1000);
   $( function() {
     $( "#tabs-profile" ).tabs();
   });

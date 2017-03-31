@@ -35,3 +35,10 @@
   background: -ms-linear-gradient($degre, $from, $to);
   background: linear-gradient($degre, $from, $to);
 }
+
+@mixin userSelect($content){
+  -webkit-user-select: $content;
+  -moz-user-select: $content;
+  -ms-user-select: $content;
+  user-select: $content;
+}

@@ -70,7 +70,6 @@
     <% if notice.to_s != "" %>
     <p id="notice" data-content="<%= notice -%>"><%= notice %></p>
     <% end %>
-
     <%= yield %>
 
 <% if (controller.controller_name == 'registrations' && controller.action_name == 'edit') || (controller.controller_name == 'registrations' && controller.action_name == 'new') || (controller.controller_name == 'sessions' && controller.action_name == 'new') || (controller.controller_name == 'participations' && controller.action_name == 'new') %>
