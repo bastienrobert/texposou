@@ -11,7 +11,7 @@
           <p>Surface : <%= @place.area_max %> m2</p>
           <p><%= @place.address %> <%= @place.zipcode %> <%= @place.city %></p>
         </div>
-        <p class="name"><span>Expos organisés</span></p>
+        <p class="name"><span>Expos organisées</span></p>
         <div class="infos-place">
           <% @place.exhibitions.each do |exhibition| %>
           <p><%= link_to exhibition.name, exhibition %></p>
@@ -33,8 +33,8 @@
 
   <div class="btn-action">
     <% if current_user && @place.user.id == current_user.id %>
-    <%= link_to 'Add exhibition', add_exhibition_path(@place), class:"form-action" %>
-    <%= link_to 'Edit', edit_place_path(@place), class:"form-action" %>
-    <%= link_to 'Back', places_path, class:"form-action" %>
+    <%= link_to 'Ajouter une disponibilitée', new_place_exhibition_path(@place), class:"form-action" %>
+    <%= link_to 'Editer le lieu', edit_place_path(@place), class:"form-action" %>
+    <%= link_to 'Retour', places_path, class:"form-action" %>
     <% end %>
   </div>

@@ -12,7 +12,7 @@
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "application#home"
 
-  get "places/:id/exhibitions/new", to: "exhibitions#new", as: :add_exhibition
+  get "places/:id/exhibitions/new", to: "exhibitions#new", as: :new_place_exhibition
   get "visits/:id/new", to: "visits#new", as: :add_visit
   get "participations/:id/new", to: "participations#new", as: :add_participation
 

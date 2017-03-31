@@ -195,6 +195,7 @@
                         <p class="address"><%= p.address %> <%= p.zipcode %> <%= p.city %></p>
                         <p class="exhibition"><%= p.exhibitions.length %> évenements organisé</p>
                         <%= link_to "VOIR PLUS", place_path(p), class:"form-action main-action" %>
+                        <%= link_to "Supprimer", p, method: :delete, class:"form-action main-action red-btn", data: {confirm: "Vous êtes sur ?"} %>
                     </div>
                     <% end %>
                   </div>
@@ -270,7 +271,7 @@
                       <% end %>
                     </div>
                     <% if @user.places.length > 0 %>
-                      <%= link_to "Créer un évenement", add_exhibition_path(@user.places.first),  class: "form-action main-action" %>
+                      <%= link_to "Créer un évenement", new_place_exhibition_path(@user.places.first),  class: "form-action main-action" %>
                     <% else %>
                       <p>Vous devez créer un lieu avant de créer un évenement</p>
                       <%= link_to "Créer un lieu", new_place_path, class: "form-action main-action" %>
