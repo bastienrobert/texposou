@@ -7,11 +7,40 @@ body {
   min-height: 100vh;
 }
 #notice {
-  position: absolute;
-  top: 15vh;
-  left: 0;
-  @include transform(translateX(-100%));
-  color: green;
+position: fixed;
+bottom: 0%;
+left: 50%;
+@include transform(translateX(-50%) translateY(100%));
+color: white;
+padding: 16px 32px;
+z-index: 999;
+text-transform: uppercase;
+font-weight: 700;
+font-size: 1.2em;
+letter-spacing: 3px;
+margin: 0;
+width: 100%;
+text-align: center;
+background-color: #5C5CFF;
+&[data-content=""]{
+  animation-duration: 0s;
+}
+animation-name: noticeOut;
+animation-iteration-count: 1;
+animation-timing-function: linear;
+animation-duration: 5s;
+}
+
+@keyframes noticeOut {
+  0% {
+    @include transform(translateX(-50%) translateY(0%));
+  }
+  90% {
+    @include transform(translateX(-50%) translateY(0%));
+  }
+  100%{
+    @include transform(translateX(-50%) translateY(100%));
+  }
 }
 
 .pad-bottom-big {

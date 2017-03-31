@@ -67,7 +67,9 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <p id="notice"><%= notice %></p>
+    <% if notice.to_s != "" %>
+    <p id="notice" data-content="<%= notice -%>"><%= notice %></p>
+    <% end %>
 
     <%= yield %>
 
