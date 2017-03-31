@@ -51,7 +51,7 @@ STATUS_ARTIST = 'artist'
   has_many :art_tags, :through => :users_tag_parts
   has_many :visits, dependent: :destroy
   has_many :places, dependent: :destroy
-
+  has_many :participations, dependent: :destroy
   has_many :image_users
   accepts_nested_attributes_for :image_users, allow_destroy: true, reject_if: proc { |attributes| attributes['file'].blank? }
 
