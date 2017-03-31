@@ -68,10 +68,11 @@ ActiveRecord::Schema.define(version: 20170330171930) do
 
   create_table "participations", force: :cascade do |t|
     t.integer  "area"
-    t.integer  "user_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "user_id",                       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "exhibition_id"
+    t.boolean  "confirm",       default: false
     t.index ["exhibition_id"], name: "index_participations_on_exhibition_id"
     t.index ["user_id"], name: "index_participations_on_user_id"
   end

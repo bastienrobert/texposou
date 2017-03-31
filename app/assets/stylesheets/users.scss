@@ -185,6 +185,19 @@
         padding: $small-pad;
         padding-bottom: 3*$small-pad;
         margin-bottom: $small-pad;
+        position: relative;
+        .status {
+          position: absolute;
+          top:$small-pad;
+          right: $small-pad;
+          &[data-confirm="true"]{
+            color: green;
+          }
+          &[data-confirm="false"]{
+            color: red;
+          }
+        }
+
         p {
           margin: 0;
           font-size: .9em;
@@ -199,6 +212,45 @@
         a {
           border-left: 2px solid #444;
           background-color: #444;
+        }
+      }
+    }
+    &.exhibitions {
+      .participations {
+        .head {
+
+        }
+        .body {
+          .participation {
+            height: 30px;
+            position: relative;
+            margin-bottom: 10px;
+            background-color: #EEE;
+            p {
+              padding: 5px;
+            }
+            a {
+              position: absolute;
+              height: 30px;
+              padding: 5px;
+              width: auto;
+              top: 0;
+              right: 0;
+              min-width: 10%;
+              background-color: #222;
+              color: white;
+            }
+            &[data-confirm="true"] {
+              p {
+                background-color: rgba(89, 255, 103, 0.35);
+              }
+            }
+            &[data-confirm="false"] {
+              p {
+                background-color: rgba(255, 89, 89, 0.35);
+              }
+            }
+          }
         }
       }
     }

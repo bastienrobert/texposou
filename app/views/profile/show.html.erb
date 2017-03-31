@@ -195,7 +195,7 @@
                 </div>
                  <% end %>
                  <% if current_user.has_status?("professional") || current_user.has_status?("particular") || current_user.has_status?("artist") %>
-                <div id="tabs-5" class="tab-profile">
+                <div id="tabs-5" class="tab-profile exhibitions">
                   <% if current_user && current_user.main_status == "artist" %>
                   <h2>Les évenements où je participe</h2>
                   <div class="pad-medium">
@@ -208,6 +208,12 @@
                             <p class="content"><%= p.exhibition.description %></p>
                           <% end %>
                           <%= link_to "VOIR PLUS", p.exhibition, class:"form-action main-action" %>
+                          <% if p.confirm %>
+                          <p class="status" data-confirm="true">Le propriétaire du lieu a valider votre demande</p>
+                          <% else %>
+                          <p class="status" data-confirm="false">En attente d'une réponse</p>
+                          <% end %>
+
                       </div>
                       <% end %>
                       <% end %>
@@ -226,7 +232,28 @@
                           <% if e.description %>
                           <p class="content"><%= e.description %></p>
                           <% end %>
-                          <p><%= e.participations.length %> artiste(s) participe(nt)</p>
+                          <% if e.participations.length > 0 %>
+                          <hr>
+                          <div class="participations">
+                            <div class="head">
+                              <p><%= e.participations.length %> artiste(s) participe(nt)</p>
+                            </div>
+                            <div class="body">
+                              <% e.participations.each do |p| %>
+                              <div class="participation" data-confirm="<%= p.confirm %>">
+                                <p><%= p.user.firstname %> <%= p.user.lastname %></p>
+                                <% if p.confirm %>
+                                <%= link_to  "Mettre en attente", unconfirm_participations_path(p) %>
+                                <% else %>
+                                <%= link_to "Confirmer", confirm_participations_path(p) %>
+                                <% end %>
+                              </div>
+                              <% end %>
+                            </div>
+                          </div>
+                          <hr>
+                          <% end %>
+
                           <%= link_to "VOIR PLUS", e, class:"form-action main-action" %>
                       </div>
                       <% end %>

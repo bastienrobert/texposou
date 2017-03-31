@@ -1,7 +1,7 @@
 class ParticipationsController < ApplicationController
-  before_action :set_participation, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:quick_create]
-
+  before_action :set_participation, only: [:show, :edit, :update, :destroy, :confirm, :unconfirm]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :confirm, :unconfirm]
+  before_action :authenticate_owner, only: [:confirm, :unconfirm]
   authorize_resource
 
   # GET /participations
@@ -13,6 +13,18 @@ class ParticipationsController < ApplicationController
   # GET /participations/1
   # GET /participations/1.json
   def show
+  end
+
+  def confirm
+    @participation.confirm = true
+    @participation.save
+    redirect_to show_profile_path
+  end
+
+  def unconfirm
+    @participation.confirm = false
+    @participation.save
+    redirect_to show_profile_path
   end
 
   # GET /participations/new
@@ -66,6 +78,10 @@ class ParticipationsController < ApplicationController
   # DELETE /participations/1
   # DELETE /participations/1.json
   def destroy
+    if @participation.user.id != current_user.id && @participation.exhibition.place.user.id != current_user.id
+      flash[:notice] = "Vous ne pouvez pas désinscrire ce user"
+      redirect_to @participation.exhibition
+    end
     exhibition = @participation.exhibition
     @participation.destroy
     respond_to do |format|
@@ -78,6 +94,13 @@ class ParticipationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_participation
       @participation = Participation.find(params[:id])
+    end
+
+    def authenticate_owner
+      if @participation.exhibition.place.user.id != current_user.id
+        flash[:notice] = "Vous ne pouvez pas désinscrire ce user"
+        redirect_to @participation.exhibition
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
