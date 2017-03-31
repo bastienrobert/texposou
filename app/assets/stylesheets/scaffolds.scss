@@ -6,6 +6,13 @@ body {
   line-height: 18px;
   min-height: 100vh;
 }
+.btn-action-dark {
+  background-color: #444;
+  color: white;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  display: inline-block;
+}
 #notice {
 position: fixed;
 bottom: 0%;
