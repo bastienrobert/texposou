@@ -15,9 +15,12 @@
 #  updated_at             :datetime         not null
 #  place_id               :integer
 #
+#require 'elasticsearch/model'
 
 class Exhibition < ApplicationRecord
 
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
   belongs_to :place
   has_many :visits
   has_many :participations

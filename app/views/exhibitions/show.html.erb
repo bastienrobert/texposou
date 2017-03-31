@@ -15,24 +15,23 @@
         <%= @exhibition.description %>
       </p>
       <div class="btns">
-        <% if user_signed_in? %>
-        <%= link_to 'Visiter', exhibitions_path, class: "grid-add" %>
-        <% end %>
-        <% if user_signed_in? && current_user.has_status?("artist") %>
-        <% if Participation.find_by(user: current_user, exhibition: @exhibition) %>
-          <%= link_to 'Ne plus participer', Participation.find_by(user: current_user, exhibition: @exhibition), method: :delete,  class: "grid-add" %>
-        <% else %>
-          <%= link_to 'Participer', add_participation_path(@exhibition), class: "grid-add" %>
-        <% end %>
-        <%= link_to 'Contacter', exhibitions_path, class: "grid-add" %>
-        <% end %>
+
         <br>
-        <div class="btn-action">
-          <% if current_user && @exhibition.place.user.id == current_user.id %>
-          <%= link_to 'Edit', edit_exhibition_path(@exhibition), class:"form-action" %>
-          <%= link_to 'Back', exhibitions_path,class:"form-action" %>
+        <% if current_user && @exhibition.place.user.id == current_user.id %>
+            <%= link_to 'Modifier', edit_exhibition_path(@exhibition), class:"grid-add" %>
+        <% else %>
+          <% if user_signed_in? %>
+          <%= link_to 'Visiter', exhibitions_path, class: "grid-add" %>
           <% end %>
-        </div>
+          <% if user_signed_in? && current_user.has_status?("artist") %>
+            <% if Participation.find_by(user: current_user, exhibition: @exhibition) %>
+              <%= link_to 'Ne plus participer', Participation.find_by(user: current_user, exhibition: @exhibition), method: :delete,  class: "grid-add" %>
+            <% else %>
+              <%= link_to 'Participer', add_participation_path(@exhibition), class: "grid-add" %>
+            <% end %>
+            <%= link_to 'Contacter', exhibitions_path, class: "grid-add" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
