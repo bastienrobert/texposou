@@ -23,12 +23,12 @@
         <ul>
           <% r = 0 %>
           <% @places.each do |p| %>
-            <li class="update-bg <% if r == 0 %>active<% end %>"data-url="<% if p.image_places.first %><%= p.image_places.first.file.url %><% end %>"><span><%= p.name %></span></li>
+            <li class="update-bg <% if r == 0 %>active<% end %>" data-link="<%= url_for(p) %>" data-url="<% if p.image_places.first %><%= p.image_places.first.file.url %><% end %>"><span><%= p.name %></span></li>
             <% r+=1 %>
           <% end %>
         </ul>
       </div>
-      <%= link_to(@places.first) do %><div class="photo-pres clr-after col-md-5" id="photo-updated" style="background-image:url(<% if @places.first.image_places.first %><%= @places.first.image_places.first.file.url %><% end %>);"></div><% end %>
+      <%= link_to(@places.first, id:"link-place") do %><div class="photo-pres clr-after col-md-5" id="photo-updated" style="background-image:url(<% if @places.first.image_places.first %><%= @places.first.image_places.first.file.url %><% end %>);"></div><% end %>
     </div>
     <div class="clr">
       <%= link_to "Tous les lieux", places_path, class:"list_link" %>

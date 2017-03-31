@@ -182,6 +182,7 @@ HPphotoClick = {
       this.className = this.className+=" active"
       if(url){
         self.photo.setAttribute("style", "background-image:url(\""+url+"\")");
+        self.link.href = this.getAttribute("data-link"); 
       }
     }, false)
   },
@@ -195,7 +196,7 @@ HPphotoClick = {
     if(this.el){
       this.els = this.el.getElementsByClassName("update-bg");
       this.photo = document.getElementById("photo-updated");
-      this.link = document.getElementById("");
+      this.link = document.getElementById("link-place");
       this.initEvents();
     }
   }
