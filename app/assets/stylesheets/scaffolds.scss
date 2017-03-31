@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
 }
 .btn-action-dark {
-  background-color: #444;
+  background-color: $dark-2;
   color: white;
   padding: 15px 20px;
   text-transform: uppercase;
@@ -19,7 +19,7 @@ body {
   left: 50%;
   @include transform(translateX(-50%) translateY(100%));
   color: white;
-  padding: 16px 32px;
+  padding: $small-pad $medium-pad;
   z-index: 999;
   text-transform: uppercase;
   font-weight: 700;
@@ -28,7 +28,7 @@ body {
   margin: 0;
   width: 100%;
   text-align: center;
-  background-color: #5C5CFF;
+  background-color: $color-2;
   animation-name: noticeOut;
   animation-iteration-count: 1;
   animation-timing-function: linear;
@@ -87,8 +87,8 @@ body {
 
 
 .red-btn {
-  background-color: #993b3b !important;
-  border-color: #993b3b !important;
+  background-color: $red-1 !important;
+  border-color: $red-1 !important;
 }
 
 .pad-bottom-big {
@@ -118,12 +118,6 @@ p {
   font-size: 1em;
   line-height: 18px;
   margin: 33px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
 }
 
 a {
@@ -165,6 +159,7 @@ h2 {
   width: 1080px;
   margin: auto;
 }
+
 #error_explanation {
   width: 450px;
   border: 2px solid red;

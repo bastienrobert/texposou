@@ -22,6 +22,7 @@
 
 # Bug Tracker
 .....
+- rajouter lien quand on est pas loggé pour inciter à l'inscription
 
 
 # Bad code (but we're speed so we don't have time for all)

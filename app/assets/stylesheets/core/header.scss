@@ -12,9 +12,9 @@ header {
 
   a {
     text-decoration: none !important;
-    color: black !important;
+    color: $dark-1 !important;
     &:hover {
-      color: $color-6 !important;
+      color: $dark-1;
     }
   }
 

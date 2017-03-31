@@ -18,7 +18,7 @@
     &::after {
       content:"";
       position: absolute;
-      background-color:#0D31FB;
+      background-color:$color-1;
       height:4px;
       width:18em;
       transform: rotateZ(-60deg);
@@ -75,12 +75,12 @@
      margin-bottom: 4em;
      article {
        display: block;
-       background-color: rgb(255,255,255);
+       background-color: $light-1;
        -webkit-column-break-inside: avoid;
        page-break-inside: avoid;
        break-inside: avoid;
        position: relative;
-       color: #FFF;
+       color: $light-1;
        img {
          position: relative;
          width: 100%;
@@ -101,13 +101,13 @@
          @include transform(translateY(-50%));
          p { margin: 0;}
          .mention {
-            color: black;
+            color: $dark-1;
          }
          .title {
            font-size: 2em;
            text-transform: uppercase;
            letter-spacing: 4px;
-           color: #0000FF;
+           color: $color-1;
            margin-bottom: 20px;
            line-height: 20px;
          }
@@ -130,8 +130,8 @@
     display: inline-block;
     margin-left: auto;
     padding:1em 2em;
-    background-color: black;
-    color:white;
+    background-color: $dark-1;
+    color:$light-1;
     text-transform: uppercase;
     letter-spacing: 2px;
   }

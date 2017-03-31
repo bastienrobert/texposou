@@ -13,7 +13,7 @@ form {
       width: 100%;
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-family: sans-serif;
+      font-family: $main-font;
       font-weight: 100;
     }
   }
@@ -43,7 +43,7 @@ form.form-type-costum {
     text-transform: uppercase;
     font-family: $main-font;
     font-weight: 100;
-    color: #AAA;
+    color: $grey-1;
     margin-bottom: $medium-pad;
   }
 
@@ -51,27 +51,27 @@ form.form-type-costum {
     margin-bottom: 20px;
     label {
       margin-bottom: 0;
-      color: #888;
+      color: $grey-2;
     }
     i {
-      color: #888;
+      color: $grey-2;
       font-style: italic;
     }
   }
   .form-annotation {
-    color: #AAA;
+    color: $grey-1;
     font-weight: medium;
     font-size: .8em;
   }
 
   .form-frame {
     padding: $small-pad+$small-pad/2;
-    border: 2px solid #CCC;
+    border: 2px solid $grey-1;
     text-align: left;
     margin-bottom: $medium-pad;
   }
   .form-control {
-    border: 1px solid $grey;
+    border: 1px solid $grey-1;
     padding-left: 10px;
     border-radius: 0;
     &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &:-moz-placeholder {
@@ -109,7 +109,7 @@ form.form-type-costum {
     .img-form {
       position: relative;
       height: 50px;
-      border: 1px solid #CCC;
+      border: 1px solid $light-2;
       border-radius: 5px;
       overflow: hidden;
       margin-bottom: 10px;
@@ -127,7 +127,7 @@ form.form-type-costum {
           float: right;
           height: 50px;
           width: 30px;
-          background-color: #333;
+          background-color: $dark-2;
           margin: 0;
           background-image: image-url("logo/valid.svg");
           background-size: 50%;
@@ -142,7 +142,7 @@ form.form-type-costum {
             display: block;
             font-size: .7em;
             line-height: 1em;
-            color: green;
+            color: $green-1;
             min-width: 150px;
             text-align: right;
             padding-right: 10px;
@@ -160,7 +160,7 @@ form.form-type-costum {
           background-image: image-url("logo/trash.svg");
           &::before {
             content:"L'image sera supprimée à l'enregistrement";
-            color: #bc0000;
+            color: $red-1;
           }
         }
       }
@@ -170,7 +170,7 @@ form.form-type-costum {
     .add-img-form {
       position: relative;
       height: 70px;
-      border: 1px solid #CCC;
+      border: 1px solid $light-2;
       border-radius: 5px;
       overflow: hidden;
       margin-bottom: 20px;
@@ -188,12 +188,12 @@ form.form-type-costum {
         background-repeat: no-repeat;
       }
       .label-file {
-        background-color: green;
+        background-color: $green-1;
         right: 30px;
         background-image: image-url("logo/upload.svg");
       }
       .delete {
-        background-color: #ab3333;
+        background-color: $red-1;
         right: 0px;
         background-image: image-url("logo/trash.svg");
       }
@@ -202,12 +202,12 @@ form.form-type-costum {
         margin-left: -100px;
         &:not(:empty) {
           &::after {
-            background-color: green;
+            background-color: $green-1;
           }
         }
       }
       input[type="file"]:empty + .label-file {
-        background-color: #222;
+        background-color: $dark-2;
       }
       input[type="text"]{
         margin: 0px;
@@ -216,7 +216,7 @@ form.form-type-costum {
         height: 30px;
         border: 0;
         font-size: 1.2em;
-        background-color: white;
+        background-color: $light-1;
       }
     }
     #add-img-button.main-action {
@@ -227,7 +227,7 @@ form.form-type-costum {
       text-align: center;
       text-transform: uppercase;
       &:hover {
-        background-color:#222;
+        background-color:$dark-2;
         color:white;
       }
     }
@@ -247,9 +247,9 @@ form.form-type-costum {
   font-size: 1em;
   letter-spacing: 0;
   text-transform: inherit;
-  color: #444;
+  color: $dark-2;
   border-radius: 0;
-  border: 2px solid #444;
+  border: 2px solid $dark-2;
   display: inline-block;
   padding: 5px 20px;
   text-decoration: none;
@@ -260,10 +260,10 @@ form.form-type-costum {
   border-left: 0;
   float: left;
   &:first-child, &.force-border {
-    border-left: 2px solid #444;
+    border-left: 2px solid $dark-2;
   }
   &.main-action {
-    background-color:#444;
+    background-color:$dark-2;
     color:white;
     @include transition(.2s ease-in);
     &:hover {

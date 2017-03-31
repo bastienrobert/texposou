@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .participation-form {
-  background-color: #FCFCFC;
-  border-top: 1px solid #95989A;
+  background-color: $light-1;
+  border-top: 1px solid $grey-1;
   .col-md-4 {
     background: #FFF;
-    border: 1px solid #95989A;
+    border: 1px solid $grey-1;
     margin-top: 23vh;
     padding-top: 30px;
     h3 {
@@ -28,7 +28,7 @@
       text-align: center;
       .confirm {
         background-color: transparent;
-        border: 2px solid #0D31FB;
+        border: 2px solid $color-1;
         padding: 7px 16px 6px;
         display: inline-block;
         width: inherit;
@@ -36,13 +36,13 @@
         margin: 2em 0;
         transition: background-color .2s, color .2s, border .2s;
         &:hover {
-          background-color: #0D31FB;
+          background-color: $color-1;
           color: #FFF;
         }
         &:active {
-          background-color: #27ae60;
+          background-color: $green-1;
           color: #FFF;
-          border: 2px solid #27ae60;
+          border: 2px solid $green-1;
         }
       }
     }

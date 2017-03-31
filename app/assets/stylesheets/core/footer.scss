@@ -1,17 +1,17 @@
 footer {
   width:100%;
   margin-top:4em;
-  color:white;
-  background-color:#000;
+  color:$light-1;
+  background-color:$dark-1;
   &.force-bottom {
     position: absolute;
     bottom: 0;
   }
   a {
-    color: #FFF;
+    color: $light-1;
     transition: opacity .2s;
     &:hover {
-      color: #FFF;
+      color: $light-1;
       opacity: .85;
     }
   }
