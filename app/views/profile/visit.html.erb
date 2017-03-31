@@ -36,7 +36,9 @@
             <p><%= @user.bio %></p>
             <div class="contact">
               <a href="mailto:<%= @user.email %>" class="btn">Contacter</a>
+              <%  if @user.website %>
               <a href="<%= @user.website %>" class="website" target="_blank"><%= @user.website %></a>
+              <% end %>
             </div>
 
             <% if @user.main_status == "artist" %>

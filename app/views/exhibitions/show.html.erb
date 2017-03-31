@@ -12,16 +12,7 @@
       <%= link_to @place do%><p class='adress'><span><%= @place.address %> <%= @place.zipcode %> <%= @place.city %></span></p><% end %>
       <p class="art_tags_list"><%= @exhibition.opening_at %></p>
       <p class="description">
-        Circa hos dies Lollianus primae lanuginis
-        adulescens, Lampadi filius ex praefecto,
-        exploratius causam Maximino spectante,
-        convictus codicem noxiarum artium nondum
-        per aetatem firmato consilio descripsisse,
-        exulque mittendus, ut sperabatur, patris
-        inpulsu provocavit ad principem, et iussus
-        ad eius comitatum duci, de fumo, ut aiunt, in
-        flammam traditus Phalangio Baeticae
-        consulari cecidit funesti carnificis manu.
+        <%= @exhibition.description %>
       </p>
       <div class="btns">
         <% if user_signed_in? %>
