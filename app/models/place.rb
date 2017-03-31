@@ -3,14 +3,15 @@
 # Table name: places
 #
 #  id          :integer          not null, primary key
-#  name        :string
+#  name        :string           not null
 #  description :text
-#  address     :string
-#  zipcode     :integer
-#  city        :string
-#  area_max    :float
+#  address     :string           not null
+#  zipcode     :integer          not null
+#  city        :string           not null
+#  area_max    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
 #
 
 class Place < ApplicationRecord

@@ -3,8 +3,8 @@
 # Table name: exhibitions_parts
 #
 #  id            :integer          not null, primary key
-#  exhibition_id :integer
-#  art_tag_id    :integer
+#  exhibition_id :integer          not null
+#  art_tag_id    :integer          not null
 #
 
 require 'rails_helper'

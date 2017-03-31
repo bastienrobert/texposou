@@ -4,6 +4,7 @@
 #
 #  id                :integer          not null, primary key
 #  alt               :string
+#  file              :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  place_id          :integer
