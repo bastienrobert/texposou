@@ -11,13 +11,13 @@
           </div>
           <div class="col-md-3 place-pic">
             <% if place.image_places.first %>
-              <%= image_tag place.image_places.first %>
+              <%= image_tag place.image_places.first.file.url %>
             <% else %>
               <img src="https://placehold.it/500x500" alt="">
             <% end %>
           </div>
           <div class="col-md-6">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam accusamus, non nostrum voluptatem, assumenda id dignissimos ut quibusdam tempore placeat, veritatis vitae ab beatae animi alias consequuntur porro nihil mollitia.</p>
+            <p><%= place.description %></p>
           </div>
         </div>
       </div>
