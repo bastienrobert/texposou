@@ -33,6 +33,15 @@
                     <div class="half">
                         <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
                         <h2>Editer mon profil</h2>
+
+                        <div class="type-status-form">
+                          <%= f.label :main_status, value:"Type de profil ?" %>
+                          <p>Visiteur : <%= f.radio_button :main_status, "visitor" %></p>
+                          <p>Professionnel :  <%= f.radio_button :main_status, "professional" %></p>
+                          <p>Particulier : <%= f.radio_button :main_status, "particular" %></p>
+                          <p>Artiste : <%= f.radio_button :main_status, "artist" %></p>
+                        </div>
+
                         <% if @user.avatar %>
                         <div class="profile-photo top-right" <% if @user.avatar.exists? %>style="background-image:url(<%= @user.avatar.url %>)" <% end %>></div>
                         <% end %>
