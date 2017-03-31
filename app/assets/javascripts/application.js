@@ -176,6 +176,10 @@ HPphotoClick = {
     var self = this;
     el.addEventListener("click", function(){
       var url = this.getAttribute("data-url");
+      for(i=0; i<self.els.length ; i++){
+        self.els[i].className = self.els[i].className.replace("active", "");
+      }
+      this.className = this.className+=" active"
       if(url){
         self.photo.setAttribute("style", "background-image:url(\""+url+"\")");
       }
@@ -191,6 +195,7 @@ HPphotoClick = {
     if(this.el){
       this.els = this.el.getElementsByClassName("update-bg");
       this.photo = document.getElementById("photo-updated");
+      this.link = document.getElementById("");
       this.initEvents();
     }
   }
