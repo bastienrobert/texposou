@@ -11,7 +11,7 @@
           <p>Surface : <%= @place.area_max %> m2</p>
           <p><%= @place.address %> <%= @place.zipcode %> <%= @place.city %></p>
         </div>
-        <p class="name"><span>Expos organisés</span></p>
+        <p class="name"><span>Expos organisées</span></p>
         <div class="infos-place">
           <% @place.exhibitions.each do |exhibition| %>
           <p><%= link_to exhibition.name, exhibition %></p>

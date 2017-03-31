@@ -64,7 +64,7 @@
   <h2>À la<br>découverte<br>d'un artiste</h2>
   <div class="row">
     <div class="left-panel col-md-7">
-      <%= link_to show_by_id_path(@artist.id) do %><p class="title"><span><%= @artist.lastname %></span></p><% end %>
+      <%= link_to show_by_id_path(@artist.id) do %><p class="title"><span> <%= @artist.firstname %>  <%= @artist.lastname %></span></p><% end %>
       <p class="art_tags_list"><% @artist.art_tags.each do |at| %>
         <%= at.name -%><% if at != @artist.art_tags.last %> - <% end %>
       <% end %></p>
