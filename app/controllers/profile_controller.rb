@@ -1,11 +1,11 @@
 class ProfileController < Devise::RegistrationsController
-  check_authorization
-  
+
+
   before_action :set_user, only: [:show_profile, :edit_profile, :update_profile]
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :show_profile]
   prepend_before_action :set_minimum_password_length, only: [:new, :edit, :show_profile]
   before_action :authenticate_user!, except: [:index_by_status, :show_by_id]
-
+  skip_authorization_check
 
   def show_profile
     @exhibitions = [];
@@ -51,7 +51,7 @@ class ProfileController < Devise::RegistrationsController
   def update_profile
     respond_to do |format|
       if @user.update(profile_params)
-        format.html { redirect_to show_profile_path, notice: "Votre profile a été mis à jour avec succès" }
+        format.html { redirect_to show_profile_path, notice: "Votre profile a ete mis à jour avec succes" }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render 'profile/show' }
