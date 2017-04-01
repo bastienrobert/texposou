@@ -25,6 +25,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'cancancan'
 gem 'rails_admin', '~> 1.1.1'
+gem 'google-analytics-rails', '1.1.0'
 
 # Paperclip & AWS Developper
 gem 'paperclip'

@@ -54,8 +54,6 @@
       }
     }
   }
-}
-#index-artist {
   .artist-banner {
     background-image: image-url("places/places_page.png");
 
@@ -105,26 +103,13 @@
     text-align: center;
 }
 
-.center-button,
-.cancel {
+.center-button, .cancel {
   text-align: center;
   padding-bottom: 40px;
 }
 
-// Place all the styles related to the profile controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.add-img-form,
-#art_tag_manage {
-  margin-top: 2em;
-  h3 {
-    font-size: 1.3em;
-    margin-bottom: 1.2em;
-  }
-}
 
-
-#show {
+#show-profile {
   min-height: 100vh;
   .half {
     width: 50%;
@@ -266,7 +251,8 @@
   }
 }
 
-.profile-page {
+
+#profile-page {
   background-color: #FCFCFC;
   border-top: 1px solid $grey-1;
   .well {
@@ -393,7 +379,7 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .profile-page {
+  #profile-page {
     .well {
       border: none;
     }
