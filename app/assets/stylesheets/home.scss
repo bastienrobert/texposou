@@ -48,24 +48,11 @@
     .actions-button {
       margin-top: $big-pad;
       width: 310px;
-      text-align: center;
       a {
         display: block;
-        background-color: $dark-2;
-        color: white;
-        width: 100%;
-        text-transform: uppercase;
         margin-bottom: 10px;
-        border: 0;
-        padding: 12px;
         font-weight: 500;
         font-size: 1.2em;
-        border: 2px solid $dark-2;
-        @include transition(.4s);
-        &:hover {
-          color: black;
-          background-color: white;
-        }
       }
     }
   }
@@ -94,7 +81,7 @@
             position: absolute;
             bottom: -4px;
             height: 4px;
-            width: 100%;
+            width: calc(100% + 15px);
             left: 0;
             background-color:$color-1;
             @include transition(.4s);
@@ -164,12 +151,10 @@
     position: relative;
     .content {
       padding: 25px;
-      margin-top: 25px;
+      margin: 25px auto;
       background-color: white;
       width: 40%;
       min-width: 25em;
-
-      margin-right: 7%;
       .title {
         font-size: 2em;
         text-transform: uppercase;
@@ -210,11 +195,12 @@
         background-color: white;
         position: relative;
         z-index: 2;
+        margin-left: $medium-pad;
       }
       &::after {
         content:"";
         position: absolute;
-        width: 100%;
+        width: calc(100% + 15px);
         height: 4px;
         background-color: $color-1;
         left: 0;

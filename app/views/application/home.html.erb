@@ -4,8 +4,8 @@
     <h3>Un artiste chez vous</h3>
     <% if !current_user %>
     <div class="actions-button">
-      <%= link_to "Deviens exposant !",  new_user_registration_status_path("professional"), class:"form-action main-button" %>
-      <%= link_to "Deviens artiste !",  new_user_registration_status_path("artist"), class:"form-action main-button" %>
+      <%= link_to "Deviens exposant !",  new_user_registration_status_path("professional"), class:"btn-dark" %>
+      <%= link_to "Deviens artiste !",  new_user_registration_status_path("artist"), class:"btn-dark" %>
     </div>
     <% end %>
   </div>
@@ -16,7 +16,7 @@
 
 <% if !@places.empty? %>
 <section id="lastExhib">
-  <div class="wrapper">
+  <div class="container">
     <div class='row'>
       <div class="list-exhibition col-md-7" >
         <h2>Les derniers<br> lieux</h2>
@@ -40,7 +40,7 @@
 
 <% if @exhibition %>
 <section id="lastPlace">
-  <div class="wrapper">
+  <div class="container">
     <h2>exposition<br>à venir</h2>
   </div>
   <div class="banner" <% if @exhibition.place.image_places.first %>style="background-image:url(<%= @exhibition.place.image_places.first.file.url %>)"<% end %> >
@@ -51,7 +51,7 @@
     </div>
     <% end %>
   </div>
-  <div class="wrapper">
+  <div class="container">
     <%= link_to "Toutes les expositions", exhibitions_path, class:"list_link" %>
   </div>
 </section>
@@ -60,7 +60,7 @@
 
 
 <% if @artist %>
-<section id="lastArtist" class="wrapper">
+<section id="lastArtist" class="container">
   <h2>À la<br>découverte<br>d'un artiste</h2>
   <div class="row">
     <div class="left-panel col-md-7">
