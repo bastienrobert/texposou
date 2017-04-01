@@ -1,5 +1,6 @@
 class ProfileController < Devise::RegistrationsController
-
+  check_authorization
+  
   before_action :set_user, only: [:show_profile, :edit_profile, :update_profile]
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :show_profile]
   prepend_before_action :set_minimum_password_length, only: [:new, :edit, :show_profile]

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     resources :participations, only: [:index, :show, :create, :edit, :update, :destroy, :confirm, :unconfirm]
     resources :visits, only: [:index, :show, :create, :edit, :update, :destroy]
     devise_for :users, :controllers => {:registrations => "profile"}

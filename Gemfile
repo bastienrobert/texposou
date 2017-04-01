@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 # User management
 gem 'devise'
 gem 'cancancan'
+gem 'rails_admin', '~> 1.1.1'
 
 # Paperclip & AWS Developper
 gem 'paperclip'

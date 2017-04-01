@@ -35,18 +35,24 @@
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # load_and_authorize_resource :user
 
+  #avatar attachement
   has_attached_file :avatar, styles: { square:"400x400", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
 
-STATUS_ARTIST = 'artist'
-
+  # SCOPE FOR EASY SEARCH OF STATUS
+  STATUS_ARTIST = 'artist'
+  STATUS_PROFESSIONAL = 'professional'
+  STATUS_PARTICULAR = 'particular'
+  STATUS_VISITOR = 'visitor'
   scope :artists, -> { where(main_status: STATUS_ARTIST) }
+  scope :professionals, -> { where(main_status: STATUS_PROFESSIONAL) }
+  scope :particulars, -> { where(main_status: STATUS_PARTICULAR) }
+  scope :visitors, -> { where(main_status: STATUS_VISITOR) }
 
-
+  #Relation
   has_many :users_tag_parts, dependent: :destroy
   has_many :art_tags, :through => :users_tag_parts
   has_many :visits, dependent: :destroy
@@ -55,9 +61,11 @@ STATUS_ARTIST = 'artist'
   has_many :image_users, dependent: :destroy
   accepts_nested_attributes_for :image_users, allow_destroy: true, reject_if: proc { |attributes| attributes['file'].blank? }
 
+  #devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  #getters & setters
   # attr_accessor :all_tags
   # accepts_nested_attributes_for :art_tags, allow_destroy: false
   attr_accessor :main_status
@@ -113,10 +121,19 @@ STATUS_ARTIST = 'artist'
     end
   end
 
-
-
-  def to_s
-    "#{firstname.capitalize} #{lastname.upcase}"
+  def is_admin?
+    puts "*"*100
+    puts self.firstname+" "+self.lastname+" "+self.email+" "+self.status+" "+self.admin.to_s
+    if self.firstname == "admin"
+      return true
+    else
+      return false
+    end
   end
+
+  # 
+  # def to_s
+  #   "#{firstname.capitalize} #{lastname.upcase}"
+  # end
 
 end
