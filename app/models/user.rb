@@ -121,19 +121,10 @@ class User < ApplicationRecord
     end
   end
 
-  def is_admin?
-    puts "*"*100
-    puts self.firstname+" "+self.lastname+" "+self.email+" "+self.status+" "+self.admin.to_s
-    if self.firstname == "admin"
-      return true
-    else
-      return false
-    end
-  end
 
-  # 
-  # def to_s
-  #   "#{firstname.capitalize} #{lastname.upcase}"
-  # end
+  
+  def to_s
+    "#{firstname.capitalize} #{lastname.upcase}"
+  end
 
 end
