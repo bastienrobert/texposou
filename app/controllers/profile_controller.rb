@@ -5,7 +5,6 @@ class ProfileController < Devise::RegistrationsController
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :show_profile]
   prepend_before_action :set_minimum_password_length, only: [:new, :edit, :show_profile]
   before_action :authenticate_user!, except: [:index_by_status, :show_by_id]
-  skip_authorization_check
 
   def show_profile
     @exhibitions = [];

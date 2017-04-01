@@ -9,11 +9,24 @@ class Ability
     if user.is_admin?
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard
+      can :manage, :all               # allow access to dashboar
     else
-      can :read, :all
+      #For the moment, user manage all except rails_admin
+      can :manage, [
+        ArtTag,
+        Exhibition,
+        ExhibitionsPart,
+        ImagePlace,
+        ImageUser,
+        Participation,
+        Place,
+        User,
+        UsersTagPart,
+        Visit
+      ]
+
     end
 
-    can :manage, :all               # allow access to dashboar
 
 
     # can :access, :rails_admin       # only allow admin users to access Rails Admin
