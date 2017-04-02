@@ -252,7 +252,6 @@ ImagePopin = {
 
 document.addEventListener("turbolinks:load", function() {
   ArtTagManage.init();
-  ImageFormManage.init();
   HPphotoClick.init();
   ImagePopin.init(1000);
   $( function() {

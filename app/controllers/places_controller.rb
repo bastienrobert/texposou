@@ -33,6 +33,11 @@ class PlacesController < ApplicationController
     @place.user = current_user
     respond_to do |format|
       if @place.save
+        if params[:all_images]
+          params[:all_images].each do |i|
+            @place.image_places.create(file: i)
+          end
+        end
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
@@ -45,6 +50,11 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
   def update
+    if params[:all_images]
+      params[:all_images].each do |i|
+        @place.image_places.create(file: i)
+      end
+    end
     respond_to do |format|
       if @place.update(place_params)
         format.html { redirect_to @place, notice: 'Place was successfully updated.' }
@@ -80,6 +90,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:name, :description, :address, :zipcode, :city, :area_max, image_places_attributes:[ :id, :alt, :file, :_destroy ])
+      params.require(:place).permit(:name, :description, :all_images, :address, :zipcode, :city, :area_max, image_places_attributes:[ :id, :alt, :file, :_destroy ])
     end
 end

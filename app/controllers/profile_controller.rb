@@ -47,7 +47,13 @@ class ProfileController < Devise::RegistrationsController
     show_profile_path
   end
 
+
   def update_profile
+    if params[:all_images]
+      params[:all_images].each do |i|
+        @user.image_users.create(file: i)
+      end
+    end
     respond_to do |format|
       if @user.update(profile_params)
         format.html { redirect_to show_profile_path, notice: "Votre profile a ete mis à jour avec succes" }
@@ -58,6 +64,7 @@ class ProfileController < Devise::RegistrationsController
       end
     end
   end
+
 
 
   private
@@ -76,6 +83,6 @@ class ProfileController < Devise::RegistrationsController
     end
 
     def profile_params
-      params.require(:user).permit(:firstname, :lastname, :address, :city, :zipcode, :firstname, :tel, :website, :bio, :all_tags, :avatar, :main_status, image_users_attributes:[ :id, :alt, :file, :_destroy ])
+      params.require(:user).permit(:firstname, :lastname, :address, :all_images, :city, :zipcode, :firstname, :tel, :website, :bio, :all_tags, :avatar, :main_status, image_users_attributes:[ :id, :alt, :file, :_destroy ])
     end
 end
