@@ -23,9 +23,11 @@ fr:
   title:  "TEXPOSOÙ?"
   welcome: "Bienvenue"
   baseline: "Un artiste chez vous"
+
   date:
     order: ["day", "month", "year"]
     month_names: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+
   header:
     profil: "Mon profil"
     artist: "Trouver un artiste"
@@ -34,17 +36,22 @@ fr:
     signin: "Connexion"
     signup: "Inscription"
     signout: "Déconnexion"
+
   action:
     save: "Enregistrer"
     valid: "Valider"
+    signup: "S'inscrire"
+    signup_artist: "Deviens artiste !"
+    signup_owner: "Deviens exposant !"
+
   homepage:
-    places:
+    place:
       title: "Les derniers<br>lieux"
       link: "Tous les lieux"
-    exhibitions:
+    exhibition:
       title: "Exposition<br>à venir"
       link: "Toutes les expositions"
-    artists:
+    artist:
       title: "À la <br>découverte <br>d'un artiste"
       link: "Tous les artistes"
 

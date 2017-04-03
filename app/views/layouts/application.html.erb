@@ -32,33 +32,33 @@
             <ul class="nav navbar-nav" id="btns-container">
               <% if user_signed_in? %>
               <li class="btn-header">
-                <p class="navbar-right"><span><%= link_to "Mon profil", show_profile_path(current_user) %></span></p>
+                <p class="navbar-right"><span><%= link_to t("header.profil"), show_profile_path(current_user) %></span></p>
               </li>
               <% end %>
               <li class="btn-header">
-                <p class="navbar-right"><%= link_to "Trouver un artiste", index_profile_status_path("artist") %></p>
+                <p class="navbar-right"><%= link_to t("header.artist"), index_profile_status_path("artist") %></p>
               </li>
 
               <li class="btn-header">
-                <p class="navbar-right"><%= link_to "Trouver un lieu", exhibitions_path %></p>
+                <p class="navbar-right"><%= link_to t("header.place"), exhibitions_path %></p>
               </li>
 
               <li class="btn-header">
-                <p class="navbar-right"><%= link_to "A propos", about_path %></p>
+                <p class="navbar-right"><%= link_to t("header.about"), about_path %></p>
               </li>
 
               <li class="btn-header">
                 <% if user_signed_in? %>
-                  <p class="navbar-right"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, confirm: 'Are you sure ?' %></p>
+                  <p class="navbar-right"><%= link_to t("header.signout"), destroy_user_session_path, method: :delete, confirm: 'Are you sure ?' %></p>
                 <% else %>
-                  <p class="navbar-right"><%= link_to "Se connecter", new_user_session_path %></p>
+                  <p class="navbar-right"><%= link_to t("header.signin"), new_user_session_path %></p>
                 <% end %>
               </li>
 
               <% unless user_signed_in? %>
                 <li class="btn-header">
                   <p class="navbar-right">
-                  <span><%= link_to "S'inscrire", new_user_registration_path %></span>
+                  <span><%= link_to t("header.signup"), new_user_registration_path %></span>
                   </p>
                 </li>
               <% end %>

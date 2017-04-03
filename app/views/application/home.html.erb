@@ -1,11 +1,11 @@
 <section id="landing">
   <div class="panel-right">
     <h1>Texposoù?<br>_BORDEAUX</h1>
-    <h3>Un artiste chez vous</h3>
+    <h3><%= t("baseline") %></h3>
     <% if !current_user %>
     <div class="actions-button">
-      <%= link_to "Deviens exposant !",  new_user_registration_status_path("professional"), class:"btn btn-dark" %>
-      <%= link_to "Deviens artiste !",  new_user_registration_status_path("artist"), class:"btn btn-dark" %>
+      <%= link_to t("action.signup_owner"),  new_user_registration_status_path("professional"), class:"btn btn-dark" %>
+      <%= link_to t("action.signup_artist"),  new_user_registration_status_path("artist"), class:"btn btn-dark" %>
     </div>
     <% end %>
   </div>
@@ -19,7 +19,7 @@
   <div class="container">
     <div class='row'>
       <div class="list-exhibition col-md-7" >
-        <h2>Les derniers<br> lieux</h2>
+        <h2><%= raw t("homepage.place.title") %></h2>
         <ul>
           <% r = 0 %>
           <% @places.each do |p| %>
@@ -31,7 +31,7 @@
       <%= link_to(@places.first, id:"link-place") do %><div class="photo-pres clr-after col-md-5" id="photo-updated" style="background-image:url(<% if @places.first.image_places.first %><%= @places.first.image_places.first.file.url %><% end %>);"></div><% end %>
     </div>
     <div class="clr">
-      <%= link_to "Tous les lieux", places_path, class:"list_link" %>
+      <%= link_to t("homepage.place.link"), places_path, class:"list_link" %>
     </div>
   </div>
 </section>
@@ -41,7 +41,7 @@
 <% if @exhibition %>
 <section id="lastPlace">
   <div class="container">
-    <h2>exposition<br>à venir</h2>
+    <h2><%= raw t("homepage.exhibition.title") %></h2>
   </div>
   <div class="banner" <% if @exhibition.place.image_places.first %>style="background-image:url(<%= @exhibition.place.image_places.first.file.url %>)"<% end %> >
     <%= link_to @exhibition do %>
@@ -52,7 +52,7 @@
     <% end %>
   </div>
   <div class="container">
-    <%= link_to "Toutes les expositions", exhibitions_path, class:"list_link" %>
+    <%= link_to t("homepage.exhibition.link"), exhibitions_path, class:"list_link" %>
   </div>
 </section>
 <% end %>
@@ -61,7 +61,7 @@
 
 <% if @artist %>
 <section id="lastArtist" class="container">
-  <h2>À la<br>découverte<br>d'un artiste</h2>
+  <h2><%= raw t("homepage.artist.title") %></h2>
   <div class="row">
     <div class="left-panel col-md-7">
       <%= link_to show_by_id_path(@artist.id) do %><p class="title"><span> <%= @artist.firstname %>  <%= @artist.lastname %></span></p><% end %>
@@ -80,7 +80,7 @@
     <div class="right-panel col-md-5" style="background-image:url(<%= @artist.avatar.url %>)"></div>
     <% end %>
     <div class="clr">
-      <%= link_to "Tous les artistes", index_profile_status_path("artist"), class:"list_link" %>
+      <%= link_to t("homepage.artist.link"), index_profile_status_path("artist"), class:"list_link" %>
     </div>
   </div>
 </section>
