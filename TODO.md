@@ -16,6 +16,7 @@
     - Reste à vérifier les show de place/exhibition/profile
 - Intégrer work sans en local pour tester si c'est plus jolie
 - resize la photo de la homepage (elle dépasse sur le header)
+- améliorer design : error_explanation
 
 ## Back
 - créer une table polymorphique pour image permettant de mutualiser image_users et image_place
@@ -27,7 +28,7 @@
 
 # Bug Tracker
 - rajouter lien quand on est pas loggé pour inciter à l'inscription
-- à l'ajout de photo sur la gallerie, on obtient l'erreur "param is missing or the value is empty: user" 
+- à l'ajout de photo sur la gallerie, on obtient l'erreur "param is missing or the value is empty: user"
 
 
 # Bad code (but we're speed so we don't have time for all)

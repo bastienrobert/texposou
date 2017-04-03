@@ -63,7 +63,7 @@
           <%= f.file_field :avatar, class: "", placeholder: "Avatar" %>
         </div>
         <div id="art_tag_manage">
-            <label>Tags</label>
+            <%= f.label :art_tags %>
             <div class="art_tag_form">
                 <input type="text" id="add_tag_text" class="form-control">
                 <input type="button" id="add_tag_submit" value="add">
@@ -81,6 +81,6 @@
         </div>
         <%= f.hidden_field :all_tags, id: "tag-field", placeholder: "Vos tags" %>
         <div class="form-action-container">
-            <%= f.submit "Valider", class: "btn btn-dark" %>
+            <%= f.submit "Enregistrer", class: "btn btn-dark" %>
         </div>
         <% end %>

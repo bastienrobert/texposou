@@ -47,7 +47,7 @@
               <%= f.text_field :area_max, class: "form-control", placeholder: "Aire maximale", autocomplete: "off" %>
             </div> -->
             <div class="form-group">
-              <label for="">Uploader vos images ici :</label>
+              <%= f.label :image_places %>
               <%= file_field_tag "all_images[]", type: :file, multiple: true %>
             </div>
             <div id="img-form-manage" class="form-for-img" data-id="<%= @place.image_places.length %>">
@@ -69,7 +69,7 @@
 
           </div>
           <div class="form-action-container">
-            <%= link_to "Back", :back, class:"btn btn-light" %>
+            <%= link_to "Retour", :back, class:"btn btn-light" %>
             <%= f.submit "Valider", class: "btn btn-dark" %>
           </div>
         <% end %>

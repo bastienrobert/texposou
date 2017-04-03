@@ -23,6 +23,9 @@ fr:
   title:  "TEXPOSOÙ?"
   welcome: "Bienvenue"
   baseline: "Un artiste chez vous"
+  date:
+    order: ["day", "month", "year"]
+    month_names: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
   header:
     profil: "Mon profil"
     artist: "Trouver un artiste"
@@ -31,6 +34,9 @@ fr:
     signin: "Connexion"
     signup: "Inscription"
     signout: "Déconnexion"
+  action:
+    save: "Enregistrer"
+    valid: "Valider"
   homepage:
     places:
       title: "Les derniers<br>lieux"
@@ -41,3 +47,44 @@ fr:
     artists:
       title: "À la <br>découverte <br>d'un artiste"
       link: "Tous les artistes"
+
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        firstname: "Prénom"
+        lastname: "Nom"
+        address: "Adresse postale"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation mot de passe"
+        current_password: "Mot de passe actuel"
+        city: "Ville"
+        zipcode: "Code postale"
+        tel: "Téléphone"
+        status: "Status"
+        bio: "Biographie"
+        avatar: "Photo de profil"
+        description: "Description"
+        website: "Site web"
+        art_tags: "Domaines artistiques"
+
+      exhibition:
+        name: "Nom de l'évenement"
+        place: "Lieux"
+        description: "Description de l'évenement"
+        opening_at: "Début de l'évenement"
+        closing_at: "Fin de l'évenement"
+        artists_max: "Nombre maximum d'artist"
+        area_left: "Place restante (m2)"
+        area_max: "Place maximum (m2)"
+        price_per_day_per_area: "Prix à la journée par mettre carré"
+
+      place:
+        name: "Nom du lieu"
+        description: "Description"
+        address: "Adresse postale"
+        zipcode: "Code postale"
+        city: "Ville"
+        image_places: "Uploader vos images ici"
+        area_max: "Place maximum (m2)"
+        user: "Propriétaire du lieu"

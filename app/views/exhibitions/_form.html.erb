@@ -40,9 +40,11 @@
                 </div>
 
                 <div class="form-group">
+                  <% if @places %>
                   <% cities_array = @places.all.map { |place| [place.name, place.id] } %>
                   <%= f.label :place_id, value:"Sélectionner le lieu de l'évenement dans la liste" %>
                   <%= select_tag(:place_id, options_for_select(cities_array), class:"form-control") %>
+                  <% end %>
                 </div>
 
                 <!-- <div class="pretty-form-group">
@@ -92,9 +94,9 @@
             </div>
 
             <div class="form-action-container">
-                <%= link_to "Back", :back, class:"btn btn-light" %>
+                <%= link_to "Retour", :back, class:"btn btn-light" %>
                 <% if controller.action_name == "edit" %>
-                <%= link_to 'Show', exhibition, class:"btn btn-light" %>
+                <%= link_to 'Voir', exhibition, class:"btn btn-light" %>
                 <% end %>
                 <%= f.submit "Valider", class: "btn btn-dark" %>
             </div>
