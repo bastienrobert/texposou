@@ -107,6 +107,11 @@ form {
     @include transform(translateZ(0));
   }
 
+
+  &.no-js {
+    
+  }
+
   input[type="checkbox"], input[type="radio"]{
      width: 20px;
      display: inline-block;

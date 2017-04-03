@@ -40,6 +40,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "jquery-rails"
 gem 'jquery-ui-rails'
+gem 'momentjs-rails'
+gem "pikaday-gem"
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.6'
 

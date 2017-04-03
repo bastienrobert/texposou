@@ -119,6 +119,8 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nested_form (0.3.2)
     nio4r (2.0.0)
@@ -136,6 +138,8 @@ GEM
     paperclip-i18n (4.3.0)
     pg (0.20.0)
     pg (0.20.0-x86-mingw32)
+    pikaday-gem (1.4.0)
+      railties (>= 3.1)
     puma (3.8.2)
     rack (2.0.1)
     rack-pjax (1.0.0)
@@ -272,9 +276,11 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   listen (~> 3.0.5)
+  momentjs-rails
   paperclip
   paperclip-i18n
   pg
+  pikaday-gem
   puma (~> 3.0)
   rails (~> 5.0.2)
   rails-erd

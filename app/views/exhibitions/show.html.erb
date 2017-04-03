@@ -14,24 +14,32 @@
       <p class="description">
         <%= @exhibition.description %>
       </p>
-      <div class="btns">
-
-        <br>
+      <div class="form-action-container marge-top-medium">
+        <!-- Si l'uilisateur existe et possède cette expo -->
         <% if current_user && @exhibition.place.user.id == current_user.id %>
             <%= link_to 'Modifier', edit_exhibition_path(@exhibition), class:"btn btn-dark" %>
         <% else %>
+          <!-- Si l'utilisateur est connecté -->
           <% if user_signed_in? %>
-          <%#= link_to 'Visiter', new_exhibition_visit_path(@exhibition), class: "grid-add" %>
-          <% end %>
-          <% if user_signed_in? && current_user.has_status?("artist") %>
-            <% if Participation.find_by(user: current_user, exhibition: @exhibition) %>
-              <%= link_to 'Ne plus participer', Participation.find_by(user: current_user, exhibition: @exhibition), method: :delete,  class: "btn btn-dark" %>
-            <% else %>
-              <%= link_to 'Participer', new_exhibition_participation_path(@exhibition), class: "btn btn-dark" %>
+            <%#= link_to 'Visiter', new_exhibition_visit_path(@exhibition), class: "grid-add" %>
+
+            <!-- Si l'utilisateur est artiste -->
+            <% if current_user.has_status?("artist") %>
+              <!-- Si il participe déja, sinon... -->
+              <% if Participation.find_by(user: current_user, exhibition: @exhibition) %>
+                <%= link_to 'Ne plus participer', Participation.find_by(user: current_user, exhibition: @exhibition), method: :delete,  class: "btn btn-dark" %>
+              <% else %>
+                <%= link_to 'Participer', new_exhibition_participation_path(@exhibition), class: "btn btn-dark" %>
+              <% end %>
             <% end %>
-            <%= link_to 'Contacter', exhibitions_path, class: "btn btn-dark" %>
+
+          <!-- Si l'utilisateur n'est pas connecté -->
+          <% else %>
+          <%= link_to 'Inscriver vous pour participer', new_user_registration_status_path("artist"), class: "btn btn-dark" %>
           <% end %>
+
         <% end %>
+        <%= link_to 'Contacter', exhibitions_path, class: "btn btn-dark" %>
       </div>
     </div>
   </div>

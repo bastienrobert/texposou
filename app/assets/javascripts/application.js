@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require moment
+//= require pikaday
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
@@ -331,11 +333,23 @@ PrettyForm = {
 }
 
 
+function initDatePicker(){
+  var dateField = document.getElementsByClassName("datepicker");
+  var picker = []
+  for(i=0; i<dateField.length; i++){
+    picker.push(new Pikaday({
+      field: dateField[i],
+      format: 'YYYY-MM-DD'
+    }));
+  }
+}
+
 document.addEventListener("turbolinks:load", function() {
   ArtTagManage.init();
   HPphotoClick.init();
   ImagePopin.init(1000);
   PrettyForm.init();
+  initDatePicker();
   $( function() {
     $( "#tabs-profile" ).tabs();
   });
