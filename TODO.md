@@ -3,6 +3,7 @@
 ## Contenu
 - add alert in profile => place#new event#new
 - proposer lien vers inscription artiste / professional / etc... dans les forms d'isncription
+- rajouter bouton d'inscription pour inciter à participer sur les pages place#show, exhibition#show
 
 ## Intégration
 - bug hover sur la liste des lieux

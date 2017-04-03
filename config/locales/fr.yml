@@ -27,6 +27,13 @@ fr:
   date:
     order: ["day", "month", "year"]
     month_names: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+    distance_in_words:
+      x_days: "%{count} days"
+
+  datetime:
+    distance_in_words:
+      about_x_days: "%{count} jours"
+      about_x_hours: "%{count} heures"
 
   header:
     profil: "Mon profil"
@@ -55,7 +62,12 @@ fr:
       title: "À la <br>découverte <br>d'un artiste"
       link: "Tous les artistes"
 
+
   activerecord:
+    model:
+      exhibitions:
+        one: "Exposition"
+        other: "Expositions"
     attributes:
       user:
         email: "E-mail"
