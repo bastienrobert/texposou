@@ -116,9 +116,18 @@
     margin: auto;
   }
   .type-status-form {
-    p {
-      margin: 0;
-    }
+      .radio-container {
+          display: flex;
+          flex-wrap: wrap;
+          flex-shrink: 2;
+          margin: 10px 0 25px;
+          p {
+            margin: 0;
+            flex-grow: 1;
+            width: 50%;
+          }
+      }
+
   }
   .visit-profil {
     float: right;
@@ -136,9 +145,9 @@
       margin: $medium-pad 0;
       margin-left: -15px;
       li {
-        padding-left: $medium-pad;
-        text-transform: uppercase;
-        letter-spacing: 3px;
+        padding-left: $small-pad;
+        text-transform: none;
+        letter-spacing: 0px;
         border-left: 4px solid transparent;
         @include transition(.4s);
         &.ui-tabs-active, &.ui-state-active, &:hover {
@@ -202,10 +211,6 @@
           text-transform: uppercase;
           letter-spacing: 2px;
           margin-bottom: 16px;
-        }
-        a {
-          border-left: 2px solid $dark-2;
-          background-color: $dark-2;
         }
       }
     }
@@ -301,19 +306,6 @@
     color: $grey-1;
     line-height: 16px;
   }
-  a.btn {
-    margin-right: 3em;
-    padding: 5px 11px;
-    border: 2px solid #000;
-    color: #000;
-    transition: background .2s, color .2s;
-    border-radius: 0;
-    text-transform: uppercase;
-    &:hover {
-      background: #000;
-      color: #FFF;
-    }
-  }
   .contact {
     display: inline-block;
     align-items: center;
@@ -321,9 +313,6 @@
       color: $grey-1;
       font-size: 1.2em;
       margin-left: .6em;
-    }
-    .btn {
-      margin-right: 0;
     }
   }
   .grid-body article + article {

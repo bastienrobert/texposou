@@ -32,7 +32,7 @@
       </section>
     </div>
   </div>
-  <% if user_signed_in? && current_user.has_status?("exposant") %>
-  <%= link_to 'New Place', new_place_path, class: "grid-add" %>
+  <% if user_signed_in? && current_user.has_status?("professional") %>
+  <%= link_to 'New Place', new_place_path, class: "btn btn-dark" %>
   <% end %>
 </div>

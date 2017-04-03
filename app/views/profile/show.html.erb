@@ -1,8 +1,8 @@
 <div id="show-profile">
     <div class="container">
-        <%= link_to "Voir en tant que visiteur", show_by_id_path(current_user), class:"btn-dark visit-profil" %>
+        <%= link_to "Voir en tant que visiteur", show_by_id_path(current_user), class:"btn btn-dark visit-profil" %>
         <div id="tabs-profile" class="row">
-            <ul class="tabs-menu col-sm-4">
+            <ul class="tabs-menu col-sm-3">
                 <li>
                     <a href="#tabs-1">Profil</a>
                 </li>
@@ -28,7 +28,7 @@
                     <a href="#tabs-6">Mes visites</a>
                 </li>
             </ul>
-            <div class="col-sm-8">
+            <div class="col-sm-9">
               <div id="tabs-1" class="tab-profile">
                 <%= render "profile/partial/profile-edit" %>
               </div>

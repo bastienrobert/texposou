@@ -1,10 +1,11 @@
 class ProfileController < Devise::RegistrationsController
 
-
+  # before_filter :configure_permitted_parameters
   before_action :set_user, only: [:show_profile, :edit_profile, :update_profile]
-  prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :show_profile]
+  prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :show_profile, :update_profile]
   prepend_before_action :set_minimum_password_length, only: [:new, :edit, :show_profile]
   before_action :authenticate_user!, except: [:index_by_status, :show_by_id]
+
 
   def show_profile
     @exhibitions = [];
@@ -47,16 +48,19 @@ class ProfileController < Devise::RegistrationsController
     show_profile_path
   end
 
+  def after_sign_in_path_for(resource)
+    show_profile_path
+  end
 
   def update_profile
     if params[:all_images]
       params[:all_images].each do |i|
-        @user.image_users.create(file: i)
+        current_user.image_users.create(file: i)
       end
     end
     respond_to do |format|
-      if @user.update(profile_params)
-        format.html { redirect_to show_profile_path, notice: "Votre profile a ete mis à jour avec succes" }
+      if current_user.update(profile_params)
+        format.html { redirect_to show_profile_path(current_user), notice: "Profile correctement mis a jour" }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render 'profile/show' }
@@ -65,7 +69,11 @@ class ProfileController < Devise::RegistrationsController
     end
   end
 
+  protected
 
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -78,11 +86,15 @@ class ProfileController < Devise::RegistrationsController
       end
     end
 
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:update_profile) { |u| u.permit(:firstname, :lastname, :address, :address, :all_images, :city, :zipcode, :firstname, :tel, :website, :bio, :all_tags, :avatar, :main_status, image_users_attributes:[ :id, :alt, :file, :_destroy ])}
+    end
+
     def sign_up_params
       params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation, :main_status)
     end
 
     def profile_params
-      params.require(:user).permit(:firstname, :lastname, :address, :all_images, :city, :zipcode, :firstname, :tel, :website, :bio, :all_tags, :avatar, :main_status, image_users_attributes:[ :id, :alt, :file, :_destroy ])
+      params.require(:user).permit(:firstname, :lastname, :address, :city, :zipcode, :firstname, :tel, :website, :bio, :all_tags, :all_images, :avatar, :main_status, image_users_attributes:[ :id, :alt, :file, :_destroy ])
     end
 end

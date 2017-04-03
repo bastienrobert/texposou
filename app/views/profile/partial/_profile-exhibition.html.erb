@@ -9,7 +9,7 @@
         <% if p.exhibition.description %>
           <p class="content"><%= p.exhibition.description %></p>
         <% end %>
-        <%= link_to "VOIR PLUS", p.exhibition, class:"form-action main-action" %>
+        <%= link_to "Voir plus", p.exhibition, class:"btn btn-dark" %>
         <% if p.confirm %>
         <p class="status" data-confirm="true">Le propriétaire du lieu a valider votre demande</p>
         <% else %>
@@ -20,7 +20,7 @@
     <% end %>
     <% end %>
   </div>
-  <%= link_to "Trouver des lieux ou exposer", exhibitions_path,  class: "form-action main-action" %>
+  <%= link_to "Trouver des lieux ou exposer", exhibitions_path,  class: "btn btn-dark noFontStyle" %>
   <div class="clr pad-bottom-medium"></div>
 </div>
 <% end %>
@@ -56,15 +56,15 @@
         <hr>
         <% end %>
 
-        <%= link_to "VOIR PLUS", e, class:"form-action main-action" %>
+        <%= link_to "VOIR PLUS", e, class:"btn btn-dark" %>
     </div>
     <% end %>
     <% end %>
   </div>
   <% if @user.places.length > 0 %>
-    <%= link_to "Créer un évenement", new_place_exhibition_path(@user.places.first),  class: "form-action main-action" %>
+    <%= link_to "Créer un évenement", new_place_exhibition_path(@user.places.first),  class: "btn btn-dark noFontStyle" %>
   <% else %>
     <p>Vous devez créer un lieu avant de créer un évenement</p>
-    <%= link_to "Créer un lieu", new_place_path, class: "form-action main-action" %>
+    <%= link_to "Créer un lieu", new_place_path, class: "btn btn-dark" %>
   <% end %>
 </div>

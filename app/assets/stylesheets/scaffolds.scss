@@ -7,25 +7,7 @@ body {
   min-height: 100vh;
 }
 
-.btn-dark {
-  background-color: $dark-2;
-  color: white;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  display: inline-block;
-  border: 3px solid $dark-2;
-  width: auto;
-  margin: 0;
-  text-align: center;
-  @include transition(.3s ease-in);
-  &:hover {
-    color: $dark-2;
-    background-color: white;
-  }
-  &.large {
-    width: 100%;
-  }
-}
+
 
 #notice {
   position: fixed;
@@ -100,23 +82,14 @@ body {
 }
 
 
-.red-btn {
-  background-color: $red-1 !important;
-  border-color: $red-1 !important;
-}
 
-.pad-bottom-big {
-  padding-bottom: $big-pad !important;
-}
+.pad-bottom-big {padding-bottom: $big-pad !important;}
+.pad-bottom-medium {padding-bottom: $medium-pad !important;}
+.pad-top-medium {padding-top: $medium-pad !important;}
+.pad-top-big {padding-top: $big-pad !important;}
+.pad-medium {padding-left: $medium-pad;}
+.marge-top-medium {margin-top: $medium-pad;}
 
-.pad-bottom-medium {
-  padding-bottom: $medium-pad !important;
-}
-
-
-.pad-medium {
-  padding-left: $medium-pad;
-}
 
 .profile-photo {
   width: 100px;

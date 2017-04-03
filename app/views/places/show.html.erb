@@ -26,15 +26,14 @@
       <div class="col-md-6 panel-right">
         <p id="about-place">À propos de ce lieu</p>
         <p><%= @place.description %></p>
+        <div class="marge-top-medium">
+            <% if current_user && @place.user.id == current_user.id %>
+                <%= link_to 'Nouvel évenement', new_place_exhibition_path(@place), class:"btn btn-dark" %>
+                <%= link_to 'Editer', edit_place_path(@place), class:"btn btn-dark " %>
+                <%= link_to 'Retour', places_path, class:"btn btn-dark" %>
+            <% end %>
+        </div>
       </div>
     </div>
   </section>
 </div>
-
-  <div class="btn-action">
-    <% if current_user && @place.user.id == current_user.id %>
-    <%= link_to 'Ajouter une disponibilitée', new_place_exhibition_path(@place), class:"form-action" %>
-    <%= link_to 'Editer le lieu', edit_place_path(@place), class:"form-action" %>
-    <%= link_to 'Retour', places_path, class:"form-action" %>
-    <% end %>
-  </div>

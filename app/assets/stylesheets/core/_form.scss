@@ -1,16 +1,35 @@
+div[contentEditable="true"] {
+  display:inline-block;
+   border: solid 1px #000;
+   min-height: 50px;
+   width: 300px;
+   &:focus {
+     outline: 0;
+   }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//                             STYLE GÉNÉRIQUE
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
 form {
   label {
-    display: inline-block;
-    margin: .8em 0;
+    display:block;
+    color: #888;
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 100;
   }
-  input,
-  textarea {
+  .checkbox-label {
+      width: auto;
+      display: inline-block;
+  }
+  input, textarea {
     margin-top: .7em;
     &[type="submit"] {
       display: inline-block;
-      text-align: center;
-      width: 100%;
       text-transform: uppercase;
       letter-spacing: 2px;
       font-family: $main-font;
@@ -34,241 +53,397 @@ form {
   }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//                              PRETTY TYPE FORM
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+.half-size-form {
+  padding-top: $small-pad;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  .pretty-form-group {
+    width: calc(50% - 8px);
+    justify-content: space-between;
+    flex: 1;
+    margin-bottom: 0px;
+    &:first-child {
+      margin-right: $medium-pad;
+    }
+    label {
+      @include transition(.3s ease-in);
+    }
+    input:focus + label, &.active label {
+      @include transform(translateY(-20px));
+    }
+    input:focus, &.active input {
+      margin-top: 0px;
+    }
+  }
+  .full-size-form {
+    width: 100%;
+  }
+}
+
+
+
+.pretty-form-group {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  display: inline-block;
+  margin-bottom: 20px;
+  input, textarea {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid grey;
+    margin-top: 0px;
+    font-size: .9em;
+    color: white;
+    @include transition(.2s ease-in);
+    @include transform(translateZ(0));
+  }
+
+  input[type="checkbox"], input[type="radio"]{
+     width: 20px;
+     display: inline-block;
+  }
+
+  input {
+    margin: 10px;
+    padding-bottom: 5px;
+    margin: 0;
+  }
+  textarea {
+    overflow:hidden;
+    padding:0px;
+    line-height: 25px;
+    outline: 0;
+    background-repeat: repeat;
+    background-size: auto 25px;
+    background-image: image-url("line.svg");
+  }
+  label {
+    display:block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    color: #888;
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 100;
+  }
+
+  label {
+     display: inline-block;
+  }
+
+  input:focus, &.active input, textarea:focus, &.active textarea {
+    margin-top: 20px;
+    color: black;
+  }
+
+  &.fixe {
+      margin-bottom: 35px;
+      label {
+        @include transition(.3s ease-in);
+      }
+      input:focus + label, &.active label {
+        @include transform(translateY(-20px));
+      }
+      input:focus, &.active input {
+        margin-top: 0px;
+      }
+  }
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//                              FORM TYPE COSTUM
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
 form.form-type-costum {
-  text-align: center;
-  padding: 40px 0;
-  h1 {
-    font-size: 2em;
-    text-transform: uppercase;
-    font-family: $main-font;
-    font-weight: 100;
-    color: $grey-1;
-    margin-bottom: $medium-pad;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-    label {
-      margin-bottom: 0;
-      color: $grey-2;
-    }
-    i {
-      color: $grey-2;
-      font-style: italic;
-    }
-  }
-  .form-annotation {
-    color: $grey-1;
-    font-weight: medium;
-    font-size: .8em;
-  }
-
-  .form-frame {
-    padding: $small-pad+$small-pad/2;
-    border: 2px solid $grey-1;
-    text-align: left;
-    margin-bottom: $medium-pad;
-  }
-  .form-control {
-    border: 1px solid $grey-1;
-    padding-left: 10px;
-    border-radius: 0;
-    &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &:-moz-placeholder {
-      font-weight:100;
-      font-size:.8em;
-    }
-  }
-  .form-control {
-    &::-moz-placeholder {
-      font-weight:100;
-      font-size:.9em;
+    text-align: center;
+    margin: $medium-pad;
+    h1 {
+      font-size: 2em;
+      text-transform: uppercase;
       font-family: $main-font;
+      font-weight: 100;
+      color: $grey-1;
+      margin-bottom: $medium-pad;
     }
-    &:-ms-input-placeholder {
-      font-weight:100;
-      font-size:.9em;
-      font-family: $main-font;
-    }
-    &::-ms-input-placeholder{
-      font-weight:100;
-      font-size:.9em;
-      font-family: $main-font;
-    }
-    &:-moz-placeholder{
-      font-weight:100;
-      font-size:.9em;
-      font-family: $main-font;
-    }
-  }
-  &.form-type-costum-no-padding {
-    padding: 0;
-  }
 
-  .img-container {
-    .img-form {
-      position: relative;
-      height: 50px;
-      border: 1px solid $light-2;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-bottom: 10px;
-      img {
-        max-width: 100px;
-        min-height: 50px;
-      }
-      .action{
-        // Destroy
-        position: absolute;
-        top: 0;
-        right: 0;
-        .label-for-check {
-          display: inline-block;
-          float: right;
-          height: 50px;
-          width: 30px;
-          background-color: $dark-2;
-          margin: 0;
-          background-image: image-url("logo/valid.svg");
-          background-size: 50%;
-          background-position: center;
-          background-repeat: no-repeat;
-          color: transparent;
-          &::before {
-            content:"Image correctement importée";
-            position: absolute;
-            right: 100%;
-            color: black;
-            display: block;
-            font-size: .7em;
-            line-height: 1em;
-            color: $green-1;
-            min-width: 150px;
-            text-align: right;
-            padding-right: 10px;
-            top: 50%;
-            transform: translateY(-58%);
-          }
-        }
-        input[type="checkbox"] {
-          width: 0;
-          height: 0;
-          overflow: hidden;
-          opacity: 0;
-        }
-        input:checked + .label-for-check  {
-          background-image: image-url("logo/trash.svg");
-          &::before {
-            content:"L'image sera supprimée à l'enregistrement";
-            color: $red-1;
-          }
-        }
-      }
-
-
+    .form-frame {
+      padding: $small-pad+$small-pad/2;
+      border: 2px solid $grey-1;
+      text-align: left;
+      margin-bottom: $medium-pad;
     }
-    .add-img-form {
-      position: relative;
-      height: 70px;
-      border: 1px solid $light-2;
-      border-radius: 5px;
-      overflow: hidden;
+
+    .form-group {
       margin-bottom: 20px;
-      .label-file, .delete {
-        height: 70px;
+      label {
+        margin-bottom: 0;
+        color: $grey-2;
+      }
+      i {
+        color: $grey-2;
+        font-style: italic;
+      }
+    }
+
+    .form-control {
+      border: 1px solid $grey-1;
+      padding-left: 10px;
+      border-radius: 0;
+      &::-moz-placeholder {
+        font-weight:100;
+        font-size:.9em;
+        font-family: $main-font;
+      }
+      &:-ms-input-placeholder {
+        font-weight:100;
+        font-size:.9em;
+        font-family: $main-font;
+      }
+      &::-ms-input-placeholder{
+        font-weight:100;
+        font-size:.9em;
+        font-family: $main-font;
+      }
+      &:-moz-placeholder{
+        font-weight:100;
+        font-size:.9em;
+        font-family: $main-font;
+      }
+    }
+
+    .form-annotation {
+      color: $grey-1;
+      font-weight: medium;
+      font-size: .8em;
+      display: inline-block;
+      margin: 8px 0 0 0;
+    }
+
+    &.form-type-costum-no-padding {
+      padding: 0;
+    }
+
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//                              GESTION DES IMAGES
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+.form-for-img {
+  .img-form {
+    position: relative;
+    height: 50px;
+    border: 1px solid $light-2;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    img {
+      max-width: 100px;
+      min-height: 50px;
+    }
+    .action{
+      // Destroy
+      position: absolute;
+      top: 0;
+      right: 0;
+      .label-for-check {
+        display: inline-block;
+        float: right;
+        height: 50px;
         width: 30px;
-        color: white;
-        position: absolute;
+        background-color: $dark-2;
         margin: 0;
-        top: 0;
-        padding: 10px;
-        font-size: 0;
+        background-image: image-url("logo/valid.svg");
         background-size: 50%;
         background-position: center;
         background-repeat: no-repeat;
-      }
-      .label-file {
-        background-color: $green-1;
-        right: 30px;
-        background-image: image-url("logo/upload.svg");
-      }
-      .delete {
-        background-color: $red-1;
-        right: 0px;
-        background-image: image-url("logo/trash.svg");
-      }
-      input[type="file"]{
-        margin-top: 10px;
-        margin-left: -100px;
-        &:not(:empty) {
-          &::after {
-            background-color: $green-1;
-          }
+        color: transparent;
+        &::before {
+          content:"Image correctement importée";
+          position: absolute;
+          right: 100%;
+          color: black;
+          display: block;
+          font-size: .7em;
+          line-height: 1em;
+          color: $green-1;
+          min-width: 150px;
+          text-align: right;
+          padding-right: 10px;
+          top: 50%;
+          transform: translateY(-58%);
         }
       }
-      input[type="file"]:empty + .label-file {
-        background-color: $dark-2;
+      input[type="checkbox"] {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
       }
-      input[type="text"]{
-        margin: 0px;
-        position: absolute;
-        bottom: 5px;
-        height: 30px;
-        border: 0;
-        font-size: 1.2em;
-        background-color: $light-1;
-      }
-    }
-    #add-img-button.main-action {
-      display: block;
-      margin-bottom: 20px;
-      color: white;
-      width: 100%;
-      text-align: center;
-      text-transform: uppercase;
-      &:hover {
-        background-color:$dark-2;
-        color:white;
+      input:checked + .label-for-check  {
+        background-image: image-url("logo/trash.svg");
+        &::before {
+          content:"L'image sera supprimée à l'enregistrement";
+          color: $red-1;
+        }
       }
     }
   }
+  .add-img-form {
+    position: relative;
+    height: 70px;
+    border: 1px solid $light-2;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    .label-file, .delete {
+      height: 70px;
+      width: 30px;
+      color: white;
+      position: absolute;
+      margin: 0;
+      top: 0;
+      padding: 10px;
+      font-size: 0;
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .label-file {
+      background-color: $green-1;
+      right: 30px;
+      background-image: image-url("logo/upload.svg");
+    }
+    .delete {
+      background-color: $red-1;
+      right: 0px;
+      background-image: image-url("logo/trash.svg");
+    }
+    input[type="file"]{
+      margin-top: 10px;
+      margin-left: -100px;
+      &:not(:empty) {
+        &::after {
+          background-color: $green-1;
+        }
+      }
+    }
+    input[type="file"]:empty + .label-file {
+      background-color: $dark-2;
+    }
+    input[type="text"]{
+      margin: 0px;
+      position: absolute;
+      bottom: 5px;
+      height: 30px;
+      border: 0;
+      font-size: 1.2em;
+      background-color: $light-1;
+    }
+  }
+  #add-img-button.main-action {
+    display: block;
+    margin-bottom: 20px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    &:hover {
+      background-color:$dark-2;
+      color:white;
+    }
+  }
 }
+
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//                              BOUTON D'ACTION
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
 .form-action-container {
-  display: inline-block;
-  .form-action{
-    display: inline-block;
-    width: auto;
-   }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .btn {
+    margin-bottom: 5px;
+  }
 }
 
-.form-action{
+.btn {
   width: auto;
-  font-size: 1em;
-  letter-spacing: 0;
-  text-transform: inherit;
-  color: $dark-2;
-  border-radius: 0;
-  border: 2px solid $dark-2;
-  display: inline-block;
-  padding: 5px 20px;
-  text-decoration: none;
-  background-color: white;
   margin: 0;
+  padding: 5px 20px;
+  display: inline-block;
+
   font-weight: 100;
   font-family: $main-font;
-  border-left: 0;
-  float: left;
-  &:first-child, &.force-border {
-    border-left: 2px solid $dark-2;
-  }
-  &.main-action {
-    background-color:$dark-2;
-    color:white;
-    @include transition(.2s ease-in);
+  border: 3px solid $dark-1;
+  border-radius: 0;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+
+  @include transition(.3s ease-in);
+
+  &.btn-light {
+    background-color: white;
+    color: black;
     &:hover {
-      background-color:white;
-      color:black;
+      color: white;
+      background-color: $dark-1;
     }
+  }
+  &.btn-dark {
+    background-color: $dark-1;
+    border: 3px solid $dark-1;
+    color: white;
+    &:hover {
+      color: $dark-1;
+      background-color: white;
+    }
+  }
+  &.btn-red {
+    background-color: $red-1;
+    border-color: $red-1;
+    color: white;
+    &:hover {
+      background-color: white;
+      color: $red-1;
+    }
+  }
+
+  &.btn-big {padding: 10px 20px;}
+  &.btn-large {width: 100%;}
+  &.btn-center {justify-content: center;}
+  // Plusieurs boutons à coté
+  &.btn-flex {
+    flex: 1;
+    // &:not(:first-child){border-left: 0px;}
+  }
+  &.noFontStyle {
+    text-transform: none;
+    letter-spacing: 0;
   }
 }

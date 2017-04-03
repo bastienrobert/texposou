@@ -1,13 +1,14 @@
-    <div class="half">
-        <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users" } do |f| %>
+        <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum" } do |f| %>
         <h2>Editer mon profil</h2>
 
         <div class="type-status-form">
           <%= f.label :main_status, value:"Type de profil ?" %>
-          <p>Visiteur : <%= f.radio_button :main_status, "visitor" %></p>
-          <p>Professionnel :  <%= f.radio_button :main_status, "professional" %></p>
-          <p>Particulier : <%= f.radio_button :main_status, "particular" %></p>
-          <p>Artiste : <%= f.radio_button :main_status, "artist" %></p>
+          <div class="radio-container">
+              <p>Visiteur : <%= f.radio_button :main_status, "visitor" %></p>
+              <p>Professionnel :  <%= f.radio_button :main_status, "professional" %></p>
+              <p>Particulier : <%= f.radio_button :main_status, "particular" %></p>
+              <p>Artiste : <%= f.radio_button :main_status, "artist" %></p>
+          </div>
         </div>
 
         <% if @user.avatar %>
@@ -23,20 +24,46 @@
             </ul>
         </div>
         <% end %>
-        <%= f.text_field :firstname, class: "form-control", placeholder: "Prénom" %>
-        <%= f.text_field :lastname, class: "form-control", placeholder: "Nom" %>
-        <%= f.text_field :address, class: "form-control", placeholder: "Adresse" %>
-        <%= f.text_field :zipcode, class: "form-control", placeholder: "Code postal", pattern: "^(([0-8][0-9])|(9[0-5]))[0-9]{3}$" %>
-        <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
-        <%= f.text_field :tel, class: "form-control", placeholder: "Téléphone", pattern: '^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$' %>
-        <%= f.text_field :website, class: "form-control", placeholder: "Site internet" %>
-        <%= f.text_area :bio, class: "form-control", placeholder: "Qui êtes vous ?" %>
+        <div class="half-size-form">
+          <div class="pretty-form-group">
+            <%= f.text_field :firstname %>
+            <%= f.label :firstname %>
+          </div>
+          <div class="pretty-form-group">
+            <%= f.text_field :lastname %>
+            <%= f.label :lastname %>
+          </div>
+        </div>
+        <div class="pretty-form-group">
+          <%= f.text_field :address %>
+          <%= f.label :address %>
+        </div>
+        <div class="pretty-form-group">
+          <%= f.text_field :zipcode, pattern: "^(([0-8][0-9])|(9[0-5]))[0-9]{3}$" %>
+          <%= f.label :zipcode %>
+        </div>
+        <div class="pretty-form-group">
+          <%= f.text_field :city %>
+          <%= f.label :city %>
+        </div>
+        <div class="pretty-form-group">
+          <%= f.text_field :tel %>
+          <%= f.label :tel, pattern: '^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$' %>
+        </div>
+        <div class="pretty-form-group" data-type="textarea">
+          <%= f.text_area :bio, rows:1 %>
+          <%= f.label :bio %>
+        </div>
+        <div class="pretty-form-group">
+          <%= f.text_field :website %>
+          <%= f.label :website %>
+        </div>
         <div class="form-group">
           <%= f.label :avatar, value:"Photo de profil" %>
           <%= f.file_field :avatar, class: "", placeholder: "Avatar" %>
         </div>
         <div id="art_tag_manage">
-            <h3>Tags</h3>
+            <label>Tags</label>
             <div class="art_tag_form">
                 <input type="text" id="add_tag_text" class="form-control">
                 <input type="button" id="add_tag_submit" value="add">
@@ -54,7 +81,6 @@
         </div>
         <%= f.hidden_field :all_tags, id: "tag-field", placeholder: "Vos tags" %>
         <div class="form-action-container">
-            <%= f.submit "Valider", class: "form-action main-action" %>
+            <%= f.submit "Valider", class: "btn btn-dark" %>
         </div>
         <% end %>
-    </div>

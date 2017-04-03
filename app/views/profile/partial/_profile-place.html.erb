@@ -1,5 +1,5 @@
 <h2>Mes lieux</h2>
-<div class="items-list">
+<div class="items-list pad-medium">
   <% current_user.places.each do |p| %>
   <div class="item">
       <p class="title"><%= p.name %></p>
@@ -8,11 +8,11 @@
       <% end %>
       <p class="address"><%= p.address %> <%= p.zipcode %> <%= p.city %></p>
       <p class="exhibition"><%= p.exhibitions.length %> évenements organisé</p>
-      <%= link_to "VOIR PLUS", place_path(p), class:"form-action main-action" %>
-      <%= link_to "Supprimer", p, method: :delete, class:"form-action main-action red-btn", data: {confirm: "Vous êtes sur ?"} %>
+      <%= link_to "VOIR PLUS", place_path(p), class:"btn btn-dark" %>
+      <%= link_to "Supprimer", p, method: :delete, class:"btn btn-red", data: {confirm: "Vous êtes sur ?"} %>
   </div>
   <% end %>
 </div>
 <div class="form-action-container">
-    <%= link_to "Ajouter un lieu", new_place_path, class: "form-action main-action" %>
+    <%= link_to "Ajouter un lieu", new_place_path, class: "btn btn-dark" %>
 </div>

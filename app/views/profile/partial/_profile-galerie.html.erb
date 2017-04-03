@@ -1,10 +1,19 @@
-<div class="half">
-  <%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum form-type-costum-no-padding well-users",  multipart: true  } do |f| %>
+<%= form_for @user, :url => {:controller => "profile", :action => "update_profile"}, html: { method: :post, class:"form-type-costum", multipart: true } do |f| %>
   <h2>Galerie photo</h2>
-
-  <div id="img-form-manage" class="img-container" data-id="<%= @user.image_users.length %>">
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %>prohibited this user from being saved:</h2>
+      <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+      </ul>
+  </div>
+  <% end %>
+  <div id="img-form-manage" class="form-for-img" data-id="<%= @user.image_users.length %>">
     <div class="form-group">
       <label for="">Uploader vos images ici :</label>
+      <%= f.hidden_field :firstname %>
       <%= file_field_tag "all_images[]", type: :file, multiple: true %>
     </div>
     <div class="img-list">
@@ -24,8 +33,7 @@
     <hr>
     <% end %>
   </div>
-  <div class="form-action-container">
-      <%= f.submit "Update", class: "form-action main-action" %>
-  </div>
+  <!-- <div class="form-action-container"> -->
+  <%= f.submit "Mettre à jour", class: "btn btn-dark" %>
+  <!-- </div> -->
   <% end %>
-</div>

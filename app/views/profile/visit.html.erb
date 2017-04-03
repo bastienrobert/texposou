@@ -16,7 +16,7 @@
             <div class="name">
               <h2><b><%= @user.firstname %></b> <%= @user.lastname  %></h2>
               <% if current_user == @user %>
-                <%= link_to "Modifier", show_profile_path, class: "btn" %>
+                <%= link_to "Modifier", show_profile_path, class: "btn btn-dark" %>
               <% end %>
             </div>
 
@@ -36,7 +36,7 @@
             <p><%= @user.bio %></p>
             <div class="contact">
               <% if current_user %>
-              <a href="mailto:<%= @user.email %>" class="btn">Contacter</a>
+              <a href="mailto:<%= @user.email %>" class="btn btn-dark">Contacter</a>
               <% end %>
               <%  if @user.website %>
               <a href="<%= @user.website %>" class="website" target="_blank"><%= @user.website %></a>

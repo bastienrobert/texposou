@@ -250,10 +250,92 @@ ImagePopin = {
 }
 
 
+PrettyForm = {
+  input:[],
+  textarea:[],
+  setActive: function(status, el){
+    if(status === true && !el.className.match("active")){
+      el.className += " active"
+    } else if(status === false) {
+      el.className = el.className.replace("active", "")
+    }
+  },
+  getFgroupsContent:function(){
+    var type, el;
+    for(i=0; i< this.fGroups.length; i++){
+      type = this.fGroups[i].getAttribute("data-type") ? this.fGroups[i].getAttribute("data-type") : "input"
+      el = this.fGroups[i].getElementsByTagName(type)[0];
+      if(el){
+        this[type].push({
+            parent: this.fGroups[i],
+            el : el
+        })
+      }
+    }
+  },
+  manage:function(){
+    for(i=0; i<this.input.length; i++){
+      if(this.input[i].el.value){
+        this.setActive(true, this.input[i].parent);
+      } else {
+        this.setActive(false, this.input[i].parent);
+      }
+    }
+    for(i=0; i<this.textarea.length; i++){
+      if(this.textarea[i].el.value){
+        this.setActive(true, this.textarea[i].parent);
+      } else {
+        this.setActive(false, this.textarea[i].parent);
+      }
+      this.autosize(this.textarea[i].el);
+    }
+  },
+  focusOut:function(group){
+    var self = this;
+    group.el.addEventListener("focusout", function(){
+      if(!group.el.value){
+        self.setActive(false, group.parent)
+      }
+    }, false)
+  },
+  initEvents:function(){
+    var self = this;
+    window.addEventListener("keypress", function(){
+      self.manage();
+    }, false)
+    for(i=0; i<this.input.length; i++){
+      this.focusOut(this.input[i]);
+    }
+    for(i=0; i<this.textarea.length; i++){
+      this.autosize(this.textarea[i].el)
+      this.focusOut(this.textarea[i]);
+    }
+
+  },
+  autosize:function(el){
+    setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:0';
+      el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    }, 1)
+  },
+  init:function(){
+    this.fGroups = document.getElementsByClassName("pretty-form-group");
+    if(this.fGroups.length){
+      this.getFgroupsContent();
+      setTimeout(function(){
+          PrettyForm.manage();
+      }, 50)
+      this.initEvents();
+    }
+  }
+}
+
+
 document.addEventListener("turbolinks:load", function() {
   ArtTagManage.init();
   HPphotoClick.init();
   ImagePopin.init(1000);
+  PrettyForm.init();
   $( function() {
     $( "#tabs-profile" ).tabs();
   });

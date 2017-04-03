@@ -1,6 +1,6 @@
 <div class="container full-screen">
   <div class="row row-users">
-    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="col-sm-8 col-sm-offset-2">
       <%= form_for(place, html: { class:"form-type-costum well-users", multipart: true }) do |f| %>
         <% if @formTitle %>
         <h1><%= @formTitle %></h1>
@@ -15,32 +15,34 @@
               </ul>
             </div>
           <% end %>
-          <div class="form-frame pad-bottom-big">
+          <div class="form-frame">
             <%= f.hidden_field :user_id %>
 
-            <div class="form-group">
-              <%= f.label :name, 'Nom' %>
-              <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nom", autocomplete: "off" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :description, 'Description' %>
-              <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+            <div class="pretty-form-group">
+              <%= f.text_field :name, autofocus: true, autocomplete: "off" %>
+              <%= f.label :name %>
             </div>
 
+            <div class="pretty-form-group" data-type="textarea">
+              <%= f.text_area :description, rows:1 %>
+              <%= f.label :description %>
+            </div>
 
-            <div class="form-group">
-              <%= f.label :address, 'Adresse' %>
-              <%= f.text_field :address, class: "form-control", placeholder: "Adresse" %>
+            <div class="pretty-form-group">
+              <%= f.text_field :address %>
+              <%= f.label :address %>
             </div>
-            <div class="form-group">
-              <%= f.label :zipcode, 'Code postal' %>
-              <%= f.number_field :zipcode, class: "form-control", placeholder: "Code postal" %>
+
+            <div class="pretty-form-group">
+              <%= f.number_field :zipcode %>
+              <%= f.label :zipcode %>
             </div>
-            <div class="form-group">
-              <%= f.label :city, 'Ville' %>
-              <%= f.text_field :city, class: "form-control", placeholder: "Ville" %>
+
+            <div class="pretty-form-group">
+              <%= f.text_field :city %>
+              <%= f.label :city %>
             </div>
-            <!-- <div class="form-group">
+            <!-- <div class="pretty-form-group">
               <%= f.label :area_max, 'Aire maximale' %>
               <%= f.text_field :area_max, class: "form-control", placeholder: "Aire maximale", autocomplete: "off" %>
             </div> -->
@@ -48,7 +50,7 @@
               <label for="">Uploader vos images ici :</label>
               <%= file_field_tag "all_images[]", type: :file, multiple: true %>
             </div>
-            <div id="img-form-manage" class="img-container" data-id="<%= @place.image_places.length %>">
+            <div id="img-form-manage" class="form-for-img" data-id="<%= @place.image_places.length %>">
               <div class="img-list">
                 <% @place.image_places.each do |img_u| %>
                 <div class="img-form" data-id="<%= img_u.id %>">
@@ -67,8 +69,8 @@
 
           </div>
           <div class="form-action-container">
-            <%= link_to "Back", :back, class:"form-action" %>
-            <%= f.submit "Valider", class: "form-action main-action" %>
+            <%= link_to "Back", :back, class:"btn btn-light" %>
+            <%= f.submit "Valider", class: "btn btn-dark" %>
           </div>
         <% end %>
     </div>
