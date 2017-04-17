@@ -2,7 +2,6 @@
   .artist-banner{
     background-image: image-url("artists/artistes_page.png");
     background-position: left;
-
     .title-container {
       &::after {
         content:"";
@@ -56,7 +55,6 @@
   }
   .artist-banner {
     background-image: image-url("places/places_page.png");
-
     .title-container {
       h1 {
         &::after{
@@ -371,6 +369,90 @@
   #profile-page {
     .well {
       border: none;
+    }
+  }
+}
+
+
+.register-landing {
+  background-repeat: no-repeat;
+  background-position: -10px;
+  background-size: 70%;
+  .register-nav {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% + 15px);
+    img {
+      display: block;
+      width: 100px;
+      margin: auto;
+    }
+    .link {
+      position: absolute;
+      top: 30px;
+      right: 32px;
+      color: #888;
+      font-weight: 100;
+    }
+  }
+  .register-form {
+    background-color: white;
+    padding-top: 50px;
+    border-left: 1px solid $color-3;
+    .form-type-costum {
+      text-align: left;
+      margin: 0 auto;
+      width: calc(300px);
+      h1 {
+        font-size: 2.2em;
+        margin-top: 64px;
+        font-weight: bold;
+        color: #000;
+        text-align: center;
+      }
+      h2 {
+
+      }
+      .form-action-container {
+        justify-content: center;
+        .btn {
+          letter-spacing: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  footer {
+    opacity: 0;
+  }
+  .register-landing {
+    background: white !important;
+    .register-form {
+      border-left:0;
+    }
+  }
+}
+@media screen and (max-width: 450px){
+  .register-landing {
+    .register-form {
+      .form-type-costum {
+        text-align: left;
+        margin: $medium-pad;
+        padding-top: 20px;
+        position: static;
+        @include transform(translateY(0));
+      }
+    }
+    .bottom-center {
+      position: static;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
     }
   }
 }

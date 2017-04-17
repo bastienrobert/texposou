@@ -65,6 +65,17 @@ body {
     @include transform(translateX(-50%) translateY(-50%));
   }
 }
+
+.front {
+  z-index: 999;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
 .img-popin {
   cursor: zoom-in;
 }
@@ -88,9 +99,18 @@ body {
 .pad-top-medium {padding-top: $medium-pad !important;}
 .pad-top-big {padding-top: $big-pad !important;}
 .pad-medium {padding-left: $medium-pad;}
-.marge-top-medium {margin-top: $medium-pad;}
+.marge-top-medium {margin-top: $medium-pad !important;}
+.marge-bottom-big {margin-bottom: $big-pad !important;}
+.marge-bottom-small {margin-bottom: $small-pad !important;}
+.marge-bottom-3-small{margin-bottom: 3*$small-pad !important;}
 
-
+.bottom-center {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
 .profile-photo {
   width: 100px;
   height: 100px;
@@ -207,6 +227,12 @@ a.list_link {
     background-color: #0000FF;
     position: absolute;
   }
+}
+
+.light-link {
+  color: #AAA;
+  display: block;
+  margin: 10px 0;
 }
 
 .clr-after {

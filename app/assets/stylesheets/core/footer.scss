@@ -6,6 +6,7 @@ footer {
   &.force-bottom {
     position: absolute;
     bottom: 0;
+    z-index: 999;
   }
   a {
     color: $light-1;

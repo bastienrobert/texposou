@@ -107,7 +107,6 @@ form {
     @include transform(translateZ(0));
   }
 
-
   &.no-js {
     input, &.active input, textarea, &.active textarea {
       margin-top: 20px;
@@ -115,9 +114,35 @@ form {
     }
   }
 
-  input[type="checkbox"], input[type="radio"]{
-     width: 20px;
-     display: inline-block;
+  // input[type="checkbox"], input[type="radio"]{
+  //    width: 20px;
+  //    display: inline-block;
+  // }
+  &[data-type="checked"] {
+    height: 40px;
+    label {
+      display: inline-block;
+      padding: 10px 20px;
+      -moz-user-select: none;
+      user-select: none;
+      transition: .2s;
+      border:1px solid black;
+      color: black;
+      background-color:white;
+    }
+
+    input[type="checkbox"], input[type="radio"]{
+      display: inline-block;
+      width: 0; height: 0;
+      visibility: hidden;
+      position: absolute;
+    }
+
+    input[type="checkbox"]:checked + label,
+    input[type="radio"]:checked + label {
+      color: white;
+      background-color: black;
+    }
   }
 
   input {
@@ -428,6 +453,7 @@ form.form-type-costum {
 
   &.btn-light {
     background-color: white;
+    border-width: 1px;
     color: black;
     &:hover {
       color: white;
