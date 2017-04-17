@@ -109,7 +109,10 @@ form {
 
 
   &.no-js {
-    
+    input, &.active input, textarea, &.active textarea {
+      margin-top: 20px;
+      color: black;
+    }
   }
 
   input[type="checkbox"], input[type="radio"]{
@@ -163,6 +166,17 @@ form {
       input:focus, &.active input {
         margin-top: 0px;
       }
+  }
+  &.no-js {
+    label {
+      @include transition(.3s ease-in);
+    }
+    input + label, &.active label {
+      @include transform(translateY(-20px));
+    }
+    input, &.active input {
+      margin-top: 0px;
+    }
   }
 }
 

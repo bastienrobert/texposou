@@ -24,7 +24,10 @@
 - modéliser une table de notification
 - faire fonctionner visit
 - faire recherche fonctionnel des artiste / des places / des expos
-- créer un système d'email puissant
+- __créer un système d'email puissant__
+  - News letter
+- __Intégrer formulaire de contact__
+- Créer une FAQ
 
 
 # Bug Tracker
