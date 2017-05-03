@@ -1,0 +1,111 @@
+#about {
+  position: relative;
+  &::after {
+    content:"";
+    width: 3px;
+    height: 250%;
+    background-color: $color-1;
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    @include transform(translateX(-50%));
+    z-index: -1;
+  }
+  .about-landing {
+    width: 60%;
+    text-align: center;
+    font-size: 1.2em;
+    margin: auto;
+    height: calc(100vh - 120px);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    div {
+      background-color: white;
+      padding: $medium-pad 0;
+    }
+    h1 {
+      font-size: 1.7em;
+      background-color: white;
+      padding-bottom: 16px;
+    }
+
+    p {
+      background-color: white;
+      margin:0;
+      line-height: 1.5em;
+      &.bold {
+        font-weight: bold;
+        margin: 24px 0;
+      }
+    }
+  }
+  .about-body {
+    width: 1100px;
+    margin: auto;
+    margin: auto;
+    clear: both;
+    .about-item {
+      width: 100%;
+      min-height: 250px;
+      position: relative;
+      padding:10px;
+
+      &::after {
+        content:"";
+        position: absolute;
+        height: 3px;
+        width: 33px;
+        background-color: $color-1;
+        top: 55px;
+        right: 0;
+      }
+      p {
+        line-height: 1.5em;
+        padding: 10px;
+        background-color: white;
+      }
+    }
+    .column {
+      width: 50%;
+      float:left;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: right;
+      &.last-column {
+        margin-top: 125px;
+        text-align: left;
+        .about-item::after {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.clr {
+  clear: both;
+}
+
+@media screen and (max-width: 1180px) {
+  #about {
+    .about-body {
+      width: 90%;
+      margin: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 800px){
+  #about .about-body .column, #about .about-body .column.last-column {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    .about-item {
+      min-height: 0;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
