@@ -33,7 +33,7 @@
 # Bug Tracker
 - rajouter lien quand on est pas loggé pour inciter à l'inscription
 - à l'ajout de photo sur la gallerie, on obtient l'erreur "param is missing or the value is empty: user"
-
+- Sur Google Chrome : Problème sur formulaire d'inscription avec info prérempli
 
 # Bad code (but we're speed so we don't have time for all)
 ## Please, don't judge :(

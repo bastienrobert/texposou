@@ -46,11 +46,15 @@
     margin: auto;
     clear: both;
     .about-item {
-      width: 100%;
+      width: 50%;
       min-height: 250px;
       position: relative;
       padding:10px;
-
+      float: left;
+      text-align: right;
+      &:nth-child(2){
+        margin-top: 125px;
+      }
       &::after {
         content:"";
         position: absolute;
@@ -59,6 +63,13 @@
         background-color: $color-1;
         top: 55px;
         right: 0;
+      }
+      &.right {
+        float: right;
+        text-align: left;
+        &::after {
+          left: 0;
+        }
       }
       p {
         line-height: 1.5em;
@@ -97,15 +108,18 @@
 }
 
 @media screen and (max-width: 800px){
-  #about .about-body .column, #about .about-body .column.last-column {
-    width: 100%;
+  #about::after {
+    height: 100%;
+  }
+  #about .about-body .about-item, #about .about-body .about-item.right, #about .about-body:nth-child(2) {
+    float: none;
     text-align: center;
+    width: 100%;
+    min-height: 0;
     margin-top: 0;
-    .about-item {
-      min-height: 0;
-      &::after {
-        display: none;
-      }
+    &::after {
+      display: none;
     }
   }
+
 }
