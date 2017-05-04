@@ -1,0 +1,5 @@
+Paralax = {
+  init:function(){
+    
+  }
+};

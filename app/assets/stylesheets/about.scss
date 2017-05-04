@@ -1,3 +1,16 @@
+.about-body::after {
+  content:"";
+  position: absolute;
+  display: block;
+  width: 300px;
+  height: 300px;
+  right: 0;
+  top: 80vh;
+  background-image: image-url("elements/about.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position: center;
+}
 #about {
   position: relative;
   &::after {
@@ -10,6 +23,20 @@
     top: 50px;
     @include transform(translateX(-50%));
     z-index: -1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 350px;
+    height: 350px;
+    right: 0;
+    top: 30vh;
+    background-image: image-url("elements/about.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    z-index: 2;
   }
   .about-landing {
     width: 60%;
