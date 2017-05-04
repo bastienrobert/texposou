@@ -349,6 +349,7 @@ document.addEventListener("turbolinks:load", function() {
   HPphotoClick.init();
   ImagePopin.init(1000);
   PrettyForm.init();
+  ScrollEffect.init();
   initDatePicker();
   $( function() {
     $( "#tabs-profile" ).tabs();
