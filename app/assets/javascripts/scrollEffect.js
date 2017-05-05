@@ -23,6 +23,32 @@ function getElementPosition(e, isCenter) {
     };
 };
 
+//Prototype retournant la position d'un élément par rapport au haut de la page
+Node.prototype.getPosition = function(isCenter){
+  var left = 0;
+  var top = 0;
+  var e = this;
+
+  if (isCenter == true) {
+      console.log("center")
+      left = e.offsetWidth / 2;
+      top = e.offsetWidth / 2;
+  }
+
+  /*Tant que l'on a un élément parent*/
+  while (e.offsetParent != undefined && e.offsetParent != null) {
+      /*On ajoute la position de l'élément parent*/
+      left += e.offsetLeft + (e.clientLeft != null ? e.clientLeft : 0);
+      top += e.offsetTop + (e.clientTop != null ? e.clientTop : 0);
+      e = e.offsetParent;
+  }
+
+  return {
+      x: left,
+      y: top
+  };
+}
+
 window.mobilecheck = function() {
     var check = false;
     (function(a) {
@@ -49,11 +75,11 @@ Object.defineProperties(window, {
 ScrollEffect = {
     ratio: 0.75,
     elementsPosition: [],
-    getElementsPosition: function() {
-        var el = this.elements;
-        for (i = 0; i < el.length; i++) {
-            this.elementsPosition[i] = getElementPosition(el[i]);
-        }
+    saveElementsPosition: function() {
+      var that = ScrollEffect;
+      for (i = 0; i < that.elements.length; i++) {
+        that.elementsPosition[i] =  that.elements[i].getPosition();
+      }
     },
     setAnimationState: function(rank, value) {
         var el = this.elements[rank];
@@ -101,11 +127,15 @@ ScrollEffect = {
         }
       }
     },
+    resizeEvent:function(){
+
+    },
     init: function() {
         this.elements = document.querySelectorAll("*[data-anim-status]");
         if (this.elements) {
-            this.getElementsPosition();
+            this.saveElementsPosition();
             this.scrollEvents();
+            window.addEventListener("resize", this.saveElementsPosition, false);
         }
     },
 }

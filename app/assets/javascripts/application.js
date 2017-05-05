@@ -350,6 +350,7 @@ document.addEventListener("turbolinks:load", function() {
   ImagePopin.init(1000);
   PrettyForm.init();
   ScrollEffect.init();
+  AwesomeParalax.init();
   initDatePicker();
   $( function() {
     $( "#tabs-profile" ).tabs();
