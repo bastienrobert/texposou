@@ -24,22 +24,9 @@
     @include transform(translateX(-50%));
     z-index: -1;
   }
-  &::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 350px;
-    height: 350px;
-    right: 0;
-    top: 30vh;
-    background-image: image-url("elements/about.png");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-    z-index: 2;
-  }
   .about-landing {
     width: 60%;
+    min-height: 400px;
     text-align: center;
     font-size: 1.2em;
     margin: auto;
@@ -50,6 +37,24 @@
     div {
       background-color: white;
       padding: $medium-pad 0;
+      * {
+        position: relative;
+        z-index: 2;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 350px;
+        height: 350px;
+        right: 0;
+        top: 30vh;
+        background-image: image-url("elements/about.png");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+        z-index: 1;
+      }
     }
     h1 {
       font-size: 1.7em;
@@ -58,7 +63,6 @@
     }
 
     p {
-      background-color: white;
       margin:0;
       line-height: 1.5em;
       &.bold {
@@ -146,6 +150,24 @@
     margin-top: 0;
     &::after {
       display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 500px){
+  #about {
+    .about-landing {
+      width: 95%;
+      div::before {
+        display: none;
+      }
+    }
+    .about-body {
+      .about-item {
+        p {
+          margin: 10px;
+        }
+      }
     }
   }
 
