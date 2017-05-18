@@ -300,6 +300,14 @@ PrettyForm = {
       }
     }, false)
   },
+  changeListener:function(group){
+    var self = this;
+    group.el.addEventListener("change", function(){
+      if(group.el.value){
+        self.setActive(true, group.parent)
+      }
+    }, false)
+  },
   initEvents:function(){
     var self = this;
     window.addEventListener("keypress", function(){
@@ -307,6 +315,7 @@ PrettyForm = {
     }, false)
     for(i=0; i<this.input.length; i++){
       this.focusOut(this.input[i]);
+      this.changeListener(this.input[i])
     }
     for(i=0; i<this.textarea.length; i++){
       this.autosize(this.textarea[i].el)
