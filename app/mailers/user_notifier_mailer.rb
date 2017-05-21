@@ -4,8 +4,10 @@ class UserNotifierMailer < ApplicationMailer
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def send_signup_email()
     @user = User.find_by(email:"solal.dussout-revel@hotmail.fr")
-    email = mail( :to => @user.email,
-    :subject => 'Thanks for signing up for our amazing app' ).deliver
+    mail( :to => "solal.dussoutrevel@gmail.com",
+      :from => 'Test <mail@appec3942f92493499aaeefc8d3ebbac058.mailgun.org>',
+      :subject => 'Thanks for signing up for our amazing app'
+    ).deliver
   end
 
   # def send_signup_email(user)
