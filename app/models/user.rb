@@ -65,6 +65,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  #E-mail
+  # after_create :send_admin_mail
+  # def send_admin_mail
+  #  UserNotifierMailer.send_signup_email(self).deliver
+  # end
+
+
   #getters & setters
   # attr_accessor :all_tags
   # accepts_nested_attributes_for :art_tags, allow_destroy: false
@@ -122,7 +130,7 @@ class User < ApplicationRecord
   end
 
 
-  
+
   def to_s
     "#{firstname.capitalize} #{lastname.upcase}"
   end
