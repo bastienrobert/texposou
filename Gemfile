@@ -27,6 +27,8 @@ gem 'cancancan'
 gem 'rails_admin', '~> 1.1.1'
 gem 'google-analytics-rails', '1.1.0'
 
+gem 'mailgun_rails'
+
 # Paperclip & AWS Developper
 gem 'paperclip'
 gem 'paperclip-i18n'
