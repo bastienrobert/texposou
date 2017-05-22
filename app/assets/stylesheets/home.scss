@@ -1,6 +1,6 @@
 
 #landing, #lastExhib, #lastPlace, #lastArtist {
-  padding: 100px 0;
+  padding: 50px 0;
   // border-bottom: 1px solid #DDD;
 }
 
@@ -16,7 +16,7 @@
   height: 100vh;
   padding-top: 0;
   background-image: image-url("homepage/homepage_bg.png");
-  background-size: 70%;
+  background-size: 800px;
   background-position: left bottom;
   background-repeat: no-repeat;
   position: relative;
@@ -29,6 +29,7 @@
     position: absolute;
     right: 0;
     top: 15vh;
+    padding-right: 40px;
 
     h1 {
       margin-top: 15vh;
@@ -60,7 +61,7 @@
 
 #lastExhib {
   .list-exhibition {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     ul {
       margin: 60px 0;
       li {
@@ -236,6 +237,64 @@
   .clr {
     padding-top: 2em;
     margin-left: 2em;
+  }
+}
+
+
+
+
+
+
+@media screen and (max-width:1050px){
+  #landing {
+    background-size: 560px;
+    background-position: left 190px;
+  }
+}
+
+@media screen and (max-width: 830px){
+  #landing {
+    background-size: 430px;
+    background-position: left 220px;
+  }
+  #lastPlace .banner .content {
+    width: 90%;
+  }
+  #lastExhib .list-exhibition {
+    padding-bottom: 0;
+    ul li {
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+  h2 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 720px){
+
+  #landing, #lastExhib, #lastPlace, #lastArtist {
+    padding: 40px 0;
+  }
+
+  #landing {
+    background-size: 0;
+    height: auto;
+    .panel-right {
+      position: relative;
+      left: 0; top: 0;
+      width: 100%;
+      padding: 0 40px;
+      text-align: center;
+      height: auto;
+      h1 {
+        margin-top: 5vh;
+      }
+      .actions-button {
+        margin: 64px auto 0 auto;
+      }
+    }
   }
 }
 

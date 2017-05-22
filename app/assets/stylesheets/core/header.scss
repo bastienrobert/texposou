@@ -23,6 +23,16 @@ header {
     min-height: 6em;
     background-color: transparent;
     border: 0;
+    height: 100px;
+    .main-nav {
+      z-index: 999;
+      background-color: white;
+      position: absolute;
+      width: 100%;
+      .btn-header {
+        height: 10vh;
+      }
+    }
   }
 
   #btns-container {
