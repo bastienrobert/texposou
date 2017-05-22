@@ -108,5 +108,13 @@ footer {
       }
     }
   }
+}
 
+@media screen and (max-width: 720px){
+  footer {
+    text-align: center;
+  }
+  footer #footer-2 #about-container, footer #footer-2 #infos-container, footer #footer-2 #links-container {
+    padding-left: 0;
+  }
 }
