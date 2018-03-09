@@ -32,7 +32,6 @@ gem 'mailgun_rails'
 # Paperclip & AWS Developper
 gem 'paperclip'
 gem 'paperclip-i18n'
-gem 'aws-sdk', '~> 2.3'
 
 #Database visualisation
 gem 'annotate', '>= 2.7.1'
@@ -76,7 +75,8 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.20'
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
